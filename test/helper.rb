@@ -5,12 +5,13 @@ require 'parser'
 
 module THelpers
   def with_cache_dir(dir = File.dirname(__FILE__) + '/temp')
-    old_td = OTOCS.cache_dir
+    old_td = OTOCS.cache_driver
+    OTOCS.cache_driver = OTOCS::FileCache.new
+    OTOCS.cache_driver.cache_dir = dir
     begin
-      
       yield(dir)
     ensure
-      OTOCS.cache_dir = old_td
+      OTOCS.cache_driver = old_td
       FileUtils.rm_rf dir
     end
   end
@@ -43,12 +44,12 @@ module TAccel
   
   def setup
     super
-    OTOCS.cache_dir = TEST_CACHE_DIR
+    OTOCS.cache_driver = OTOCS::MemoCache
     @archive = OTOCS.read_archive_file(self.class.const_get(:ARCH))
   end
   
   def teardown
-    OTOCS.cache_dir = nil
+    OTOCS.cache_driver = nil
     super
   end
 end

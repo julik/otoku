@@ -1,6 +1,7 @@
 require '/Code/happymapper/lib/happymapper'
 require 'digest/md5'
 require 'fileutils'
+require File.dirname(__FILE__) + '/parser_cache'
 
 module HappyMapper::ClassMethods
   
@@ -156,8 +157,6 @@ module OTOCS
       File.dirname(path)
     end
     
-    
-    
     def fetch_uri(clip_path)
       bt = Backtrack.new
       bt.archive = self
@@ -177,57 +176,22 @@ module OTOCS
     end
   end
   
+  class << self
+    attr_accessor :cache_driver
+  end
+  
   
   # Read an archive from +path+. Will save and/or reuse the object cache as necessary
   def self.read_archive_file(path)
     # Always contains one archive
     data = File.read(path).to_s
-    cached(data) do
+    
+    @cache_driver ||= OTOCS::BypassCache.new
+    @cache_driver.cached(data) do
       arch = Archive.parse(data).pop
       arch.path, arch.etag = File.expand_path(path), Digest::MD5.hexdigest(data)
       arch
     end
-  end
-  
-  # Set the directory used to store the preparsed OTOC structures
-  def self.cache_dir=(dir)
-    @cache = if dir.nil?
-      nil
-    else
-      exp = File.expand_path(dir)
-      FileUtils.mkdir_p(exp)
-      exp
-    end
-  end
-
-  # Get the directory used to store the preparsed OTOC structures
-  def self.cache_dir
-    @cache
-  end
-  
-  private
-  
-  def self.cached(content)
-    return yield unless @cache
-    
-    digest = Digest::MD5.hexdigest(content)
-    path = digest.scan(/(.{2})/).join('/') + '.parsedarchive'
-    cache_f = File.join(@cache, path)
-    begin
-      Marshal.load(File.read(cache_f))
-    rescue Errno::ENOENT
-      parsed = yield
-      FileUtils.mkdir_p(File.dirname(cache_f))
-      File.open(cache_f, 'w') { | to |  to << Marshal.dump(parsed) }
-      parsed
-    end
-  end
-
-  @@parsed ||= {}
-  def self.cached(content)
-    digest = Digest::MD5.hexdigest(content)
-    @@parsed[digest] ||= yield
-    @@parsed[digest]
   end
   
 end

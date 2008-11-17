@@ -13,7 +13,7 @@ class ParserTest < Test::Unit::TestCase
   
   def test_should_reuse_object_cache
     with_cache_dir do | tdir |
-      assert_nothing_raised("Should allow setting the directory") { OTOCS.cache_dir = tdir }
+      assert_nothing_raised("Should allow setting the directory") { OTOCS.cache_driver.cache_dir = tdir }
       assert File.exist?(tdir), "Should have created the temp dir for object cache"
       assert File.directory?(tdir), "Should have created the directory"
       
