@@ -44,13 +44,20 @@ module OTOCS
 
   module EntryKey
     def [](clip_key)
-      entries.find{|e| e.id == clip_key}
+      e = entries.find{|e| e.id == clip_key}
+      return e if e
+      deep = entries.find{|e| e[clip_key]}
+      deep ? deep : nil
     end
+    
   end
   
   class Backtrack
     attr_accessor :archive
     attr_accessor :parents
+    def path
+      ([archive.etag] + parents.collect{|e| e.id}).join('/')
+    end
   end
   
   class Entry
@@ -157,6 +164,8 @@ module OTOCS
       File.dirname(path)
     end
     
+    # Given a path of clip IDs will drill down into the entries hierarchy and fetch the entry requested.
+    # Also assigns a backtrack object to the entry fetched so that you can get back to it
     def fetch_uri(clip_path)
       bt = Backtrack.new
       bt.archive = self
@@ -164,8 +173,8 @@ module OTOCS
       
       next_item = self
       clip_path.split(/\//).each do | seg |
-        bt.parents << next_item unless next_item == self
         next_item = next_item[seg]
+        bt.parents << next_item unless next_item == self
       end
       next_item.backtrack = bt
       next_item

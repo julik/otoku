@@ -95,6 +95,7 @@ class ArchiveTest < Test::Unit::TestCase
   
   def test_fetch_item
     uri = "a8c01bab_4831691c_00086eed/a8c01bab_4831691c_00086ef4/a8c01bab_4831691c_00086eff/a8c01bab_48108fe3_0004ad1e/a8c012ab_487c60d9_0004469e"
+    total_uri = @archive.etag + '/' + uri
     item = @archive.fetch_uri(uri)
     assert_not_nil item
     assert_kind_of OTOCS::Entry, item
@@ -104,6 +105,7 @@ class ArchiveTest < Test::Unit::TestCase
     
     assert_not_nil item.backtrack
     assert_equal @archive, item.backtrack.archive
-    assert_equal uri, (item.backtrack.parents.map{|e| e.id} + [item.id]).join('/') 
+    assert_equal uri, (item.backtrack.parents.map{|e| e.id}).join('/')
+    assert_equal total_uri, item.backtrack.path 
   end
 end
