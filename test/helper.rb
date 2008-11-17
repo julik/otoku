@@ -1,6 +1,6 @@
 require 'test/unit'
 $:.unshift File.dirname(__FILE__) + '/../lib'
-require 'parser/parser'
+require 'otoku'
 
 
 module THelpers
@@ -44,7 +44,7 @@ module TAccel
   
   def setup
     super
-    OTOCS.cache_driver = OTOCS::MemoCache
+    OTOCS.cache_driver = OTOCS::MemoCache.new
     @archive = OTOCS.read_archive_file(self.class.const_get(:ARCH))
   end
   

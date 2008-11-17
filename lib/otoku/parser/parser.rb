@@ -44,10 +44,12 @@ module OTOCS
 
   module EntryKey
     def [](clip_key)
-      e = entries.find{|e| e.id == clip_key}
-      return e if e
-      deep = entries.find{|e| e[clip_key]}
-      deep ? deep : nil
+      if self.id == clip_key
+        puts "clipkey #{clip_key} called on #{self.id}"
+        return self 
+      else
+        entries.find{|e| e[clip_key]} || nil
+      end
     end
     
   end
@@ -159,6 +161,7 @@ module OTOCS
     
     attr_accessor :path
     attr_accessor :etag
+    alias_method :id, :etag
     
     def dir
       File.dirname(path)
@@ -183,6 +186,7 @@ module OTOCS
     def to_s
       "%s (%d sets)" % [name, entries.length, path]
     end
+    
   end
   
   class << self

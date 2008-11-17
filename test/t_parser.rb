@@ -1,29 +1,29 @@
 require File.dirname(__FILE__) + '/helper'
 require 'fileutils'
 
-class ParserTest < Test::Unit::TestCase
-  include THelpers
-  
-  def test_read_archive_file
-    Dir.glob(File.dirname(__FILE__) + '/samples/*.xml').each do | xml |
-      assert_nothing_raised { OTOCS.read_archive_file(xml) }
-    end
-  end
-  
-  def test_should_reuse_object_cache
-    with_cache_dir do | tdir |
-      assert_nothing_raised("Should allow setting the directory") { OTOCS.cache_driver.cache_dir = tdir }
-      assert File.exist?(tdir), "Should have created the temp dir for object cache"
-      assert File.directory?(tdir), "Should have created the directory"
-      
-      Dir.glob(File.dirname(__FILE__) + '/samples/*.xml').each do | xml |
-        assert_nothing_raised { OTOCS.read_archive_file(xml) }
-      end
-      
-      assert Dir.glob(tdir + '/**/*.parsedarchive').any?, "Cache files should have been created"
-    end
-  end
-end
+# class ParserTest < Test::Unit::TestCase
+#   include THelpers
+#   
+#   def test_read_archive_file
+#     Dir.glob(File.dirname(__FILE__) + '/samples/*.xml').each do | xml |
+#       assert_nothing_raised { OTOCS.read_archive_file(xml) }
+#     end
+#   end
+#   
+#   def test_should_reuse_object_cache
+#     with_cache_dir do | tdir |
+#       assert_nothing_raised("Should allow setting the directory") { OTOCS.cache_driver.cache_dir = tdir }
+#       assert File.exist?(tdir), "Should have created the temp dir for object cache"
+#       assert File.directory?(tdir), "Should have created the directory"
+#       
+#       Dir.glob(File.dirname(__FILE__) + '/samples/*.xml').each do | xml |
+#         assert_nothing_raised { OTOCS.read_archive_file(xml) }
+#       end
+#       
+#       assert Dir.glob(tdir + '/**/*.parsedarchive').any?, "Cache files should have been created"
+#     end
+#   end
+# end
 
 class ArchiveTest < Test::Unit::TestCase
   include THelpers
@@ -92,7 +92,7 @@ class ArchiveTest < Test::Unit::TestCase
     assert item.backup_set?
   end
   
-  def test_fetch_item
+  def test_fetch_with_uri
     uri = "a8c01bab_4831691c_00086eed/a8c01bab_4831691c_00086ef4/a8c01bab_4831691c_00086eff/a8c01bab_48108fe3_0004ad1e/a8c012ab_487c60d9_0004469e"
     total_uri = @archive.etag + '/' + uri
     item = @archive.fetch_uri(uri)
@@ -106,5 +106,15 @@ class ArchiveTest < Test::Unit::TestCase
     assert_equal @archive, item.backtrack.archive
     assert_equal uri, (item.backtrack.parents.map{|e| e.id}).join('/')
     assert_equal total_uri, item.backtrack.path 
+  end
+  
+  def test_fetch_with_id
+    uri = "a8c012ab_487c60d9_0004469e"
+    item = @archive[uri]
+    assert_not_nil item
+    assert_kind_of OTOCS::Entry, item
+    assert_equal uri, item.id
+    assert_equal "boomInzet", item.name
+    assert item.subclip?
   end
 end
