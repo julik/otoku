@@ -47,6 +47,14 @@ class ArchiveTest < Test::Unit::TestCase
     assert_equal "Flame_Archive_Deel215 (6 sets)", @archive.to_s
   end
   
+  def test_archive_etag
+    assert_equal Digest::MD5.hexdigest(File.read(ARCH)), @archive.etag
+  end
+  
+  def test_archive_id_is_etag
+    assert_equal @archive.etag, @archive.id
+  end
+  
   def test_archive_device
     assert_respond_to @archive, :device
     assert_kind_of OTOCS::Device, @archive.device
