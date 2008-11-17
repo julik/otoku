@@ -1,5 +1,4 @@
 require File.dirname(__FILE__) + '/helper'
-require 'parser'
 require 'fileutils'
 
 class ParserTest < Test::Unit::TestCase
