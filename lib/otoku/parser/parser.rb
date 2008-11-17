@@ -44,14 +44,13 @@ module OTOCS
 
   module EntryKey
     def [](clip_key)
-      if self.id == clip_key
-        puts "clipkey #{clip_key} called on #{self.id}"
-        return self 
-      else
-        entries.find{|e| e[clip_key]} || nil
+      entries.each do | e |
+        return e if e.id == clip_key
+        match = e[clip_key]
+        return match if match
       end
+      nil
     end
-    
   end
   
   class Backtrack
