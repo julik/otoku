@@ -1,0 +1,1427 @@
+This file is /usr/discreet/archive/Flame_Archive_Deel215_08Jul15_1020.atoc
+
+[ Archive ]
+
+Name          : Flame_Archive_Deel215
+Creation date : 08/05/19 13:46:13
+Application   : he-flame-01 - flame 2008.SP4
+Comment       : 
+Free Space    : 00:38:00:16
+
+
+[ Device Information ]
+
+Device type : VTR
+Device name : DigiBeta PAL
+Starts at   : 00:01:00:00
+
+
+[ Table of Contents ]
+
+Type and Name                         Dur    A  Creation        Location
+------------------------------------  -----  -  --------------  -----------
+
+* Backup Set -  2008/05/19 13:48:44             08/05/19 13:48  
+  L Vodafone_Reedit                             08/05/19 13:48  
+    R Artwork_24_04_08                          08/05/19 13:48  
+    R BoomInsert                                08/04/24 16:02  
+      C boomInzet                        40     08/04/24 15:48  
+        E boomInzet                      40     08/04/24 15:49  
+      C COLOUR                            1     08/04/24 15:50  
+        E COLOUR                                08/04/24 15:50  
+      C trackable                        40     08/04/24 14:30  
+        E trackable                      40     08/04/24 14:30  
+      C Boom_short                      141     08/04/24 14:27  
+        E Boom_short                    141     08/04/24 14:27  
+      C back                             40     08/04/24 14:25  
+        E back                           40     08/04/24 14:25  
+      C Nieuws_30s                        1     08/04/24 14:26  
+        E Nieuws_30s                    500     08/04/24 14:08  
+      C f23                               1     08/04/24 15:22  
+        E <untitled>                            08/04/24 15:22  
+      C Nieuws_30s                        1     08/04/24 14:26  
+        E Nieuws_30s                    500     08/04/24 14:08  
+    R menutjes                                  08/05/19 13:48  
+      C COLOUR                            1     08/04/24 17:00  
+        E COLOUR                                08/04/24 16:37  
+      C COLOUR                            1     08/04/24 16:37  
+        E COLOUR                                08/04/24 16:37  
+    R supers                                    08/05/19 13:48  
+      C Youtube_titel                    97     08/04/24 17:55  
+        E Youtube_titel                  97     08/04/24 16:23  
+      C nu_titel                         97     08/04/24 17:09  
+        E ref2                           97     08/04/24 17:10  
+      C mail_titel                       97     08/04/24 17:16  
+        E <untitled>                     97     08/04/24 17:15  
+      C COLOUR                            1     08/04/24 16:23  
+        E COLOUR                                08/04/24 16:23  
+      C VODAFONE_RED                      1     08/04/24 16:04  
+        E VODAFONE_RED                          08/04/24 16:04  
+    R Signs_zoom                                08/04/24 18:09  
+      C align_signpost                   50     08/04/24 18:08  
+        E align_signpost                 50     08/04/24 18:08  
+      C COLOUR                            1     08/04/24 18:08  
+        E COLOUR                                08/04/24 18:08  
+      C cap_Retime                       50     08/04/24 18:03  <multiple>
+        E cap                            40     08/04/24 17:35  
+      C cap                              40     08/04/24 18:01  
+        E cap                            40     08/04/24 17:35  
+      C timingRef                        50     08/04/24 18:01  
+        E timingRef                      50     08/04/24 17:50  
+    R artwork_resized                           08/05/19 13:48  
+      C make_most_of_now                  1     08/04/24 18:01  
+        E make_most_of_now               94     08/04/24 17:18  
+      C winkel                            1     08/04/24 18:01  
+        E winkel                         77     08/04/24 17:20  
+      C 0800                              1     08/04/24 18:01  
+        E winkel                         77     08/04/24 17:20  
+      C meer_info                         1     08/04/24 18:01  
+        E meer_info                      79     08/04/24 17:17  
+      C winkels                           1     08/04/24 18:01  
+        E winkels                        58     08/04/24 17:24  
+      C VODAFONE_RED                      1     08/04/24 18:01  
+        E VODAFONE_RED                          08/04/24 16:04  
+    R ONLINE_24_04_08                           08/04/24 19:59  
+      C VODAFONE_Mail_20s               500     08/04/24 19:58  <multiple>
+        E Mail_20s                      500     08/04/24 14:10  
+        E boomInzet                      37     08/04/24 16:01  
+        E <untitled>                     97     08/04/24 17:15  
+        E meerinfo                              08/04/24 17:25  
+        E winkels                        58     08/04/24 17:24  
+        E <untitled>                            08/04/24 19:58  
+      C VODAFONE_Nieuws_30s             500     08/04/24 18:20  <multiple>
+        E Nieuws_30s                    500     08/04/24 14:08  
+        E boomInzet                      39     08/04/24 16:00  
+        E ref2                           97     08/04/24 17:10  
+        E winkel                         77     08/04/24 17:20  
+        E winkels                        58     08/04/24 17:24  
+        E make_most_of_now               94     08/04/24 17:18  
+      C VODAFONE_Youtube_30s            500     08/04/24 18:20  <multiple>
+        E 1                             250     08/04/24 14:11  
+        E boomInzet                      40     08/04/24 15:49  
+        E align_signpost                 50     08/04/24 18:08  
+        E Youtube_titel                  97     08/04/24 16:23  
+        E meer_info                      79     08/04/24 17:17  
+        E make_most_of_now               94     08/04/24 17:18  
+    R Micha_re-edit_25.04.2008                  08/04/28 16:28  
+      C 2                               501     08/05/19 13:48  
+        E 2                             501     08/04/28 16:27  
+      C 2                               501     08/05/19 13:48  
+        E 2                             501     08/04/28 16:27  
+      C 2                               501     08/05/19 13:48  
+        E 2                             501     08/04/28 16:27  
+    R Micha_re-edit_25.04.2008_met_b            08/04/28 16:32  
+      C 2                               501     08/05/19 13:48  <multiple>
+        E 2                             501     08/04/28 16:27  
+        E boomInzet                      39     08/04/28 16:31  
+      C 2                               501     08/05/19 13:48  <multiple>
+        E 2                             501     08/04/28 16:27  
+        E boomInzet                      37     08/04/28 16:31  
+      C 2                               501     08/05/19 13:48  <multiple>
+        E 2                             501     08/04/28 16:27  
+        E boomInzet                      40     08/04/24 15:49  
+    R Micha_re-edit_25.04.2008_met_b            08/04/28 17:48  
+      C 2                               501     08/05/19 13:48  <multiple>
+        E 2                             501     08/04/28 16:27  
+        E boomInzet                      39     08/04/28 16:31  
+        E <untitled>                            08/04/28 17:47  
+        E <untitled>                            08/04/28 17:47  
+        E <untitled>                            08/04/28 17:47  
+        E <untitled>                            08/04/28 17:47  
+        E <untitled>                            08/04/28 17:47  
+        E <untitled>                            08/04/28 17:47  
+      C 2                               501     08/05/19 13:48  <multiple>
+        E 2                             501     08/04/28 16:27  
+        E boomInzet                      37     08/04/28 16:31  
+        E <untitled>                     97     08/04/24 17:15  
+      C 2                               501     08/05/19 13:48  <multiple>
+        E 2                             501     08/04/28 16:27  
+        E boomInzet                      40     08/04/24 15:49  
+    R Master                                    08/04/28 18:42  
+      C NU.nl                           501     08/05/19 13:48  
+        E NU.nl                         501     08/04/28 18:21  
+      C <untitled>                      375     08/04/28 18:40  
+        E <untitled>                            08/04/28 18:40  
+      C hotmail                         501     08/05/19 13:48  
+        E hotmail                       501     08/04/28 18:21  
+      C <untitled>                      375     08/04/28 18:40  
+        E <untitled>                            08/04/28 18:40  
+      C Eurosport                       501     08/05/19 13:48  
+        E Eurosport                     501     08/04/28 18:21  
+      C <untitled>                      375     08/04/28 18:40  
+        E <untitled>                            08/04/28 18:40  
+    R BA_titel_in_phone                         08/05/19 13:48  
+      C ref3                              1     08/05/19 13:48  
+        E 2                             501     08/04/28 16:27  
+      C NOK_N95_front_ZOEK_basis_tt       1     08/04/28 17:23  
+        E NOK_N95_front_ZOEK_basis_t            08/04/28 17:23  
+      C NOK_N95_front_ZOEK_nunl_P         1     08/04/28 17:34  
+        E NOK_N95_front_ZOEK_nunl_P             08/04/28 17:28  
+      C ref                               1     08/04/28 17:34  
+        E ref                            97     08/04/28 17:12  
+      C ref2                              1     08/04/28 18:20  
+        E ref2                           97     08/04/24 17:10  
+      C NU.nl-LC                          1     08/04/28 17:21  
+        E NU.nl-LC                              08/04/28 17:21  
+      C BLUE                              1     08/04/28 18:18  
+        E BLUE                                  08/04/28 18:18  
+    R Master29042008                            08/04/29 11:01  
+      C NU.nl                           501     08/04/29 10:59  
+        E NU.nl                         501     08/04/29 10:59  
+      C <untitled>                      375     08/04/28 18:40  
+        E <untitled>                            08/04/28 18:40  
+      C hotmail                         501     08/04/29 10:59  
+        E hotmail                       501     08/04/29 10:59  
+      C <untitled>                      375     08/04/28 18:40  
+        E <untitled>                            08/04/28 18:40  
+      C Eurosport                       501     08/04/29 10:58  
+        E Eurosport                     501     08/04/29 10:58  
+      C <untitled>                      375     08/04/28 18:40  
+        E <untitled>                            08/04/28 18:40  
+* Backup Set -  2008/05/19 13:58:55             08/05/19 13:58  
+  L datHangtLekker                              08/05/19 13:58  
+    R dat hangt lekker 2                        08/05/19 13:58  
+      C  HANGT_LEKKER_1                 126     08/03/19 18:16  
+        E  HANGT_LEKKER_1               126     08/03/19 18:16  
+      C  HANGT_LEKKER_TAPE1_1            77     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_1          77     08/03/19 18:17  
+      C  HANGT_LEKKER_TAPE1_1            93     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_1          93     08/03/19 18:16  
+      C  HANGT_LEKKER_TAPE1_1           134     08/03/19 18:16  
+        E  HANGT_LEKKER_TAPE1_1         134     08/03/19 18:16  
+      C  HANGT_LEKKER_TAPE1_2                   08/05/19 13:58  
+      C  HANGT_LEKKER_TAPE1_2            80     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_2          80     08/03/19 18:20  
+      C  HANGT_LEKKER_TAPE1_2                   08/05/19 13:58  
+      C  HANGT_LEKKER_TAPE1_2            84     08/03/19 18:20  
+        E  HANGT_LEKKER_TAPE1_2          84     08/03/19 18:20  
+      C  HANGT_LEKKER_TAPE1_2                   08/05/19 13:58  
+      C  HANGT_LEKKER_TAPE1_2           159     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_2         159     08/03/19 18:19  
+      C  HANGT_LEKKER_TAPE1_2            70     08/03/19 18:18  
+        E  HANGT_LEKKER_TAPE1_2          70     08/03/19 18:18  
+      C  HANGT_LEKKER_TAPE1_2                   08/05/19 13:58  
+      C  HANGT_LEKKER_TAPE1_2            67     08/03/19 18:18  
+        E  HANGT_LEKKER_TAPE1_2          67     08/03/19 18:18  
+      C  HANGT_LEKKER_TAPE1_2            52     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_2          52     08/03/19 18:18  
+      C  HANGT_LEKKER_TAPE1_2            57     08/03/19 18:18  
+        E  HANGT_LEKKER_TAPE1_2          57     08/03/19 18:18  
+      C  HANGT_LEKKER_TAPE1_2                   08/05/19 13:58  
+      C  HANGT_LEKKER_TAPE1_3                   08/05/19 13:58  
+      C  HANGT_LEKKER_TAPE1_3            95     08/03/19 18:21  
+        E  HANGT_LEKKER_TAPE1_3          95     08/03/19 18:21  
+      C  HANGT_LEKKER_TAPE2              51     08/03/19 18:30  
+        E  HANGT_LEKKER_TAPE2            51     08/03/19 18:30  
+      C  HANGT_LEKKER_TAPE2             129     08/03/19 18:30  
+        E  HANGT_LEKKER_TAPE2           129     08/03/19 18:30  
+      C  HANGT_LEKKER_TAPE2              64     08/03/19 18:29  
+        E  HANGT_LEKKER_TAPE2            64     08/03/19 18:29  
+      C  HANGT_LEKKER_TAPE2                     08/05/19 13:58  
+      C  HANGT_LEKKER_TAPE2                     08/05/19 13:58  
+      C  HANGT_LEKKER_TAPE2              72     08/03/19 18:28  
+        E  HANGT_LEKKER_TAPE2            72     08/03/19 18:28  
+      C  HANGT_LEKKER_TAPE2              95     08/03/19 18:28  
+        E  HANGT_LEKKER_TAPE2            95     08/03/19 18:28  
+      C  HANGT_LEKKER_TAPE2             143     08/03/19 18:28  
+        E  HANGT_LEKKER_TAPE2           143     08/03/19 18:28  
+      C  POV_SH1                         87     08/03/19 18:17  
+        E  POV_SH1                       87     08/03/19 18:17  
+      C 0018b                           101     08/03/19 18:19  
+        E 0018b                         101     08/03/19 18:19  
+    R dat hangt lekker 2_backup                 08/03/19 20:14  
+      C  HANGT_LEKKER_TAPE1_1            95     08/03/19 20:14  
+        E  HANGT_LEKKER_TAPE1_1          95     08/03/19 20:09  
+      C  HANGT_LEKKER_TAPE1_1            95     08/03/19 20:09  
+        E  HANGT_LEKKER_TAPE1_1          95     08/03/19 20:09  
+      C  HANGT_LEKKER_TAPE1_2           249     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_2         249     08/03/19 20:10  
+      C  HANGT_LEKKER_TAPE1_3            51     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_3          51     08/03/19 20:12  
+      C  HANGT_LEKKER_TAPE1_3           243     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_3         243     08/03/19 20:11  
+      C  HANGT_LEKKER_TAPE1_3           243     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_3         243     08/03/19 20:11  
+      C  HANGT_LEKKER_TAPE1_3            51     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_3          51     08/03/19 20:12  
+      C  HANGT_LEKKER_TAPE1_2           249     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE1_2         249     08/03/19 20:10  
+      C  HANGT_LEKKER_TAPE1_1            95     08/03/19 20:13  
+        E  HANGT_LEKKER_TAPE1_1          95     08/03/19 20:09  
+      C  HANGT_LEKKER_TAPE2             155     08/05/19 13:58  
+        E  HANGT_LEKKER_TAPE2           155     08/03/19 19:41  
+    R conform_reel_SRCs                         08/03/19 22:26  
+      C Event28                         169     08/05/19 13:58  
+        E Event28                       169     08/03/19 21:22  
+      C Event27                         158     08/03/19 19:38  
+        E  HANGT_LEKKER_TAPE1_1         109     08/03/19 19:37  
+      C Event26                          30     08/03/19 21:19  
+        E Event26                        30     08/03/19 21:19  
+      C Event25                          76     08/03/19 20:32  
+        E Event25                        76     08/03/19 20:32  
+      C Event24                          37     08/03/19 19:34  
+        E Event24                        37     08/03/19 19:34  
+      C Event23                          27     08/05/19 13:58  
+        E Event23                        27     08/03/19 19:32  
+      C Event22                          25     08/03/19 21:17  
+        E Event22                        25     08/03/19 21:17  
+      C Event21                          43     08/05/19 13:58  
+        E Event21                        43     08/03/19 19:26  
+      C Event20                          30     08/05/19 13:58  
+        E Event20                        30     08/03/19 19:26  
+      C Event19                          12     08/03/19 19:25  
+        E Event19                        12     08/03/19 19:25  
+      C Event18                          34     08/03/19 19:24  
+        E Event18                        34     08/03/19 19:24  
+      C Event17                          30     08/03/19 19:23  
+        E Event17                        30     08/03/19 19:23  
+      C Event16                         119     08/03/19 21:13  
+        E Event16                       119     08/03/19 21:13  
+      C Event15                          36     08/03/19 20:04  
+        E Event15                        36     08/03/19 20:04  
+      C Event14                          21     08/03/19 21:00  
+        E Event14                        21     08/03/19 21:00  
+      C Event13                          44     08/03/19 20:02  
+        E Event13                        44     08/03/19 20:02  
+      C Event12                           9     08/03/19 19:13  
+        E Event12                         9     08/03/19 19:13  
+      C Event11                           9     08/03/19 20:44  
+        E Event11                         9     08/03/19 20:44  
+      C Event10                          20     08/03/19 20:23  
+        E Event10                               08/03/19 20:23  
+      C Event09                           5     08/03/19 19:09  
+        E Event09                         5     08/03/19 19:09  
+      C Event08                          23     08/03/19 21:28  
+        E Event08                        23     08/03/19 21:28  
+      C Event07                          35     08/03/19 21:31  
+        E Event07                        35     08/03/19 21:31  
+      C Event06                          14     08/03/19 21:25  
+        E Event06                        14     08/03/19 19:07  
+      C Event05                          31     08/03/19 19:06  
+        E Event05                        31     08/03/19 19:06  
+      C Event04                          22     08/03/19 19:05  
+        E Event04                        22     08/03/19 19:05  
+      C Event03                          45     08/03/19 19:01  
+        E Event03                        45     08/03/19 19:01  
+      C Event02                          17     08/03/19 19:00  
+        E Event02                        17     08/03/19 19:00  
+      C Event01                          93     08/03/19 18:59  
+        E Event01                        93     08/03/19 18:59  
+    C Conform_Latest_200308_23h_Grdd   1214     08/05/19 13:58  
+      E Conform_Latest_200308_23h_Gr   1214     08/03/21 05:33  
+    D Working_Conform                           08/05/19 13:58  
+      R modified_srcs                           08/03/21 06:00  
+        C Event28_DI1_MB                243     08/03/21 05:10  
+          E Event28_DI1_MB              243     08/03/21 05:15  
+        C Event27_DI1                   158     08/03/20 02:37  
+          E Event27_DI1                 158     08/03/20 02:37  
+        C Event27_DI1_MB                158     08/03/21 03:29  
+          E Event27_DI1_MB              158     08/03/21 03:33  
+        C Event26_DI1                    30     08/03/20 02:35  
+          E Event26_DI1                  30     08/03/20 02:35  
+        C Event25_DI1                    76     08/03/20 02:34  
+          E Event25_DI1                  76     08/03/20 02:34  
+        C Event24_DI1                    37     08/03/20 02:32  
+          E Event24_DI1                  37     08/03/20 02:31  
+        C Event23_DI1                    27     08/03/20 02:31  
+          E Event23_DI1                  27     08/03/20 02:30  
+        C Event22_DI1                    25     08/03/20 02:29  
+          E Event22_DI1                  25     08/03/20 02:28  
+        C Event21_DI1                    43     08/03/20 02:30  
+          E Event21_DI1                  43     08/03/20 02:30  
+        C Event20_DI1                    30     08/03/20 02:26  
+          E Event20_DI1                  30     08/03/20 02:26  
+        C Event19_DI1                    12     08/03/20 02:25  
+          E Event19_DI1                  12     08/03/20 02:25  
+        C Event18_DI1                    34     08/03/20 02:25  
+          E Event18_DI1                  34     08/03/20 02:25  
+        C Event17_DI1                    30     08/03/20 02:24  
+          E Event17_DI1                  30     08/03/20 02:22  
+        C Event16_DI1                   119     08/03/20 02:22  
+          E Event16_DI1                 119     08/03/20 02:21  
+        C Event15_DI1                    36     08/03/20 02:20  
+          E Event15_DI1                  36     08/03/20 02:20  
+        C Event14_DI1                    21     08/03/20 02:19  
+          E Event14_DI1                  21     08/03/20 02:18  
+        C Event13_DI1                    44     08/03/20 02:17  
+          E Event13_DI1                  44     08/03/20 02:16  
+        C event_12_DI1_clean              1     08/03/21 01:06  
+          E event_12_DI1_clean                  08/03/21 01:06  
+        C Event12_DI1                     9     08/03/20 02:15  
+          E Event12_DI1                   9     08/03/20 02:15  
+        C Event11_DI1                     9     08/03/20 02:15  
+          E Event11_DI1                   9     08/03/20 02:13  
+        C Event10_DI                      1     08/03/19 23:21  
+          E Event10_DI                    1     08/03/19 23:21  
+        C Event10_DI1_MB                  1     08/03/21 00:43  
+          E Event10_DI1_MB                      08/03/21 00:43  
+        C Event09_DI1                     5     08/03/20 02:11  
+          E Event09_DI1                   5     08/03/20 02:11  
+        C Event08_DI1                    23     08/03/20 19:02  
+          E Event08_DI1                  23     08/03/20 19:02  
+        C Event07_DI1                    35     08/03/20 02:09  
+          E Event07_DI1                  35     08/03/20 02:09  
+        C Event06_DI1                    14     08/03/20 02:06  
+          E Event06_DI1                  14     08/03/20 02:06  
+        C Event05_DI1                    31     08/03/20 02:04  
+          E Event05_DI1                  31     08/03/20 02:04  
+        C event_05_07_09_DI1            129     08/03/20 23:11  
+          E event_05_07_09_DI1          129     08/03/20 23:11  
+        C Event04_DI1                    22     08/03/20 02:03  
+          E Event04_DI1                  22     08/03/20 02:03  
+        C Event03_DI1                    45     08/03/20 02:02  
+          E Event03_DI1                  45     08/03/20 02:01  
+        C event_03_clean                  1     08/03/20 22:56  
+          E event_03_clean                      08/03/20 22:56  
+        C event_02_DI1_clean              1     08/03/21 01:11  
+          E event_02_DI1_clean                  08/03/21 01:11  
+        C Event02_DI1                    17     08/03/20 02:00  
+          E Event02_DI1                  17     08/03/20 02:00  
+        C Event01_DI1                    93     08/03/20 00:40  
+          E Event01_DI1                  93     08/03/20 00:40  
+        C FieldMerge- HANGT_LEKKER_T    243     08/05/19 13:58  
+          E FieldMerge- HANGT_LEKKER    243     08/03/19 23:12  
+        C event_28_comp_02              169     08/03/20 21:34  
+          E event_28_comp_02            169     08/03/20 20:00  
+      R Plates                                  08/05/19 13:58  
+        C drill_alpha                     1     08/03/20 19:32  
+          E drill_alpha                         08/03/20 19:32  
+        C drill                           1     08/03/20 19:32  
+          E drill                               08/03/20 19:32  
+        C logo                            1     08/03/20 19:04  
+          E logo                                08/03/20 19:04  
+        C boor2_alpha                     1     08/03/19 22:10  
+          E boor2_alpha                         08/03/19 22:10  
+        C boor2                           1     08/03/20 19:25  
+          E boor2                               08/03/19 22:10  
+        C shot16_mat                      1     08/03/20 00:35  
+          E shot16_mat                          08/03/20 00:35  
+        C shot12_mat                      1     08/03/20 00:35  
+          E shot12_mat                          08/03/20 00:35  
+      R Refs                                    08/05/19 13:58  
+        C MAGENTA                         1     08/03/20 21:36  
+          E MAGENTA                             08/03/20 21:36  
+        C COLOUR                          1     08/03/19 21:38  
+          E COLOUR                              08/03/19 21:38  
+      R <untitled>                              08/03/21 06:00  
+        C Conform_Latest_200308_23h_   1214     08/05/19 13:58  
+          E Conform_Latest_200308_23   1214     08/03/21 05:33  
+      R <untitled>                              08/03/21 06:00  
+        C Conform_Latest_190308_23h    1214     08/05/19 13:58  <multiple>
+          E event_01_comp_v01            93     08/03/20 01:20  
+          E Event02_DI1                  17     08/03/20 02:00  
+          E Event03_DI1                  45     08/03/20 02:01  
+          E Event04_DI1                  22     08/03/20 02:03  
+          E Event05_DI1                  31     08/03/20 02:04  
+          E Event06_DI1                  14     08/03/20 02:06  
+          E Event07_DI1                  35     08/03/20 02:09  
+          E Event08_DI1                  23     08/03/20 19:02  
+          E Event09_DI1                   5     08/03/20 02:11  
+          E <untitled>                          08/03/19 23:37  
+          E Event11_DI1                   9     08/03/20 02:13  
+          E Event12_DI1                   9     08/03/20 02:15  
+          E Event13_DI1                  44     08/03/20 02:16  
+          E Event14_DI1                  21     08/03/20 02:18  
+          E Event15_DI1                  36     08/03/20 02:20  
+          E Event16_DI1                 119     08/03/20 02:21  
+          E Event17_DI1                  30     08/03/20 02:22  
+          E Event18_DI1                  34     08/03/20 02:25  
+          E Event19_DI1                  12     08/03/20 02:25  
+          E Event20_DI1                  30     08/03/20 02:26  
+          E Event21_DI1                  43     08/03/20 02:30  
+          E Event22_DI1                  25     08/03/20 02:28  
+          E Event23_DI1                  27     08/03/20 02:30  
+          E Event24_DI1                  37     08/03/20 02:31  
+          E Event25_DI1                  76     08/03/20 02:33  
+          E Event26_DI1                  30     08/03/20 02:35  
+          E Event27_DI1                 158     08/03/20 02:37  
+          E event_28_comp_01            169     08/03/19 23:17  
+        C Conform_Latest_190308_23h_   1214     08/03/20 02:47  
+          E Conform_Latest_190308_23   1214     08/03/20 02:47  
+        C Conform_Latest_200308_19h    1288     08/05/19 13:58  <multiple>
+          E Event01_DI1_MB-RSZ           93     08/03/20 21:37  
+          E Event02_DI1_MB-RSZ           17     08/03/20 21:37  
+          E Event03_DI1_MB-RSZ           45     08/03/20 21:36  
+          E Event04_DI1_MB-RSZ           22     08/03/20 21:38  
+          E Event05_DI1_MB-RSZ           31     08/03/20 21:38  
+          E Event06_DI1_MB-RSZ           14     08/03/20 21:38  
+          E Event07_DI1_MB-RSZ           35     08/03/20 21:38  
+          E Event08_DI1_MB-RSZ           23     08/03/20 21:38  
+          E Event09_DI1_MB-RSZ            5     08/03/20 21:39  
+          E <untitled>                          08/03/19 23:37  
+          E Event11_DI1_MB-RSZ            9     08/03/20 21:39  
+          E Event12_DI1_MB-RSZ            9     08/03/20 21:39  
+          E Event13_DI1_MB-RSZ           44     08/03/20 21:39  
+          E Event14_DI1_MB-RSZ           21     08/03/20 21:39  
+          E Event15_DI1_MB-RSZ           36     08/03/20 21:40  
+          E Event16_DI1_MB-RSZ          119     08/03/20 21:40  
+          E Event17_DI1_MB-RSZ           30     08/03/20 21:40  
+          E Event18_DI1_MB-RSZ           34     08/03/20 21:40  
+          E Event19_DI1_MB-RSZ           12     08/03/20 21:40  
+          E Event20_DI1_MB-RSZ           30     08/03/20 21:41  
+          E Event21_DI1_MB-RSZ           43     08/03/20 21:41  
+          E Event22_DI1_MB-RSZ           25     08/03/20 21:41  
+          E Event23_DI1_MB-RSZ           27     08/03/20 21:41  
+          E Event24_DI1_MB-RSZ           37     08/03/20 21:41  
+          E Event25_DI1_MB-RSZ           76     08/03/20 21:42  
+          E Event26_DI1_MB-RSZ           30     08/03/20 21:42  
+          E Event27_DI1_MB-RSZ          158     08/03/20 21:42  
+          E Event28_DI1_MB-RSZ          243     08/03/20 21:43  
+        C Conform_Latest_200308_19h_   1214     08/05/19 13:58  
+          E Conform_Latest_200308_19   1214     08/03/20 21:49  
+        C Conform_Latest_200308_23h    1288     08/03/21 05:21  <multiple>
+          E Event01_DI1_MB               93     08/03/21 00:26  
+          E Event02_DI1_MB               17     08/03/21 01:14  
+          E Event03_DI1_MB               45     08/03/20 23:09  
+          E Event04_DI1_MB-RSZ           22     08/03/20 21:38  
+          E Event05_DI1_MB               31     08/03/21 01:02  
+          E Event06_DI1_MB-RSZ           14     08/03/20 21:38  
+          E Event07_DI1_MB               35     08/03/21 01:02  
+          E Event08_DI1_MB-RSZ           23     08/03/20 21:38  
+          E Event09_DI1_MB                6     08/03/21 01:02  
+          E <untitled>                          08/03/21 00:44  
+          E Event11_DI1_MB                9     08/03/21 01:02  
+          E Event12_DI1_MB                9     08/03/21 01:15  
+          E Event13_DI1_MB-RSZ           44     08/03/20 21:39  
+          E Event14_DI1_MB-RSZ           21     08/03/20 21:39  
+          E Event15_DI1_MB-RSZ           36     08/03/20 21:40  
+          E Event16_DI1_MB              119     08/03/21 01:43  
+          E Event17_DI1_MB-RSZ           30     08/03/20 21:40  
+          E Event18_DI1_MB-RSZ           34     08/03/20 21:40  
+          E Event19_DI1_MB-RSZ           12     08/03/20 21:40  
+          E Event20_DI1_MB-RSZ           30     08/03/20 21:41  
+          E Event21_DI1_MB               43     08/03/21 02:27  
+          E Event22_DI1_MB-RSZ           25     08/03/20 21:41  
+          E Event23_DI1_MB               27     08/03/21 02:44  
+          E Event24_DI1_MB-RSZ           37     08/03/20 21:41  
+          E Event25_DI1_MB               76     08/03/21 03:12  
+          E Event26_DI1_MB-RSZ           30     08/03/20 21:42  
+          E Event27_DI1_MB_pt2          158     08/03/21 03:57  
+          E Event28_DI1_MB              243     08/03/21 05:21  
+        C Conform_Latest_200308_23h_   1214     08/05/19 13:58  
+          E Conform_Latest_200308_23   1214     08/03/21 05:27  
+      R conform_reel_SRCs                       08/03/21 06:00  
+        C Event28                       169     08/05/19 13:58  
+          E Event28                     169     08/03/19 21:22  
+        C Event27                       158     08/03/19 19:38  
+          E  HANGT_LEKKER_TAPE1_1       109     08/03/19 19:37  
+        C Event26                        30     08/03/19 21:19  
+          E Event26                      30     08/03/19 21:19  
+        C Event25                        76     08/03/19 20:32  
+          E Event25                      76     08/03/19 20:32  
+        C Event24                        37     08/03/19 19:34  
+          E Event24                      37     08/03/19 19:34  
+        C Event23                        27     08/05/19 13:58  
+          E Event23                      27     08/03/19 19:32  
+        C Event22                        25     08/03/19 21:17  
+          E Event22                      25     08/03/19 21:17  
+        C Event21                        43     08/05/19 13:58  
+          E Event21                      43     08/03/19 19:26  
+        C Event20                        30     08/05/19 13:58  
+          E Event20                      30     08/03/19 19:26  
+        C Event19                        12     08/03/19 19:25  
+          E Event19                      12     08/03/19 19:25  
+        C Event18                        34     08/03/19 19:24  
+          E Event18                      34     08/03/19 19:24  
+        C Event17                        30     08/03/20 02:23  
+          E Event17                      30     08/03/19 19:23  
+        C Event16                       119     08/03/20 02:21  
+          E Event16                     119     08/03/19 21:13  
+        C Event15                        36     08/03/19 20:04  
+          E Event15                      36     08/03/19 20:04  
+        C Event14                        21     08/03/19 21:00  
+          E Event14                      21     08/03/19 21:00  
+        C Event13                        44     08/03/19 20:02  
+          E Event13                      44     08/03/19 20:02  
+        C Event12                         9     08/03/19 19:13  
+          E Event12                       9     08/03/19 19:13  
+        C Event11                         9     08/03/19 20:44  
+          E Event11                       9     08/03/19 20:44  
+        C Event10                        20     08/03/19 20:23  
+          E Event10                             08/03/19 20:23  
+        C Event09                         5     08/03/19 19:09  
+          E Event09                       5     08/03/19 19:09  
+        C Event08                        23     08/03/19 21:28  
+          E Event08                      23     08/03/19 21:28  
+        C Event07                        35     08/03/19 21:31  
+          E Event07                      35     08/03/19 21:31  
+        C Event06                        14     08/03/19 21:25  
+          E Event06                      14     08/03/19 19:07  
+        C Event05                        31     08/03/19 19:06  
+          E Event05                      31     08/03/19 19:06  
+        C Event04                        22     08/03/19 19:05  
+          E Event04                      22     08/03/19 19:05  
+        C Event03                        45     08/03/19 19:01  
+          E Event03                      45     08/03/19 19:01  
+        C Event02                        17     08/03/20 02:00  
+          E Event02                      17     08/03/19 19:00  
+        C Event01                        93     08/03/19 18:59  
+          E Event01                      93     08/03/19 18:59  
+      R dat hangt lekker 2                      08/05/19 13:58  
+        C 28                            159     08/03/19 21:12  
+          E 28                          159     08/03/19 21:12  
+        C 27                             38     08/03/19 21:00  
+          E 27                           38     08/03/19 21:00  
+        C 23                             35     08/03/19 20:43  
+          E 23                           35     08/03/19 20:43  
+        C 21                             76     08/03/19 20:31  
+          E 21                           76     08/03/19 20:31  
+        C 20                            276     08/03/19 20:22  
+          E 20                          276     08/03/19 20:22  
+        C 19                            354     08/03/19 20:19  
+          E 19                          354     08/03/19 20:19  
+        C 17                            278     08/03/19 20:02  
+          E 17                          278     08/03/19 20:02  
+        C  HANGT_LEKKER_1               126     08/03/19 18:16  
+          E  HANGT_LEKKER_1             126     08/03/19 18:16  
+        C  HANGT_LEKKER_TAPE1_1          77     08/05/19 13:58  
+          E  HANGT_LEKKER_TAPE1_1        77     08/03/19 18:17  
+        C  HANGT_LEKKER_TAPE1_1          93     08/05/19 13:58  
+          E  HANGT_LEKKER_TAPE1_1        93     08/03/19 18:16  
+        C  HANGT_LEKKER_TAPE1_1         134     08/03/19 19:37  
+          E  HANGT_LEKKER_TAPE1_1       134     08/03/19 18:16  
+        C  HANGT_LEKKER_TAPE1_2                 08/05/19 13:58  
+        C  HANGT_LEKKER_TAPE1_2          80     08/05/19 13:58  
+          E  HANGT_LEKKER_TAPE1_2        80     08/03/19 18:20  
+        C  HANGT_LEKKER_TAPE1_2                 08/05/19 13:58  
+        C  HANGT_LEKKER_TAPE1_2          84     08/03/19 18:20  
+          E  HANGT_LEKKER_TAPE1_2        84     08/03/19 18:20  
+        C  HANGT_LEKKER_TAPE1_2                 08/05/19 13:58  
+        C  HANGT_LEKKER_TAPE1_2         159     08/05/19 13:58  
+          E  HANGT_LEKKER_TAPE1_2       159     08/03/19 18:19  
+        C  HANGT_LEKKER_TAPE1_2          70     08/03/19 18:18  
+          E  HANGT_LEKKER_TAPE1_2        70     08/03/19 18:18  
+        C  HANGT_LEKKER_TAPE1_2                 08/05/19 13:58  
+        C  HANGT_LEKKER_TAPE1_2          67     08/03/19 18:18  
+          E  HANGT_LEKKER_TAPE1_2        67     08/03/19 18:18  
+        C  HANGT_LEKKER_TAPE1_2          52     08/05/19 13:58  
+          E  HANGT_LEKKER_TAPE1_2        52     08/03/19 18:18  
+        C  HANGT_LEKKER_TAPE1_2          57     08/03/19 18:18  
+          E  HANGT_LEKKER_TAPE1_2        57     08/03/19 18:18  
+        C  HANGT_LEKKER_TAPE1_2                 08/05/19 13:58  
+        C  HANGT_LEKKER_TAPE1_3                 08/05/19 13:58  
+        C  HANGT_LEKKER_TAPE1_3          95     08/03/19 18:21  
+          E  HANGT_LEKKER_TAPE1_3        95     08/03/19 18:21  
+        C  HANGT_LEKKER_TAPE2            51     08/03/19 21:25  
+          E  HANGT_LEKKER_TAPE2          51     08/03/19 18:30  
+        C  HANGT_LEKKER_TAPE2           129     08/03/19 18:30  
+          E  HANGT_LEKKER_TAPE2         129     08/03/19 18:30  
+        C  HANGT_LEKKER_TAPE2            64     08/03/19 18:29  
+          E  HANGT_LEKKER_TAPE2          64     08/03/19 18:29  
+        C  HANGT_LEKKER_TAPE2                   08/05/19 13:58  
+        C  HANGT_LEKKER_TAPE2                   08/05/19 13:58  
+        C  HANGT_LEKKER_TAPE2            72     08/03/19 18:28  
+          E  HANGT_LEKKER_TAPE2          72     08/03/19 18:28  
+        C  HANGT_LEKKER_TAPE2            95     08/03/19 18:28  
+          E  HANGT_LEKKER_TAPE2          95     08/03/19 18:28  
+        C  HANGT_LEKKER_TAPE2           143     08/03/19 18:28  
+          E  HANGT_LEKKER_TAPE2         143     08/03/19 18:28  
+        C  POV_SH1                       87     08/03/19 18:17  
+          E  POV_SH1                     87     08/03/19 18:17  
+        C 0018b                         101     08/03/19 18:19  
+          E 0018b                       101     08/03/19 18:19  
+        C  HANGT_LEKKER_TAPE1_1          95     08/03/19 20:09  
+          E  HANGT_LEKKER_TAPE1_1        95     08/03/19 20:09  
+        C  HANGT_LEKKER_TAPE1_2         249     08/05/19 13:58  
+          E  HANGT_LEKKER_TAPE1_2       249     08/03/19 20:10  
+        C  HANGT_LEKKER_TAPE1_3          51     08/05/19 13:58  
+          E  HANGT_LEKKER_TAPE1_3        51     08/03/19 20:12  
+        C  HANGT_LEKKER_TAPE1_3         243     08/05/19 13:58  
+          E  HANGT_LEKKER_TAPE1_3       243     08/03/19 20:11  
+        C  HANGT_LEKKER_TAPE2           155     08/05/19 13:58  
+          E  HANGT_LEKKER_TAPE2         155     08/03/19 19:41  
+* Backup Set -  2008/05/19 14:18:22             08/05/19 14:18  
+  L HollandsGlorie                              08/05/19 14:18  
+    R EindShotBaby                              08/05/19 14:18  
+      C 0003                            164     08/03/17 14:33  
+        E OpenStill                     164     08/03/17 14:16  
+      C OgenDicht                         1     08/03/17 14:48  
+        E OgenDicht                             08/03/17 14:48  
+      C OpenStill                         1     08/03/17 15:57  
+        E OpenStill                     164     08/03/17 14:16  
+      C OgenAnnie01                       6     08/03/17 15:13  
+        E OgenAnnie01                     6     08/03/17 15:13  
+      C OgenAnnie02                       7     08/03/17 15:14  
+        E OgenAnnie02                     7     08/03/17 15:14  
+      C COLOUR                            1     08/03/17 15:15  
+        E COLOUR                                08/03/17 15:15  
+      C EindShotBaby_batch-RSZ          164     08/03/17 16:43  
+        E EindShotBaby_batch-RSZ        164     08/03/17 16:43  
+    R Online                                    08/03/17 16:50  
+      C kkk                            1127     08/05/19 14:18  <multiple>
+        E 0001                          152     08/03/17 16:46  
+        E 0002                           86     08/03/17 16:46  
+        E 0003                          123     08/03/17 16:46  
+        E 0004                           66     08/03/17 16:46  
+        E 0005                          101     08/03/17 16:46  
+        E 0006                           71     08/03/17 16:46  
+        E 0007                           53     08/03/17 16:46  
+        E 0008                           27     08/03/17 16:46  
+        E 0009                           28     08/03/17 16:46  
+        E 0010                          214     08/03/17 16:46  
+        E 0011                           59     08/03/17 16:46  
+        E 0011                           27     08/03/17 16:46  
+        E 0011                          126     08/03/17 16:46  
+      C baby                            613     08/05/19 14:18  <multiple>
+        E 0001                           55     08/03/17 14:16  
+        E 0002                          394     08/03/17 14:16  
+        E EindShotBaby_batch-RSZ        164     08/03/17 16:43  
+    R OnlineHollandsGlorie                      08/03/17 17:09  
+      C kkk                            1127     08/05/19 14:18  <multiple>
+        E 0001                          152     08/03/17 16:46  
+        E 0002                           86     08/03/17 16:46  
+        E 0003                          123     08/03/17 16:46  
+        E 0004                           66     08/03/17 16:46  
+        E 0005                          101     08/03/17 16:46  
+        E 0006                           71     08/03/17 16:46  
+        E 0007                           53     08/03/17 16:46  
+        E 0008                           27     08/03/17 16:46  
+        E 0009                           28     08/03/17 16:46  
+        E 0010                          214     08/03/17 16:46  
+        E 0011                           59     08/03/17 16:46  
+        E 0011                           27     08/03/17 16:46  
+        E 0011                          126     08/03/17 16:46  
+      C baby                            613     08/05/19 14:18  <multiple>
+        E 0001                           55     08/03/17 14:16  
+        E 0002                          394     08/03/17 14:16  
+        E EindShotBaby_batch-RSZ        164     08/03/17 16:43  
+        E WHITE                                 08/03/17 17:03  
+      C KKK_Frame                      1125     08/05/19 14:18  
+        E KKK_Frame                    1125     08/03/17 16:55  
+      C Baby_Frame                      625     08/05/19 14:18  
+        E Baby_Frame                    625     08/03/17 17:05  
+* Backup Set -  2008/05/19 14:46:31             08/05/19 14:46  
+  L CocaCola_Flame02                            08/05/19 14:46  
+    R BA_telly_2                                08/05/19 14:46  
+      C Ruud_2                           39     08/04/08 01:08  
+        E Ruud_2                         39     08/04/04 17:00  
+      C Telly2                          120     08/04/08 01:08  
+        E Telly2                        120     08/04/04 17:00  
+      C BLUE                              1     08/04/08 01:08  
+        E BLUE                                  08/04/04 16:59  
+    R BA_telly1                                 08/05/19 14:46  
+      C Ruud_1                           34     08/04/08 01:09  
+        E Ruud_1                         34     08/04/04 15:56  
+      C Telly1                          187     08/04/08 01:09  
+        E Telly1                        187     08/04/04 15:55  
+      C BLUE                              1     08/04/08 01:09  
+        E BLUE                                  08/04/04 16:59  
+    R BA_telly_3                                08/05/19 14:46  
+      C Ruud_3                           48     08/04/08 01:09  
+        E Ruud_3                         48     08/04/04 17:23  
+      C Telly_3                         259     08/04/08 01:09  
+        E Telly_3                       259     08/04/04 17:24  
+      C BLUE                              1     08/04/08 01:09  
+        E BLUE                                  08/04/04 16:59  
+    R DIRECTOR TVC 30                           08/04/07 15:25  
+      C DIRECTOR TVC 30  _0             800     08/04/08 01:14  <multiple>
+        E <untitled>                     25     08/04/07 15:25  
+        E <untitled>                     33     08/04/07 15:25  
+        E <untitled>                      7     08/04/07 15:25  
+        E <untitled>                     15     08/04/07 15:25  
+        E <untitled>                     30     08/04/07 15:25  
+        E <untitled>                     61     08/04/07 15:25  
+        E <untitled>                     39     08/04/07 15:25  
+        E <untitled>                     45     08/04/07 15:25  
+        E <untitled>                     32     08/04/07 15:25  
+        E <untitled>                     37     08/04/07 15:25  
+        E <untitled>                     60     08/04/07 15:25  
+        E <untitled>                     40     08/04/07 15:25  
+        E <untitled>                     95     08/04/07 15:25  
+        E <untitled>                     48     08/04/07 15:25  
+        E <untitled>                     33     08/04/07 15:25  
+        E <untitled>                     18     08/04/07 15:25  
+        E <untitled>                     35     08/04/07 15:25  
+        E <untitled>                     56     08/04/07 15:25  
+        E <untitled>                     62     08/04/07 15:25  
+        E <untitled>                     70     08/04/07 15:25  
+        E <untitled>                     44     08/04/07 15:25  
+        E  08                            34     08/04/07 15:24  
+        E  02                            32     08/04/07 15:22  
+        E  FOOTAGE.15                    42     08/04/07 15:23  
+        E <untitled>                     52     08/04/07 15:25  
+        E <untitled>                      1     08/04/07 15:25  
+      C DIRECTOR TVC 30  _0             800     08/04/08 01:14  <multiple>
+        E <untitled>                     25     08/04/07 15:24  
+        E <untitled>                     33     08/04/07 15:24  
+        E <untitled>                      7     08/04/07 15:24  
+        E <untitled>                     15     08/04/07 15:24  
+        E <untitled>                     30     08/04/07 15:24  
+        E <untitled>                     61     08/04/07 15:24  
+        E <untitled>                     39     08/04/07 15:24  
+        E <untitled>                     45     08/04/07 15:24  
+        E <untitled>                     32     08/04/07 15:24  
+        E <untitled>                     37     08/04/07 15:24  
+        E <untitled>                     60     08/04/07 15:24  
+        E <untitled>                     40     08/04/07 15:24  
+        E <untitled>                     95     08/04/07 15:24  
+        E <untitled>                     48     08/04/07 15:24  
+        E <untitled>                     33     08/04/07 15:24  
+        E <untitled>                     18     08/04/07 15:24  
+        E <untitled>                     35     08/04/07 15:24  
+        E <untitled>                     56     08/04/07 15:24  
+        E <untitled>                     62     08/04/07 15:24  
+        E <untitled>                     70     08/04/07 15:24  
+        E <untitled>                     44     08/04/07 15:24  
+        E  08                            34     08/04/07 15:24  
+        E  02                            32     08/04/07 15:22  
+        E  FOOTAGE.15                    42     08/04/07 15:23  
+        E <untitled>                     52     08/04/07 15:24  
+        E <untitled>                      1     08/04/07 15:24  
+      C  02                              32     08/04/08 01:14  
+        E  02                            32     08/04/07 15:22  
+      C  08                              34     08/04/08 01:14  
+        E  08                            34     08/04/07 15:24  
+      C  FOOTAGE.15                      42     08/04/08 01:14  
+        E  FOOTAGE.15                    42     08/04/07 15:23  
+    R Assemble                                  08/04/07 15:52  
+      C PLATE_0                        1317     08/04/08 01:15  <multiple>
+        E  33.2                         187     08/04/04 14:21  
+        E  33.2                         259     08/04/04 14:20  
+        E  33.2                         174     08/04/04 14:21  
+        E  33.1                         120     08/04/04 14:20  
+        E  31                           223     08/04/04 14:20  
+        E  RUSHES.21                     74     08/04/04 14:16  
+        E  RUSHES.21                    119     08/04/04 14:16  
+        E  26.07.SYNC.01                 95     08/04/04 14:18  
+        E  DRINKEN                       66     08/04/04 14:14  
+      C DIRECTOR TVC 30  _0             750     08/04/08 01:15  <multiple>
+        E  BABY 08 (-25.00 FPS)          42     08/04/04 18:17  
+        E  BABY 02                       30     08/04/04 18:17  
+        E  BABY 02                       30     08/04/04 18:17  
+        E  BABY 02                       30     08/04/04 18:17  
+        E  RUSHES.22                     22     08/04/04 18:17  
+        E  BABY 05                       39     08/04/04 18:17  
+        E  BABY 07 (-28.76 FPS)          45     08/04/04 18:17  
+        E  27.01.SYNC.01                 25     08/04/04 18:17  
+        E  29.04.SYNC.01                 17     08/04/04 18:17  
+        E  31                            20     08/04/04 18:17  
+        E  28.04.SYNC.01                 40     08/04/04 18:17  
+        E  30 (49.63 FPS)                95     08/04/04 18:17  
+        E  26.05.SYNC.01                 40     08/04/04 18:17  
+        E  PENALTY TOT                   15     08/04/04 18:17  
+        E  09.02.SYNC.01                 18     08/04/04 18:17  
+        E  DOEL (49.14 FPS)              35     08/04/04 18:17  
+        E  12.07.SYNC.01                 25     08/04/04 18:17  
+        E  PENALTY MED                   36     08/04/04 18:17  
+        E  COLA                          26     08/04/04 18:17  
+        E  DRINKEN                       66     08/04/04 18:17  
+        E  08                            34     08/04/07 15:27  
+        E  02                            32     08/04/07 15:27  
+        E  FOOTAGE.15                    42     08/04/07 15:27  
+        E  RUSHES.20                     52     08/04/04 18:17  
+        E <untitled>                      1     08/04/04 18:17  
+      C DIRECTOR TVC 35 _0              876     08/04/08 01:15  <multiple>
+        E Bottle_ref                    876     08/04/04 15:32  
+        E  08                            34     08/04/07 15:24  
+        E 4Cap12                         39     08/04/07 15:35  
+      C Bottle_ref                        1     08/04/08 01:15  
+        E Bottle_ref                    876     08/04/04 15:32  
+    R BA_Freekick                               08/05/19 14:46  
+      C knuffel_fr1p                      1     08/04/08 01:18  
+        E <untitled>                            08/04/07 15:49  
+      C knuffel                          36     08/04/08 01:18  
+        E knuffel_fr1p                   36     08/04/07 15:46  
+      C Free_Kick_1                      18     08/04/08 01:18  
+        E Free_Kick_1                    18     08/04/07 15:46  
+      C Free_Kick_1_fr1p                  1     08/04/08 01:18  
+        E Free_Kick_1_fr1p                      08/04/07 15:48  
+      C BLUE                              1     08/04/08 01:18  
+        E BLUE                                  08/04/07 15:52  
+    R BA_Stars1                                 08/05/19 14:46  
+      C BLUE                              1     08/04/08 01:18  
+        E BLUE                                  08/04/04 18:12  
+      C hires                             1     08/04/08 01:18  
+        E hires                                 08/04/07 14:10  
+      C ccLucht                           1     08/04/08 01:18  
+        E ccLucht                               08/04/07 14:10  
+      C StarsMap_2500x1250_edit           1     08/04/08 01:18  
+        E StarsMap_2500x                        08/04/07 14:10  
+      C Starfield3_oversized              1     08/04/08 01:18  
+        E Starfield                             08/04/07 14:10  
+      C Starfield3_oversized copy         1     08/04/08 01:18  
+        E Starfield3_oversized copy             08/04/07 16:24  
+      C Starfield                         1     08/04/08 01:18  
+        E Starfield                             08/04/07 14:10  
+      C Star_ref                         18     08/04/08 01:18  
+        E Star_ref                       18     08/04/07 14:09  
+    R BA_Bin_shot                               08/05/19 14:46  
+      C BA_binShot                       20     08/04/08 01:19  
+        E BA_binShot                     20     08/04/07 20:34  
+      C Bin_shot_fr20                     1     08/04/08 01:19  
+        E Bin_shot_fr20                  20     08/04/07 14:28  
+      C Bin_shot_fr17                     1     08/04/08 01:19  
+        E Bin_shot_fr20                  20     08/04/07 14:28  
+      C bin_plate                       223     08/04/08 01:19  
+        E bin_plate                     223     08/04/07 14:29  
+      C Bin_shot                         20     08/04/08 01:19  
+        E Bin_shot_fr20                  20     08/04/07 14:28  
+      C Bin_shot_f14                      1     08/04/08 01:19  
+        E Bin_shot_fr20                  20     08/04/07 14:28  
+      C Bin_shot_fr1p                     1     08/04/08 01:19  
+        E <untitled>                            08/04/07 14:45  
+      C Bin_shot_fr1                      1     08/04/08 01:19  
+        E Bin_shot_fr20                  20     08/04/07 14:28  
+      C Bin_shot_fr5p_a                   1     08/04/08 01:19  
+        E Bin_shot_fr5p_a                       08/04/07 20:38  
+      C Bin_shot_fr5p                     1     08/04/08 01:19  
+        E Bin_shot_fr5p                         08/04/07 15:13  
+      C Bin_shot_fr5                      1     08/04/08 01:19  
+        E Bin_shot_fr20                  20     08/04/07 14:28  
+      C BLUE                              1     08/04/08 01:19  
+        E BLUE                                  08/04/07 15:52  
+      C Alt                              20     08/04/08 01:19  
+        E Alt                            20     08/04/07 17:54  
+      C BA_binShot                       20     08/04/08 01:19  
+        E BA_binShot                     20     08/04/07 20:47  
+    R BA_Window_Shot                            08/05/19 14:46  
+      C PLATE_Window_shot_fr68            1     08/04/08 01:21  
+        E PLATE_Window_shot              95     08/04/07 21:59  
+      C Window_Shot_fr40                  1     08/04/08 01:21  
+        E Window_Shot_fr40               40     08/04/07 21:58  
+      C PLATE_Window_shot                95     08/04/08 01:21  
+        E PLATE_Window_shot              95     08/04/07 21:59  
+      C Window_Shot                      40     08/04/08 01:21  
+        E Window_Shot_fr40               40     08/04/07 21:58  
+      C BLUE                              1     08/04/08 01:21  
+        E BLUE                                  08/04/08 00:16  
+    R extra                                     08/04/08 11:04  
+      C Ruud3                            48     08/05/19 14:46  
+        E Ruud3                          48     08/04/08 11:01  
+      C  FOOTAGE.15                      42     08/04/08 01:14  
+        E  FOOTAGE.15                    42     08/04/07 15:23  
+      C 4Cap12                           39     08/04/08 01:14  
+        E 4Cap12                         39     08/04/07 15:35  
+      C  08                              34     08/04/08 01:14  
+        E  08                            34     08/04/07 15:24  
+      C <untitled>                      250     08/05/19 14:46  
+        E <untitled>                    250     08/04/08 10:34  
+    R BA_Staatsloterij                          08/05/19 14:46  
+      C Ruud3                            48     08/05/19 14:46  
+        E Ruud3                          48     08/04/08 11:01  
+      C Staatsloterij                    52     08/04/08 01:22  
+        E Staatsloterij                  52     08/04/08 00:31  
+      C BLUE                              1     08/04/08 01:22  
+        E BLUE_alt                              08/04/08 00:39  
+      C BLUE                              1     08/04/08 01:22  
+        E BLUE_alt                              08/04/08 00:39  
+    R BA_Label                                  08/05/19 14:46  
+      C ttt                              66     08/04/08 11:51  
+        E ttt                            66     08/04/08 11:51  
+      C <untitled>                        1     08/04/08 11:49  
+        E <untitled>                            08/04/08 11:49  
+      C BLACK                             1     08/04/08 11:49  
+      C Label                             1     08/04/08 01:19  
+        E Bottle_ref                    876     08/04/04 15:32  
+      C Stars6                           66     08/04/08 01:19  
+        E Bottle_ref                     66     08/04/07 17:10  
+      C Stars6                            1     08/04/08 11:39  
+        E Bottle_ref                     66     08/04/07 17:10  
+      C BLUE                              1     08/04/08 12:02  
+        E BLUE_alt                              08/04/08 00:39  
+    R BA_Event_02                               08/05/19 14:46  
+      C Event_02                         20     08/04/08 01:20  
+        E Event_02                       20     08/04/07 16:21  
+      C bars_1                           74     08/04/08 01:20  
+        E Bars1_fr1                      74     08/04/07 16:23  
+      C Bars2                           119     08/04/08 01:20  
+        E Bars2_fr1                     119     08/04/07 16:23  
+      C Bars2_fr1                         1     08/04/08 01:20  
+        E Bars2_fr1                     119     08/04/07 16:23  
+      C Bars1_fr1                         1     08/04/08 01:20  
+        E Bars1_fr1                      74     08/04/07 16:23  
+      C BLUE                              1     08/04/08 01:20  
+        E BLUE                                  08/04/07 21:41  
+    R AC_CC_Bottleshot                          08/04/08 17:31  
+      C Bottle_shot                      26     08/04/08 16:31  
+        E Bottle_shot                    26     08/04/08 16:30  
+      C BLUE                              1     08/04/08 16:34  
+        E BLUE                                  08/04/08 15:36  
+      C AC_CC_Bottleshot                 26     08/04/08 16:34  
+        E AC_CC_Bottleshot               26     08/04/08 16:34  
+    R BA_Event_01                               08/05/19 14:46  
+      C Ev_01_new                        42     08/04/08 01:21  <multiple>
+        E  BABY 08 (-25.00 FPS)          42     08/04/04 14:17  
+      C Ev_01                            42     08/04/08 18:30  
+        E Ev_01                          42     08/04/04 17:47  
+      C Ev_01_p1                          1     08/04/08 01:21  
+        E Ev_01_p1                              08/04/04 17:49  
+      C BLUE                              1     08/04/08 01:21  
+        E BLUE                                  08/04/04 18:12  
+      C BA_Event_01                      42     08/04/08 18:31  
+        E BA_Event_01                    42     08/04/08 18:32  
+    R BA_Bad_TV                                 08/05/19 14:46  
+      C 4Cap12                           39     08/04/08 19:40  
+        E 4Cap12                         39     08/04/07 15:35  
+      C  08                              34     08/04/08 19:28  
+        E  08                            34     08/04/07 15:24  
+      C BLUE                              1     08/04/08 11:37  
+        E BLUE_alt                              08/04/08 00:39  
+      C BLUE_alt                          1     08/04/08 19:19  
+        E BLUE_alt                              08/04/08 00:39  
+      C BLUE_al2                          1     08/04/08 20:16  
+        E BLUE_alt                              08/04/08 00:39  
+    R BA_Stars                                  08/05/19 14:46  
+      C Star_ref                         18     08/04/08 01:18  
+        E Star_ref                       18     08/04/07 14:09  
+      C StarsMap_2500x1250_edit           1     08/04/08 01:18  
+        E StarsMap_2500x                        08/04/07 14:10  
+      C Starfield3_oversized copy         1     08/04/08 01:18  
+        E Starfield3_oversized copy             08/04/07 16:24  
+      C Starfield3_oversized              1     08/04/08 01:18  
+        E Starfield                             08/04/07 14:10  
+      C Stars5                           36     08/04/08 01:18  
+        E BA_Knuffel                     36     08/04/07 17:00  
+      C Stars4                           25     08/04/08 01:18  
+        E Bottle_ref                     25     08/04/07 17:00  
+      C Stars3                           18     08/04/08 14:54  <multiple>
+        E  DOEL (49.14 FPS)              35     08/04/04 18:17  
+      C Stars2                           18     08/04/08 01:18  
+        E Stars2                         18     08/04/07 16:59  
+      C Stars1                           15     08/04/08 01:18  
+        E Stars1                         15     08/04/07 16:59  
+      C BLUE                              1     08/04/08 01:18  
+        E BLUE                                  08/04/07 17:29  
+    R WIP_35                                    08/04/08 21:06  
+      C Coca_cola_Goal_Hugger_35sec_    876     08/05/19 14:46  <multiple>
+        E <untitled>                    876     08/04/08 18:49  
+        E Coca_cola_Goal_Hugger_35se    151     08/04/08 18:50  
+      C Coca_cola_Goal_Hugger_35sec     876     08/05/19 14:46  
+        E Coca_cola_Goal_Hugger_35se    876     08/04/08 18:46  
+      C tt                              876     08/05/19 14:46  <multiple>
+        E output13                       80     08/04/08 18:19  
+        E BA_CC3                         22     08/04/08 16:09  
+        E BA_CC4                         39     08/04/08 16:09  
+        E BA_CC5                         39     08/04/08 16:09  
+        E output13                       94     08/04/08 18:22  
+        E output13                      105     08/04/08 18:19  
+        E Bottle_ref                    876     08/04/04 15:32  
+        E BA_Window_shot                 40     08/04/08 10:27  
+        E output13                       71     08/04/08 18:20  
+        E BA_Stars4                      25     08/04/08 14:24  
+        E BA_Stars5                      36     08/04/08 14:24  
+        E AC_CC_Bottleshot               26     08/04/08 16:34  
+        E BA_Stars6                      66     08/04/08 16:43  
+        E BA_TV_1                        34     08/04/07 18:39  
+        E BA_TV2                         39     08/04/07 18:36  
+        E BA_TV3                         48     08/04/08 11:37  
+        E BA_Staatsloterij               52     08/04/08 00:57  
+        E AC_dopje_Anim                 150     08/04/08 17:30  
+      C WIP_35_met_grade                876     08/05/19 14:46  <multiple>
+        E BA_CC1                         42     08/04/08 18:35  
+        E BA_CC2                         20     08/04/08 16:09  
+        E BA_CC3                         22     08/04/08 16:09  
+        E BA_CC4                         39     08/04/08 16:09  
+        E BA_CC5                         39     08/04/08 16:09  
+        E Bottle_ref                    876     08/04/04 15:32  
+        E BA_binShot                     20     08/04/07 20:47  
+        E BA_Window_shot                 40     08/04/08 10:27  
+        E BA_Stars2                      15     08/04/08 20:04  
+        E BA_Stars1                      18     08/04/08 20:04  
+        E BA_Stars3                      18     08/04/08 20:04  
+        E BA_Stars4                      25     08/04/08 20:04  
+        E BA_Stars5                      36     08/04/08 20:05  
+        E AC_CC_Bottleshot               26     08/04/08 16:34  
+        E BA_Stars6                      66     08/04/08 20:05  
+        E BA_TV_1                        34     08/04/08 20:16  
+        E BA_TV2                         39     08/04/08 20:16  
+        E BA_TV3                         48     08/04/08 20:21  
+        E BA_Staatsloterij               52     08/04/08 00:57  
+        E AC_dopje_Anim                 150     08/04/08 18:43  
+      C DIRECTOR TVC 35 _0              876     08/04/08 18:33  <multiple>
+        E BA_Event_01                    42     08/04/08 18:32  
+        E BA_Event_02                    20     08/04/08 15:34  
+        E Bottle_ref                    876     08/04/04 15:32  
+        E BA_binShot                     20     08/04/07 20:47  
+        E BA_Window_shot                 40     08/04/08 10:27  
+        E BA_Stars2                      15     08/04/08 14:24  
+        E BA_Stars1                      18     08/04/08 14:24  
+        E BA_Stars3                      18     08/04/08 14:57  
+        E BA_Stars4                      25     08/04/08 14:24  
+        E BA_Stars5                      36     08/04/08 14:24  
+        E BA_Stars6                      66     08/04/08 14:57  
+        E BA_TV_1                        34     08/04/07 18:39  
+        E BA_TV2                         39     08/04/07 18:36  
+        E BA_TV3                         48     08/04/08 11:37  
+        E BA_Staatsloterij               52     08/04/08 00:57  
+        E packshot_6sec                 150     08/04/04 14:43  
+      C DIRECTOR TVC 30  _0             750     08/05/19 14:46  <multiple>
+        E  BABY 08 (-25.00 FPS)          42     08/04/04 18:17  
+        E  BABY 02                       30     08/04/04 18:17  
+        E  BABY 02                       30     08/04/04 18:17  
+        E  BABY 02                       30     08/04/04 18:17  
+        E  RUSHES.22                     22     08/04/04 18:17  
+        E  BABY 05                       39     08/04/04 18:17  
+        E  BABY 07 (-28.76 FPS)          45     08/04/04 18:17  
+        E  27.01.SYNC.01                 25     08/04/04 18:17  
+        E  29.04.SYNC.01                 17     08/04/04 18:17  
+        E  31                            20     08/04/04 18:17  
+        E  28.04.SYNC.01                 40     08/04/04 18:17  
+        E  30 (49.63 FPS)                95     08/04/04 18:17  
+        E  26.05.SYNC.01                 40     08/04/04 18:17  
+        E  PENALTY TOT                   15     08/04/04 18:17  
+        E  09.02.SYNC.01                 18     08/04/04 18:17  
+        E  DOEL (49.14 FPS)              35     08/04/04 18:17  
+        E  12.07.SYNC.01                 25     08/04/04 18:17  
+        E  PENALTY MED                   36     08/04/04 18:17  
+        E  COLA                          26     08/04/04 18:17  
+        E  DRINKEN                       66     08/04/04 18:17  
+        E  08                            34     08/04/07 15:27  
+        E  02                            32     08/04/07 15:27  
+        E  FOOTAGE.15                    42     08/04/07 15:27  
+        E  RUSHES.20                     52     08/04/04 18:17  
+        E <untitled>                      1     08/04/04 18:17  
+    R BA_titles                                 08/05/19 14:46  
+      C BLUE                              1     08/04/08 21:15  
+        E BLUE                                  08/04/08 21:15  
+      C Final_35                        876     08/05/19 14:46  <multiple>
+        E BA_CC1                         42     08/04/08 18:35  
+        E BA_CC2                         20     08/04/08 16:09  
+        E BA_CC3                         22     08/04/08 16:09  
+        E BA_CC4                         39     08/04/08 16:09  
+        E BA_CC5                         39     08/04/08 16:09  
+        E Bottle_ref                    876     08/04/04 15:32  
+        E BA_binShot                     20     08/04/07 20:47  
+        E BA_Window_shot                 40     08/04/08 10:27  
+        E BA_Stars2                      15     08/04/08 20:04  
+        E BA_Stars1                      18     08/04/08 20:04  
+        E BA_Stars3                      18     08/04/08 20:04  
+        E BA_Stars4                      25     08/04/08 20:04  
+        E BA_Stars5                      36     08/04/08 20:05  
+        E AC_CC_Bottleshot               26     08/04/08 16:34  
+        E BA_Stars6                      66     08/04/08 20:05  
+        E BA_TV_1                        34     08/04/08 20:16  
+        E BA_TV2                         39     08/04/08 20:16  
+        E BA_TV3                         48     08/04/08 20:21  
+        E BA_Staatsloterij               52     08/04/08 00:57  
+        E AC_dopje_Anim                 150     08/04/08 18:43  
+      C Final_30                        751     08/05/19 14:46  <multiple>
+        E BA_CC1                         33     08/04/08 21:02  
+        E BA_CC2                         20     08/04/08 21:02  
+        E BA_CC3                         22     08/04/08 21:02  
+        E BA_CC4                         39     08/04/08 21:02  
+        E BA_CC5                         39     08/04/08 21:02  
+        E Bottle_ref                    707     08/04/08 21:02  
+        E BA_binShot                     20     08/04/08 21:02  
+        E  28.04.SYNC.01                 40     08/04/08 21:02  
+        E  30 (49.63 FPS)                95     08/04/08 21:02  
+        E BA_Window_shot                 33     08/04/08 21:02  
+        E BA_Stars2                      15     08/04/08 21:02  
+        E BA_Stars1                      18     08/04/08 21:02  
+        E BA_Stars3                      18     08/04/08 21:02  
+        E BA_Stars4                      20     08/04/08 21:02  
+        E BA_Stars5                      36     08/04/08 21:02  
+        E AC_CC_Bottleshot               26     08/04/08 21:02  
+        E BA_Stars6                      44     08/04/08 21:02  
+        E BA_TV_1                        34     08/04/08 21:02  
+        E BA_TV2                         32     08/04/08 21:02  
+        E BA_TV3                         42     08/04/08 21:02  
+        E BA_Staatsloterij               52     08/04/08 21:02  
+        E packshot_vi_4secV2             87     08/04/08 21:02  
+      C TVC CC Jaartal_1993 OL            1     08/04/08 17:39  
+        E TVC CC Jaartal                        08/04/08 17:38  
+      C TVC CC Jaartal_1977 OL_alpha      1     08/04/08 17:39  
+        E TVC CC Jaartal_alpha                  08/04/08 17:38  
+      C TVC CC Jaartal_1986 OL            1     08/04/08 18:03  
+        E TVC CC Jaartal_1986 OL                08/04/08 17:39  
+      C TVC CC Jaartal_1986 OL_alpha      1     08/04/08 18:03  
+        E TVC CC Jaartal_1986 OL_alp            08/04/08 17:39  
+      C WHITE                             1     08/04/08 17:39  
+        E WHITE                                 08/04/08 17:39  
+    R Eind_animaties                            08/05/19 14:46  
+      C TVC CC LegalLine_1                1     08/04/08 18:40  
+        E TVC CC LegalLine_1                    08/04/08 18:40  
+      C WHITE                             1     08/04/08 18:39  
+        E WHITE                                 08/04/08 18:39  
+      C doppen_alpha_shadow_TW          100     08/04/08 17:29  <multiple>
+        E doppen_alpha_shadow           100     08/04/08 17:25  
+      C doppen_alpha_shadow             100     08/04/08 17:25  
+        E doppen_alpha_shadow           100     08/04/08 17:25  
+      C doppen                          100     08/04/08 17:25  
+        E doppen                        100     08/04/08 17:25  
+      C dop_slowmo_TW                   100     08/04/08 17:20  <multiple>
+        E dop_slowmo                    100     08/04/08 16:58  
+      C dop_slowmo_alpha_TW             100     08/04/08 17:21  <multiple>
+        E dop_slowmo_alpha              100     08/04/08 16:58  
+      C dop_slowmo_alpha                100     08/04/08 16:58  
+        E dop_slowmo_alpha              100     08/04/08 16:58  
+      C dop_slowmo                      100     08/04/08 17:14  
+        E dop_slowmo                    100     08/04/08 16:58  
+      C packshot_vi_6secV2              150     08/04/08 17:25  
+        E packshot_vi_6secV2            150     08/04/08 17:25  
+      C packshot_vi_4secV2              100     08/04/08 18:03  
+        E packshot_vi_4secV2            100     08/04/08 17:25  
+      C AC_dopje_Anim                   150     08/04/08 18:36  
+        E Coca_cola_text                150     08/04/08 18:36  
+      C Coca_cola_text                    1     08/04/08 18:37  
+        E Coca_cola_text                150     08/04/08 18:36  
+      C BLUE                              1     08/04/08 18:43  
+        E BLUE_alt                              08/04/08 00:39  
+      C AC_dopje_Anim                   150     08/04/08 18:43  
+        E AC_dopje_Anim                 150     08/04/08 18:43  
+      C AC_Titles_30                    150     08/04/08 21:31  
+        E AC_Titles_30                  150     08/04/08 21:31  
+    R BA_CC_70sRuud                             08/05/19 14:46  
+      C DIRECTOR TVC 35 _0              876     08/04/08 22:09  <multiple>
+        E BA_Event_01                    42     08/04/08 18:32  
+        E BA_Event_02                    20     08/04/08 15:34  
+        E Bottle_ref                    876     08/04/04 15:32  
+        E  BABY 07 (-28.76 FPS)          39     08/04/08 22:09  
+        E BA_binShot                     20     08/04/07 20:47  
+        E BA_Window_shot                 40     08/04/08 10:27  
+        E BA_Stars2                      15     08/04/08 14:24  
+        E BA_Stars1                      18     08/04/08 14:24  
+        E BA_Stars3                      18     08/04/08 14:57  
+        E BA_Stars4                      25     08/04/08 14:24  
+        E BA_Stars5                      36     08/04/08 14:24  
+        E BA_Stars6                      66     08/04/08 14:57  
+        E BA_TV_1                        34     08/04/07 18:39  
+        E BA_TV2                         39     08/04/07 18:36  
+        E BA_TV3                         48     08/04/08 11:37  
+        E BA_Staatsloterij               52     08/04/08 00:57  
+        E packshot_6sec                 150     08/04/04 14:43  
+      C BLUE                              1     08/04/08 15:36  
+        E BLUE                                  08/04/08 15:36  
+    R Master_reel                               08/05/19 14:46  
+      C Final_30_title                  751     08/05/19 14:46  <multiple>
+        E Title1_30_s                    53     08/04/08 21:27  
+        E BA_CC3                         22     08/04/08 21:02  
+        E BA_CC4                         39     08/04/08 21:02  
+        E BA_CC5                         39     08/04/08 22:10  
+        E Title2_154(30s)                54     08/04/08 21:27  
+        E  28.04.SYNC.01                 40     08/04/08 21:02  
+        E  30 (49.63 FPS)                95     08/04/08 21:02  
+        E BA_Window_shot                 33     08/04/08 21:02  
+        E Title3_327(30s)                53     08/04/08 21:28  
+        E BA_Stars4                      20     08/04/08 21:02  
+        E BA_Stars5                      36     08/04/08 21:02  
+        E AC_CC_Bottleshot               26     08/04/08 21:02  
+        E BA_Stars6                      44     08/04/08 21:02  
+        E BA_TV_1                        34     08/04/08 21:02  
+        E BA_TV2                         32     08/04/08 21:02  
+        E BA_TV3                         42     08/04/08 21:02  
+        E BA_Staatsloterij               52     08/04/08 21:02  
+        E AC_Titles_30                   87     08/04/08 21:32  
+      C Final_30                        751     08/05/19 14:46  <multiple>
+        E BA_CC1                         33     08/04/08 21:02  
+        E BA_CC2                         20     08/04/08 21:02  
+        E BA_CC3                         22     08/04/08 21:02  
+        E BA_CC4                         39     08/04/08 21:02  
+        E BA_CC5                         39     08/04/08 22:10  
+        E Bottle_ref                    707     08/04/08 21:02  
+        E BA_binShot                     20     08/04/08 21:02  
+        E  28.04.SYNC.01                 40     08/04/08 21:02  
+        E  30 (49.63 FPS)                95     08/04/08 21:02  
+        E BA_Window_shot                 33     08/04/08 21:02  
+        E BA_Stars2                      15     08/04/08 21:02  
+        E BA_Stars1                      18     08/04/08 21:02  
+        E BA_Stars3                      18     08/04/08 21:02  
+        E BA_Stars4                      20     08/04/08 21:02  
+        E BA_Stars5                      36     08/04/08 21:02  
+        E AC_CC_Bottleshot               26     08/04/08 21:02  
+        E BA_Stars6                      44     08/04/08 21:02  
+        E BA_TV_1                        34     08/04/08 21:02  
+        E BA_TV2                         32     08/04/08 21:02  
+        E BA_TV3                         42     08/04/08 21:02  
+        E BA_Staatsloterij               52     08/04/08 21:02  
+        E AC_Titles_30                   87     08/04/08 21:32  
+      C Final_35_title                  876     08/05/19 14:46  <multiple>
+        E Title1                         80     08/04/08 21:13  
+        E BA_CC3                         22     08/04/08 16:09  
+        E BA_CC4                         39     08/04/08 16:09  
+        E BA_CC5                         39     08/04/08 22:11  
+        E Title2_146                    105     08/04/08 21:14  
+        E Bottle_ref                    876     08/04/04 15:32  
+        E BA_Window_shot                 40     08/04/08 10:27  
+        E Title3_330                     70     08/04/08 21:14  
+        E BA_Stars4                      25     08/04/08 20:04  
+        E BA_Stars5                      36     08/04/08 20:05  
+        E AC_CC_Bottleshot               26     08/04/08 16:34  
+        E BA_Stars6                      66     08/04/08 20:05  
+        E BA_TV_1                        34     08/04/08 20:16  
+        E BA_TV2                         39     08/04/08 20:16  
+        E BA_TV3                         48     08/04/08 20:21  
+        E BA_Staatsloterij               52     08/04/08 00:57  
+        E AC_dopje_Anim                 150     08/04/08 18:43  
+      C Final_35                        876     08/05/19 14:46  <multiple>
+        E BA_CC1                         42     08/04/08 18:35  
+        E BA_CC2                         20     08/04/08 16:09  
+        E BA_CC3                         22     08/04/08 16:09  
+        E BA_CC4                         39     08/04/08 16:09  
+        E BA_CC5                         39     08/04/08 22:11  
+        E Bottle_ref                    876     08/04/04 15:32  
+        E BA_binShot                     20     08/04/07 20:47  
+        E BA_Window_shot                 40     08/04/08 10:27  
+        E BA_Stars2                      15     08/04/08 20:04  
+        E BA_Stars1                      18     08/04/08 20:04  
+        E BA_Stars3                      18     08/04/08 20:04  
+        E BA_Stars4                      25     08/04/08 20:04  
+        E BA_Stars5                      36     08/04/08 20:05  
+        E AC_CC_Bottleshot               26     08/04/08 16:34  
+        E BA_Stars6                      66     08/04/08 20:05  
+        E BA_TV_1                        34     08/04/08 20:16  
+        E BA_TV2                         39     08/04/08 20:16  
+        E BA_TV3                         48     08/04/08 20:21  
+        E BA_Staatsloterij               52     08/04/08 00:57  
+        E AC_dopje_Anim                 150     08/04/08 18:43  
+* Backup Set -  2008/07/15 10:18:10             08/07/15 10:18  
+  L SkyRadioCabrio                              08/07/15 10:18  
+    R PolitieAutoWeg                            08/06/18 11:45  
+      C 0018                             36     08/06/18 11:40  
+        E 0018                           36     08/06/18 09:37  
+      C MAGENTA                           1     08/06/18 11:45  
+        E MAGENTA                               08/06/18 11:37  
+      C PolitieAutoWeg                   36     08/06/18 11:45  
+        E PolitieAutoWeg                 36     08/06/18 11:45  
+    R VlekkenWeg                                08/06/18 12:17  
+      C vies                             61     08/06/18 11:48  
+        E 0025                           61     08/06/18 09:27  
+      C MAGENTA                           1     08/06/18 11:56  
+        E MAGENTA                               08/06/18 11:37  
+      C Schoon                           61     08/06/18 12:12  
+        E <untitled>                     61     08/06/18 12:11  
+    R SchermRadio                               08/06/18 13:41  
+      C DigitalRadio                      1     08/06/18 13:32  
+        E Negative-Digital                      08/06/18 13:32  
+      C BLACK                             1     08/06/18 10:13  
+      C WHITE                             1     08/06/18 10:29  
+        E WHITE                                 08/06/18 10:29  
+      C SchermDonker                     48     08/07/15 10:18  
+        E SchermDonker                   48     08/06/18 10:09  
+      C SchermLicht                      48     08/06/18 11:48  
+        E SchermLicht                    48     08/06/18 10:10  
+      C MAGENTA                           1     08/06/18 11:37  
+        E MAGENTA                               08/06/18 11:37  
+      C SchermRadio                      48     08/07/15 10:18  
+        E SchermRadio                    48     08/06/18 13:34  
+    R Clouds                                    08/07/15 10:18  
+      C TitelShot                        85     08/06/18 14:47  
+        E TitelShot                      85     08/06/18 13:24  
+      C PolitieAutoWeg                   36     08/06/18 14:03  
+        E PolitieAutoWeg                 36     08/06/18 13:24  
+      C 0029                             23     08/06/18 14:03  
+        E 0029                           23     08/06/18 09:35  
+      C MAGENTA                           1     08/06/18 14:40  
+        E MAGENTA                               08/06/18 14:40  
+      C Clouds01                         23     08/06/18 14:34  
+        E Clouds01                       23     08/06/18 14:34  
+      C Clouds02                         36     08/06/18 14:29  
+        E Clouds02                       36     08/06/18 14:29  
+      C Clouds02                         85     08/06/18 14:48  
+        E Clouds02                       85     08/06/18 14:48  
+    R StrandOmlaag                              08/06/18 14:50  
+      C Clouds                           99     08/06/18 14:42  
+        E Clouds                         99     08/06/18 14:43  
+      C StrandOmlaag                     99     08/06/18 13:01  
+        E StrandOmlaag                   99     08/06/18 13:01  
+      C MAGENTA                           1     08/06/18 13:02  
+        E MAGENTA                               08/06/18 11:37  
+      C EindShotTitelDirCut              99     08/06/18 12:28  
+        E 0030                           99     08/06/18 09:36  
+    R Artwork                                   08/06/18 16:01  
+      C EindShotTitelDirCut              99     08/06/18 13:02  
+        E StrandOmlaag                   99     08/06/18 13:01  
+      C TitelShot                        85     08/07/15 10:18  
+        E 0019                           85     08/06/18 09:37  
+      C TitelSky_alpha                    1     08/06/18 12:21  
+        E TitelSky_alpha                        08/06/18 12:21  
+      C TitelSky                          1     08/06/18 12:22  
+        E <untitled>                            08/06/18 12:22  
+      C WHITE                             1     08/06/18 10:29  
+        E WHITE                                 08/06/18 10:29  
+      C MAGENTA                           1     08/06/18 12:27  
+        E MAGENTA                               08/06/18 11:37  
+      C EindShotTitel                    85     08/07/15 10:18  
+        E EindShotTitel                  85     08/06/18 12:27  
+      C EindShotTitelDirCut              99     08/07/15 10:18  
+        E EindShotTitelDirCut            99     08/06/18 13:05  
+    R OnlineSkyRadio_M18062008                  08/06/18 17:06  
+      C SkyRadio45TTL                  1126     08/07/15 10:18  <multiple>
+        E 0001                           23     08/06/18 09:32  
+        E SchermRadio                    48     08/06/18 13:34  
+        E 0003                           22     08/06/18 09:26  
+        E 0004                           23     08/06/18 09:31  
+        E 0005                           14     08/06/18 09:31  
+        E 0006                           20     08/06/18 09:32  
+        E <untitled>                     13     08/06/18 16:43  
+        E 0008                           25     08/06/18 09:33  
+        E 0009b                          35     08/06/18 09:32  
+        E 0010                           39     08/06/18 09:26  
+        E 0011                           32     08/06/18 09:26  
+        E 0012                           21     08/06/18 09:34  
+        E 0013                           40     08/06/18 09:33  
+        E 0014                           53     08/06/18 09:33  
+        E 0015                           45     08/06/18 09:34  
+        E 0016                           52     08/06/18 09:26  
+        E 0017                           47     08/06/18 09:33  
+        E 0018                           46     08/06/18 09:34  
+        E 0019                           53     08/06/18 09:27  
+        E 0020b                          39     08/06/18 09:28  
+        E 0021                           37     08/06/18 09:27  
+        E 0022                           65     08/06/18 09:28  
+        E 0023                           39     08/06/18 09:28  
+        E 0024                           41     08/06/18 09:35  
+        E <untitled>                     61     08/06/18 12:11  
+        E 0026                           72     08/06/18 09:27  
+        E 0027                           21     08/06/18 09:28  
+        E <untitled>                     36     08/06/18 16:54  
+        E Clouds01                       23     08/06/18 14:34  
+        E Clouds                         99     08/06/18 14:43  
+      C slateMarc                         1     08/06/18 13:50  
+        E slateMarc                             08/06/18 13:50  
+      C SkyRadio45Titels               1126     08/07/15 10:18  <multiple>
+        E SkyRadio45Titels              982     08/06/18 16:55  
+        E <untitled>                     36     08/06/18 16:55  
+        E SkyRadio45Titels              123     08/06/18 16:55  
+      C slateMarc                         1     08/06/18 13:50  
+        E slateMarc                             08/06/18 13:50  
+      C SkyRadio25TTL                   626     08/06/18 16:14  <multiple>
+        E 0001                           23     08/06/18 13:24  
+        E SchermRadio                    48     08/06/18 13:34  
+        E 0003                           22     08/06/18 13:24  
+        E 0004                           23     08/06/18 13:24  
+        E 0005                           14     08/06/18 13:24  
+        E 0008                           25     08/06/18 13:24  
+        E 0009b                          35     08/06/18 13:24  
+        E 0010                           39     08/06/18 13:24  
+        E 0011                           32     08/06/18 13:24  
+        E 0012                           21     08/06/18 13:24  
+        E 0013                           40     08/06/18 13:24  
+        E 0014                           53     08/06/18 13:24  
+        E 0019                           53     08/06/18 13:24  
+        E 0013b                          71     08/06/18 13:24  
+        E 0023                           39     08/06/18 13:24  
+        E 0024                           41     08/06/18 13:24  
+        E <untitled>                     61     08/06/18 13:24  
+        E 0026                           72     08/06/18 13:24  
+        E Clouds02                       36     08/06/18 14:29  
+        E Clouds02                       85     08/06/18 14:48  
+      C slateMarc                         1     08/06/18 13:50  
+        E slateMarc                             08/06/18 13:50  
+      C TitelHeleFilm02                 626     08/07/15 10:18  
+        E TitelHeleFilm02               626     08/06/18 15:56  
+      C slateMarc                         1     08/06/18 16:11  
+        E <untitled>                            08/06/18 16:11  
+      C SkyRadio25titeleind             626     08/07/15 10:18  <multiple>
+        E 0001                           23     08/06/18 13:24  
+        E SchermRadio                    48     08/06/18 13:34  
+        E 0003                           22     08/06/18 13:24  
+        E 0004                           23     08/06/18 13:24  
+        E 0005                           14     08/06/18 13:24  
+        E 0008                           25     08/06/18 13:24  
+        E 0009b                          35     08/06/18 13:24  
+        E 0010                           39     08/06/18 13:24  
+        E 0011                           32     08/06/18 13:24  
+        E 0012                           21     08/06/18 13:24  
+        E 0013                           40     08/06/18 13:24  
+        E 0014                           53     08/06/18 13:24  
+        E 0019                           53     08/06/18 13:24  
+        E 0013b                          71     08/06/18 13:24  
+        E 0023                           39     08/06/18 13:24  
+        E 0024                           41     08/06/18 13:24  
+        E <untitled>                     61     08/06/18 13:24  
+        E 0026                           72     08/06/18 13:24  
+        E Clouds02                       36     08/06/18 14:29  
+        E EindShotTitel                  85     08/06/18 14:49  
+      C slateMarc                         1     08/06/18 16:11  
+        E <untitled>                            08/06/18 16:11  
