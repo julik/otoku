@@ -1,4 +1,6 @@
 require '/Code/happymapper/lib/happymapper'
+require 'digest/md5'
+require 'fileutils'
 
 module HappyMapper::ClassMethods
   
@@ -52,8 +54,8 @@ module OTOCS
     ielement :depth, String
     ielement :image1, String # First image proxy
     ielement :image2, String # Last image proxy
+    has_many :entries, Entry
     
-    has_many :entries, self 
     def backup_set?
       classid == '*'
     end
@@ -115,7 +117,7 @@ module OTOCS
     
     ielement :name, String
     ielement :creation, DateTime
-    ielement :appstring, String
+    element :machine, String, :tag => 'appstring'.upcase
     ielement :comment, String
     ihas_one :device, Device
     ihas_one :toc, TOC
@@ -123,14 +125,63 @@ module OTOCS
     def entries
       toc.entries
     end
+    
+    attr_accessor :path
+    attr_accessor :etag
+    
+    def dir
+      File.dirname(path)
+    end
+    
+    def to_s
+      "%s (%d sets)" % [name, entries.length, path]
+    end
   end
   
+  
+  # Read an archive from +path+. Will save and/or reuse the object cache as necessary
   def self.read_archive_file(path)
     # Always contains one archive
-    Archive.parse(File.read(path).to_s).pop
+    data = File.read(path).to_s
+    cached(data) do
+      arch = Archive.parse(data).pop
+      arch.path, arch.etag = File.expand_path(path), Digest::MD5.hexdigest(data)
+      arch
+    end
   end
+  
+  # Set the directory used to store the preparsed OTOC structures
+  def self.cache_dir=(dir)
+    @cache = if dir.nil?
+      nil
+    else
+      exp = File.expand_path(dir)
+      FileUtils.mkdir_p(exp)
+      exp
+    end
+  end
+
+  # Get the directory used to store the preparsed OTOC structures
+  def self.cache_dir
+    @cache
+  end
+  
+  private
+  
+  def self.cached(content)
+    return yield unless @cache
+    
+    digest = Digest::MD5.hexdigest(content)
+    path = digest.scan(/(.{2})/).join('/') + '.parsedarchive'
+    cache_f = File.join(@cache, path)
+    begin
+      Marshal.load(File.read(cache_f))
+    rescue Errno::ENOENT
+      parsed = yield
+      FileUtils.mkdir_p(File.dirname(cache_f))
+      File.open(cache_f, 'w') { | to |  to << Marshal.dump(parsed) }
+      parsed
+    end
+  end
+  
 end
-
-
-arch = OTOCS.read_archive_file('/Code/otoku/test/samples/Flame_Archive_Deel215_08Jul15_1036.xml')
-puts arch.entries
