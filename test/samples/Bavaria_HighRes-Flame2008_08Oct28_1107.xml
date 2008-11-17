@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<ARCHIVE>
+  <NAME>Bavaria_HighRes-Flame2008</NAME>
+  <CREATION>2008/10/28 11:06:33</CREATION>
+  <APPSTRING>he-flame-01 - flame 2008.SP4</APPSTRING>
+  <COMMENT></COMMENT>
+  <FREESPACE>1633.99 MB</FREESPACE>
+  <DEVICE TYPE="F">
+    <TYPE TITLE="Device type">File</TYPE>
+    <NAME TITLE="Header file name">/usr/data/Flame_Backup_Disk/BavariaHighRes</NAME>
+    <SEGMENT TITLE="Segment file name">/usr/data/Flame_Backup_Disk/BavariaHighRes.seg</SEGMENT>
+  </DEVICE>
+  <TOC>
+    <ENTRY CLASSID="*" ID="a8c012ab_4906e432_00005682">
+      <NAME>Backup Set -  2008/10/28 11:06:42</NAME>
+      <CREATION>2008/10/28 11:06:42</CREATION>
+      <DESCRIPTION>Compact Backup Set</DESCRIPTION>
+      <ENTRY CLASSID="L" ID="a8c012ab_4906e432_00005689">
+        <NAME>Default</NAME>
+        <CREATION>2008/04/10 11:54:20</CREATION>
+        <DESCRIPTION>Clip Library</DESCRIPTION>
+        <ENTRY CLASSID="C" ID="a8c012ab_481c6368_000a12ba">
+          <NAME>PubliekStadion</NAME>
+          <CREATION>2008/05/03 15:03:08</CREATION>
+          <DURATION>32 frames (00:00:01:07)</DURATION>
+          <AUDIO> </AUDIO>
+          <LOCATION></LOCATION>
+          <WIDTH>720</WIDTH>
+          <HEIGHT>576</HEIGHT>
+          <DEPTH>10-bit</DEPTH>
+          <IMAGE1>Bavaria_HighRes-Flame2008_08Oct28_1107/a8c012ab_481c6368_000a12ba_1.jpg</IMAGE1>
+          <IMAGE2>Bavaria_HighRes-Flame2008_08Oct28_1107/a8c012ab_481c6368_000a12ba_2.jpg</IMAGE2>
+          <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+            <NAME>PubliekStadion</NAME>
+            <CREATION>2008/05/03 15:06:48</CREATION>
+            <DESCRIPTION>Clip - 32 </DESCRIPTION>
+          </ENTRY>
+        </ENTRY>
+        <ENTRY CLASSID="R" ID="a8c012ab_4906e432_00005691">
+          <NAME>AudiPaulVos</NAME>
+          <CREATION>2008/05/06 13:28:29</CREATION>
+          <DESCRIPTION>Reel - 3 Clips</DESCRIPTION>
+          <ENTRY CLASSID="C" ID="a8c01bab_481b4f5a_00010fce">
+            <NAME>Audi_45onlined</NAME>
+            <CREATION>2008/05/06 12:07:41</CREATION>
+            <DURATION>1125 frames (00:00:45:00)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>720</WIDTH>
+            <HEIGHT>576</HEIGHT>
+            <DEPTH>8-bit</DEPTH>
+            <IMAGE1>Bavaria_HighRes-Flame2008_08Oct28_1107/a8c01bab_481b4f5a_00010fce_1.jpg</IMAGE1>
+            <IMAGE2>Bavaria_HighRes-Flame2008_08Oct28_1107/a8c01bab_481b4f5a_00010fce_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Audi_45onlined</NAME>
+              <CREATION>2008/05/02 19:28:58</CREATION>
+              <DESCRIPTION>Clip - 1125 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_481b3bc8_00001827">
+            <NAME>online_inProgress45</NAME>
+            <CREATION>2008/05/06 12:51:42</CREATION>
+            <DURATION>1125 frames (00:00:45:00)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION>&lt;multiple&gt;</LOCATION>
+            <WIDTH>720</WIDTH>
+            <HEIGHT>576</HEIGHT>
+            <DEPTH>8-bit</DEPTH>
+            <IMAGE1>Bavaria_HighRes-Flame2008_08Oct28_1107/a8c01bab_481b3bc8_00001827_1.jpg</IMAGE1>
+            <IMAGE2>Bavaria_HighRes-Flame2008_08Oct28_1107/a8c01bab_481b3bc8_00001827_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>opening_grade</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 80 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>start02</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 76 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>shot03_grade</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 77 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>start04</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 55 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>start05</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 39 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>start06</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 15 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>shot07</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 30 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>start08</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 28 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>shot09</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 9 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>turn_maninsert</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 15 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 7 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 1 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 1 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 1 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>turningman03</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 18 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>turntablist_flares</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 53 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>lightman_01</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 29 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>manlight_02</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 18 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>edited45sec</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 6 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>edited45sec</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 8 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>manlight_03</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 12 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>edited45sec</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 6 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>edited45sec</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 5 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>manlight_04</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 10 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>insert_03</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 7 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>trashed</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 55 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>light_car_01OK</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 22 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>camaps</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 56 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>lightman_06</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 13 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>light_car_02OK</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 13 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>light_car_02OK</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 20 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>manlight_07</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 23 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>light_car_03OK</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 35 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>carcalmed</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 72 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>0042</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 21 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>man_end_00</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 25 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>man_end_01</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 40 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>man_end02</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 31 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>man_end_03</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 24 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>man_end_03</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 11 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>matte_cityv2</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 73 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Audi_logo</NAME>
+              <CREATION>2008/05/02 18:05:02</CREATION>
+              <DESCRIPTION>Clip - 64 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_481b3dab_000185be">
+            <NAME>_080224Audi_45secv1</NAME>
+            <CREATION>2008/05/06 12:51:46</CREATION>
+            <DURATION>1125 frames (00:00:45:00)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION>&lt;multiple&gt;</LOCATION>
+            <WIDTH>720</WIDTH>
+            <HEIGHT>576</HEIGHT>
+            <DEPTH>8-bit</DEPTH>
+            <IMAGE1>Bavaria_HighRes-Flame2008_08Oct28_1107/a8c01bab_481b3dab_000185be_1.jpg</IMAGE1>
+            <IMAGE2>Bavaria_HighRes-Flame2008_08Oct28_1107/a8c01bab_481b3dab_000185be_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>_080224Audi_45sec</NAME>
+              <CREATION>2008/02/24 23:51:30</CREATION>
+              <DESCRIPTION>Clip - 1005 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>_080224Audi_45sec</NAME>
+              <CREATION>2008/02/24 23:53:36</CREATION>
+              <DESCRIPTION>Clip - 160 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+        </ENTRY>
+      </ENTRY>
+    </ENTRY>
+  </TOC>
+</ARCHIVE>

@@ -1,0 +1,76 @@
+This file is /usr/discreet/archive/Bavaria_HighRes-Flame2008_08Oct28_1107.atoc
+
+[ Archive ]
+
+Name          : Bavaria_HighRes-Flame2008
+Creation date : 08/10/28 11:06:33
+Application   : he-flame-01 - flame 2008.SP4
+Comment       : 
+Free Space    : 1633.99 MB
+
+
+[ Device Information ]
+
+Device type       : File
+Header file name  : /usr/data/Flame_Backup_Disk/BavariaHighRes
+Segment file name : /usr/data/Flame_Backup_Disk/BavariaHighRes.seg
+
+
+[ Table of Contents ]
+
+Type and Name                         Dur    A  Creation        Location
+------------------------------------  -----  -  --------------  -----------
+
+* Backup Set -  2008/10/28 11:06:42             08/10/28 11:06  
+  L Default                                     08/04/10 11:54  
+    C PubliekStadion                     32     08/05/03 15:03  
+      E PubliekStadion                   32     08/05/03 15:06  
+    R AudiPaulVos                               08/05/06 13:28  
+      C Audi_45onlined                 1125     08/05/06 12:07  
+        E Audi_45onlined               1125     08/05/02 19:28  
+      C online_inProgress45            1125     08/05/06 12:51  <multiple>
+        E opening_grade                  80     08/05/02 18:05  
+        E start02                        76     08/05/02 18:05  
+        E shot03_grade                   77     08/05/02 18:05  
+        E start04                        55     08/05/02 18:05  
+        E start05                        39     08/05/02 18:05  
+        E start06                        15     08/05/02 18:05  
+        E shot07                         30     08/05/02 18:05  
+        E start08                        28     08/05/02 18:05  
+        E shot09                          9     08/05/02 18:05  
+        E turn_maninsert                 15     08/05/02 18:05  
+        E <untitled>                      7     08/05/02 18:05  
+        E <untitled>                      1     08/05/02 18:05  
+        E <untitled>                      1     08/05/02 18:05  
+        E <untitled>                      1     08/05/02 18:05  
+        E turningman03                   18     08/05/02 18:05  
+        E turntablist_flares             53     08/05/02 18:05  
+        E lightman_01                    29     08/05/02 18:05  
+        E manlight_02                    18     08/05/02 18:05  
+        E edited45sec                     6     08/05/02 18:05  
+        E edited45sec                     8     08/05/02 18:05  
+        E manlight_03                    12     08/05/02 18:05  
+        E edited45sec                     6     08/05/02 18:05  
+        E edited45sec                     5     08/05/02 18:05  
+        E manlight_04                    10     08/05/02 18:05  
+        E insert_03                       7     08/05/02 18:05  
+        E trashed                        55     08/05/02 18:05  
+        E light_car_01OK                 22     08/05/02 18:05  
+        E camaps                         56     08/05/02 18:05  
+        E lightman_06                    13     08/05/02 18:05  
+        E light_car_02OK                 13     08/05/02 18:05  
+        E light_car_02OK                 20     08/05/02 18:05  
+        E manlight_07                    23     08/05/02 18:05  
+        E light_car_03OK                 35     08/05/02 18:05  
+        E carcalmed                      72     08/05/02 18:05  
+        E 0042                           21     08/05/02 18:05  
+        E man_end_00                     25     08/05/02 18:05  
+        E man_end_01                     40     08/05/02 18:05  
+        E man_end02                      31     08/05/02 18:05  
+        E man_end_03                     24     08/05/02 18:05  
+        E man_end_03                     11     08/05/02 18:05  
+        E matte_cityv2                   73     08/05/02 18:05  
+        E Audi_logo                      64     08/05/02 18:05  
+      C _080224Audi_45secv1            1125     08/05/06 12:51  <multiple>
+        E _080224Audi_45sec            1005     08/02/24 23:51  
+        E _080224Audi_45sec             160     08/02/24 23:53  
