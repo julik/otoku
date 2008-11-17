@@ -36,13 +36,30 @@ module OTOCS
     ielement :type, String
     ielement :name, String
     ielement :starts, String # Timecode 
+    def to_s
+      [type, name, starts].join(' - ')
+    end
   end
 
+  module EntryKey
+    def [](clip_key)
+      entries.find{|e| e.id == clip_key}
+    end
+  end
+  
+  class Backtrack
+    attr_accessor :archive
+    attr_accessor :parents
+  end
+  
   class Entry
     include HappyMapper
+    include EntryKey
+    attr_accessor :backtrack
+    
     tag 'ENTRY'
     iattribute :classid, String
-    iattribute :id, String
+    iattribute :id, String # the UUID of the reel item - very important as this is truly unique, even across machines
     
     ielement :name, String
     ielement :creation, DateTime
@@ -73,7 +90,7 @@ module OTOCS
     end
     
     def subclip?
-      classid = 'E'
+      classid == 'E'
     end
     
     def has_icon?
@@ -102,6 +119,10 @@ module OTOCS
     def to_s
       "%s (%s) - %d items" % [name, flame_type, entries.size]
     end
+    
+    def inspect
+      "#<Entry 0x%d [%s] %s (%d children)>" % [__id__, flame_type, name, entries.length]
+    end
   end
 
   class TOC
@@ -113,6 +134,8 @@ module OTOCS
   # The whole archive
   class Archive
     include HappyMapper
+    include EntryKey
+    
     tag '/ARCHIVE' # Bug in HappyMapper requires a single slash at the start
     
     ielement :name, String
@@ -131,6 +154,22 @@ module OTOCS
     
     def dir
       File.dirname(path)
+    end
+    
+    
+    
+    def fetch_uri(clip_path)
+      bt = Backtrack.new
+      bt.archive = self
+      bt.parents = []
+      
+      next_item = self
+      clip_path.split(/\//).each do | seg |
+        bt.parents << next_item
+        next_item = next_item[seg]
+      end
+      next_item.backtrack = bt
+      next_item
     end
     
     def to_s
@@ -182,6 +221,13 @@ module OTOCS
       File.open(cache_f, 'w') { | to |  to << Marshal.dump(parsed) }
       parsed
     end
+  end
+
+  @@parsed ||= {}
+  def self.cached(content)
+    digest = Digest::MD5.hexdigest(content)
+    @@parsed[digest] ||= yield
+    @@parsed[digest]
   end
   
 end

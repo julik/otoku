@@ -32,7 +32,6 @@ class ArchiveTest < Test::Unit::TestCase
   
   ARCH = File.dirname(__FILE__) + '/samples/Flame_Archive_Deel215_08Jul15_1036.xml'
   
-  
   def test_archive_attributes
     @node = @archive
     
@@ -53,10 +52,11 @@ class ArchiveTest < Test::Unit::TestCase
     assert_respond_to @archive, :device
     assert_kind_of OTOCS::Device, @archive.device
     @node = @archive.device
-    
     assert_string_attribute :type, 'VTR'
     assert_string_attribute :name, 'Betacam PAL'
-    assert_string_attribute :starts_at, '00:01:00:00'
+    assert_string_attribute :starts, '00:01:00:00'
+    
+    assert_equal "VTR - Betacam PAL - 00:01:00:00", @node.to_s
   end
   
   def test_archive_toc
@@ -65,5 +65,45 @@ class ArchiveTest < Test::Unit::TestCase
     @node = @archive.toc
     assert @node.respond_to?(:entries)
     assert_kind_of Enumerable, @node.entries
+  end
+  
+  def test_entries_available_on_archive_as_well_as_on_toc
+    assert_respond_to @archive, :entries
+    assert_equal @archive.entries, @archive.toc.entries
+  end
+  
+  def test_backup_set_entry
+    @node = @archive.toc.entries[0]
+    assert_not_nil @node
+    assert_kind_of OTOCS::Entry, @node
+    assert_respond_to @node, :backup_set?
+    
+    assert @node.backup_set?
+    assert !@node.library?
+    assert !@node.reel?
+    assert !@node.clip?
+    assert !@node.subclip?
+    assert_equal "Backup Set -  2008/05/19 13:48:44 (Backup Set) - 1 items", @node.to_s
+  end
+  
+  def test_fetch_key
+    item = @archive['a8c01bab_4831691c_00086eed']
+    assert_not_nil item
+    assert_kind_of OTOCS::Entry, item
+    assert item.backup_set?
+  end
+  
+  def test_fetch_item
+    uri = "a8c01bab_4831691c_00086eed/a8c01bab_4831691c_00086ef4/a8c01bab_4831691c_00086eff/a8c01bab_48108fe3_0004ad1e/a8c012ab_487c60d9_0004469e"
+    item = @archive.fetch_uri(uri)
+    assert_not_nil item
+    assert_kind_of OTOCS::Entry, item
+    assert item.subclip?
+    assert_equal "boomInzet", item.name
+    assert_equal "a8c012ab_487c60d9_0004469e", item.id
+    
+    assert_not_nil item.backtrack
+    assert_equal @archive, item.backtrack.archive
+    assert_equal uri, (item.backtrack.parents.map{|e| e.id} + [item.id]).join('/') 
   end
 end
