@@ -165,7 +165,7 @@ module OTOCS
       
       next_item = self
       clip_path.split(/\//).each do | seg |
-        bt.parents << next_item
+        bt.parents << next_item unless next_item == self
         next_item = next_item[seg]
       end
       next_item.backtrack = bt
