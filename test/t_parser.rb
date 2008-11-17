@@ -10,8 +10,7 @@ class ParserTest < Test::Unit::TestCase
   end
   
   def test_should_reuse_object_cache
-    tdir = File.dirname(__FILE__) + '/temp'
-    begin
+    with_cache_dir do | tdir |
       assert_nothing_raised("Should allow setting the directory") { OTOCS.cache_dir = tdir }
       assert File.exist?(tdir), "Should have created the temp dir for object cache"
       assert File.directory?(tdir), "Should have created the directory"
@@ -21,9 +20,15 @@ class ParserTest < Test::Unit::TestCase
       end
       
       assert Dir.glob(tdir + '/**/*.parsedarchive').any?, "Cache files should have been created"
+    end
+  end
+  
+  def with_cache_dir(dir = File.dirname(__FILE__) + '/temp')
+    begin
+      yield(dir)
     ensure
       OTOCS.cache_dir = nil
-      FileUtils.rm_rf tdir
+      FileUtils.rm_rf dir
     end
   end
 end
