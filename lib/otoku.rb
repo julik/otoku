@@ -64,6 +64,14 @@ module Otoku
       end
     end
     
+    def clip_info
+      h1 @item
+      if @item.soft_clip?
+        h2 "Subclips in the edit"
+        list_info
+      end
+    end
+    
     def welcome
       h1 @archives.length.to_s + " archives in the store"
       ul do

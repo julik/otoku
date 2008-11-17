@@ -95,7 +95,11 @@ module OTOCS
     end
     
     def clip?
-      classid == 'C'
+      classid == 'C' || classid == 'E'
+    end
+    
+    def soft_clip?
+      clip? && entries.any?
     end
     
     def subclip?
@@ -114,7 +118,7 @@ module OTOCS
           'Library'
         when reel?
           'Reel'
-        when clip? && entries.any?
+        when soft_clip?
           'Soft clip'
         when clip?
           'Clip'
@@ -126,7 +130,11 @@ module OTOCS
     end
     
     def to_s
-      "%s (%s) - %d items" % [name, flame_type, entries.size]
+      unless subclip?
+        "%s (%s) - %d items" % [name, flame_type, entries.size]
+      else
+        "%s" % [name]
+      end
     end
     
     def inspect
