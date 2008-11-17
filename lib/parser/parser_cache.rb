@@ -47,7 +47,7 @@ module OTOCS
   
   class MemoCache
     @@parsed ||= {}
-    def self.cached(content)
+    def cached(content)
       digest = Digest::MD5.hexdigest(content)
       @@parsed[digest] ||= yield
       @@parsed[digest]
