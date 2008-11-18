@@ -44,7 +44,6 @@ module OTOCS
         parsed = yield
         FileUtils.mkdir_p(File.dirname(cache_f))
         mar = Marshal.dump(parsed)
-        STDERR.puts "Marshaled #{mar.size} bytes"
         File.open(cache_f, 'w') { | to |  to << mar }
         parsed
       end
