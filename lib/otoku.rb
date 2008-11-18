@@ -57,7 +57,7 @@ module Otoku
       def get(archive_etag)
         @archive = get_archive(archive_etag)
         @item = @archive
-        render :list_info
+        render :archive_info
       end
     end
     
@@ -78,6 +78,16 @@ module Otoku
       body do
         yield
       end
+      end
+    end
+    
+    def archive_info
+      h1 @archive 
+      @archive.entries.each do | bs |
+        _item_row(bs, false)
+        bs.entries.each do | box |
+          _item_row(box)
+        end
       end
     end
     
@@ -112,8 +122,8 @@ module Otoku
       R(ShowEntry, *args)
     end
     
-    def _item_row(that)
-      li { a that, :href => _item_uri(that) }
+    def _item_row(that, with_link = true)
+      li { with_link ? (a that, :href => _item_uri(that)) : that }
     end
     
   end
