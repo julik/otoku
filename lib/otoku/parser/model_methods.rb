@@ -1,5 +1,16 @@
 module OTOCS
   module ModelMethods
+    module EntryKey
+       def [](clip_key)
+         entries.each do | e |
+           return e if e.id == clip_key
+           match = e[clip_key]
+           return match if match
+         end
+         nil
+       end
+     end
+     
     module ArchiveMethods
       def self.included(into)
         into.send :attr_accessor, :path
@@ -22,17 +33,7 @@ module OTOCS
       # Given a path of clip IDs will drill down into the entries hierarchy and fetch the entry requested.
       # Also assigns a backtrack object to the entry fetched so that you can get back to it
       def fetch_uri(clip_path)
-        bt = Backtrack.new
-        bt.archive = self
-        bt.parents = []
-
-        next_item = self
-        clip_path.split(/\//).each do | seg |
-          next_item = next_item[seg]
-          bt.parents << next_item unless next_item == self
-        end
-        next_item.backtrack = bt
-        next_item
+        self[clip_path.split(/\//).pop]
       end
 
       def to_s
@@ -49,7 +50,7 @@ module OTOCS
     
     module EntryMethods
       def self.included(into)
-        into.send(:include, OTOCS::EntryKey)
+        into.send(:include, EntryKey)
       end
       
       def backup_set?

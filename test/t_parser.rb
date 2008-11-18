@@ -67,20 +67,13 @@ class ArchiveTest < Test::Unit::TestCase
   end
   
   def test_archive_toc
-    assert_respond_to @archive, :toc
-    assert_kind_of OTOCS::TOC, @archive.toc
-    @node = @archive.toc
+    @node = @archive
     assert @node.respond_to?(:entries)
     assert_kind_of Enumerable, @node.entries
   end
   
-  def test_entries_available_on_archive_as_well_as_on_toc
-    assert_respond_to @archive, :entries
-    assert_equal @archive.entries, @archive.toc.entries
-  end
-  
   def test_backup_set_entry
-    @node = @archive.toc.entries[0]
+    @node = @archive.entries[0]
     assert_not_nil @node
     assert_kind_of OTOCS::Entry, @node
     assert_respond_to @node, :backup_set?
@@ -110,10 +103,8 @@ class ArchiveTest < Test::Unit::TestCase
     assert_equal "boomInzet", item.name
     assert_equal "a8c012ab_487c60d9_0004469e", item.id
     
-    assert_not_nil item.backtrack
-    assert_equal @archive, item.backtrack.archive
-    assert_equal uri, (item.backtrack.parents.map{|e| e.id}).join('/')
-    assert_equal total_uri, item.backtrack.path 
+    assert_not_nil item.parent
+    assert_equal 'a8c01bab_48108fe3_0004ad1e', item.parent.id
   end
   
   def test_fetch_with_id
