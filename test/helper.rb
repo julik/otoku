@@ -5,13 +5,13 @@ require 'otoku'
 
 module THelpers
   def with_cache_dir(dir = File.dirname(__FILE__) + '/temp')
-    old_td = OTOCS.cache_driver
-    OTOCS.cache_driver = OTOCS::FileCache.new
-    OTOCS.cache_driver.cache_dir = dir
+    old_td = Otoku::Data.cache_driver
+    Otoku::Data.cache_driver = Otoku::Data::FileCache.new
+    Otoku::Data.cache_driver.cache_dir = dir
     begin
       yield(dir)
     ensure
-      OTOCS.cache_driver = old_td
+      Otoku::Data.cache_driver = old_td
       FileUtils.rm_rf dir
     end
   end
@@ -44,12 +44,12 @@ module TAccel
   
   def setup
     super
-    OTOCS.cache_driver = OTOCS::MemoCache.new
-    @archive = OTOCS.read_archive_file(self.class.const_get(:ARCH))
+    Otoku::Data.cache_driver = Otoku::Data::MemoCache.new
+    @archive = Otoku::Data.read_archive_file(self.class.const_get(:ARCH))
   end
   
   def teardown
-    OTOCS.cache_driver = nil
+    Otoku::Data.cache_driver = nil
     super
   end
 end

@@ -6,18 +6,18 @@ class ParserCacheTest < Test::Unit::TestCase
   
   def test_read_archive_file
     Dir.glob(File.dirname(__FILE__) + '/samples/*.xml').each do | xml |
-      assert_nothing_raised { OTOCS.read_archive_file(xml) }
+      assert_nothing_raised { Otoku::Data.read_archive_file(xml) }
     end
   end
   
   def test_should_reuse_object_cache
     with_cache_dir do | tdir |
-      assert_nothing_raised("Should allow setting the directory") { OTOCS.cache_driver.cache_dir = tdir }
+      assert_nothing_raised("Should allow setting the directory") { Otoku::Data.cache_driver.cache_dir = tdir }
       assert File.exist?(tdir), "Should have created the temp dir for object cache"
       assert File.directory?(tdir), "Should have created the directory"
       
       Dir.glob(File.dirname(__FILE__) + '/samples/*.xml').each do | xml |
-        assert_nothing_raised { OTOCS.read_archive_file(xml) }
+        assert_nothing_raised { Otoku::Data.read_archive_file(xml) }
       end
       
       assert Dir.glob(tdir + '/**/*.parsedarchive').any?, "Cache files should have been created"
@@ -37,7 +37,7 @@ class ArchiveTest < Test::Unit::TestCase
     assert_string_attribute :name, "Flame_Archive_Deel215"
     assert_string_attribute :comment, ""
     assert_string_attribute :appstring, "he-flame-01 - flame 2008.SP4"
-    assert_attribute :device, OTOCS::Device
+    assert_attribute :device, Otoku::Data::Device
     assert_attribute :creation, DateTime
     assert_equal 2008, @node.creation.year
     assert_equal 5, @node.creation.month
@@ -57,7 +57,7 @@ class ArchiveTest < Test::Unit::TestCase
   
   def test_archive_device
     assert_respond_to @archive, :device
-    assert_kind_of OTOCS::Device, @archive.device
+    assert_kind_of Otoku::Data::Device, @archive.device
     
     @node = @archive.device
     assert_string_attribute :type, 'VTR'
@@ -69,7 +69,7 @@ class ArchiveTest < Test::Unit::TestCase
   
   def test_archive_device_joins_attribs
     ef = File.dirname(__FILE__) + '/samples/Bavaria_HighRes-Flame2008_08Oct28_1107.xml'
-    @archive = OTOCS.read_archive_file(ef)
+    @archive = Otoku::Data.read_archive_file(ef)
     assert_equal "File - /usr/data/Flame_Backup_Disk/BavariaHighRes", @archive.device.to_s
   end
   
@@ -82,7 +82,7 @@ class ArchiveTest < Test::Unit::TestCase
   def test_backup_set_entry
     @node = @archive.entries[0]
     assert_not_nil @node
-    assert_kind_of OTOCS::Entry, @node
+    assert_kind_of Otoku::Data::Entry, @node
     assert_respond_to @node, :backup_set?
     
     assert_equal @archive, @node.archive
@@ -92,13 +92,13 @@ class ArchiveTest < Test::Unit::TestCase
     assert !@node.reel?
     assert !@node.clip?
     assert !@node.subclip?
-    assert_equal "Backup Set -  2008/05/19 13:48:44 (BackupSet) - 1 items", @node.to_s
+    assert_equal "Backup Set -  2008/05/19 13:48:44 (BackupSet) - one item", @node.to_s
   end
   
   def test_library_entry
     @node = @archive.entries[0][0]
     assert_not_nil @node
-    assert_kind_of OTOCS::Entry, @node
+    assert_kind_of Otoku::Data::Entry, @node
     assert_respond_to @node, :library?
 
     assert_equal @archive, @node.archive
@@ -113,7 +113,7 @@ class ArchiveTest < Test::Unit::TestCase
   def test_library_entry
     @node = @archive.entries[0][0]
     assert_not_nil @node
-    assert_kind_of OTOCS::Entry, @node
+    assert_kind_of Otoku::Data::Entry, @node
     assert_respond_to @node, :library?
 
     assert_equal @archive, @node.archive
@@ -130,7 +130,7 @@ class ArchiveTest < Test::Unit::TestCase
   def test_reel_entry
     @node = @archive.entries[0][0][0]
     assert_not_nil @node
-    assert_kind_of OTOCS::Entry, @node
+    assert_kind_of Otoku::Data::Entry, @node
     assert_respond_to @node, :reel?
     
     assert_equal "Artwork_24_04_08", @node.name
@@ -142,13 +142,13 @@ class ArchiveTest < Test::Unit::TestCase
     assert !@node.backup_set?
     assert !@node.clip?
     assert !@node.subclip?
-    assert_equal "Artwork_24_04_08 (Reel) - 13 items", @node.to_s
+    assert_equal "Artwork_24_04_08 (Reel) - empty", @node.to_s
   end
   
   def test_fetch_key
     item = @archive['a8c01bab_4831691c_00086eed']
     assert_not_nil item
-    assert_kind_of OTOCS::Entry, item
+    assert_kind_of Otoku::Data::Entry, item
     assert item.backup_set?
   end
   
@@ -157,7 +157,7 @@ class ArchiveTest < Test::Unit::TestCase
     total_uri = @archive.etag + '/' + uri
     item = @archive.fetch_uri(uri)
     assert_not_nil item
-    assert_kind_of OTOCS::Entry, item
+    assert_kind_of Otoku::Data::Entry, item
     assert item.subclip?
     assert_equal "boomInzet", item.name
     assert_equal "a8c012ab_487c60d9_0004469e", item.id
@@ -170,7 +170,7 @@ class ArchiveTest < Test::Unit::TestCase
     uri = "a8c012ab_487c60d9_0004469e"
     item = @archive[uri]
     assert_not_nil item
-    assert_kind_of OTOCS::Entry, item
+    assert_kind_of Otoku::Data::Entry, item
     assert_equal uri, item.id
     assert_equal "boomInzet", item.name
     assert item.subclip?

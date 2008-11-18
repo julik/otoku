@@ -13,9 +13,9 @@ module Otoku
   
   module DataWrangler
     def get_archive_list
-      OTOCS.cache_driver = OTOCS::FileCache.new('/tmp')
+      Otoku::Data.cache_driver = Otoku::Data::FileCache.new('/tmp')
       @archives ||= Dir.glob(File.dirname(__FILE__) + '/../test/samples/*.xml').map do | arch |
-        OTOCS.read_archive_file(arch)
+        Otoku::Data.read_archive_file(arch)
       end
     end
     

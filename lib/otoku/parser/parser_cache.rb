@@ -1,4 +1,5 @@
-module OTOCS
+module Otoku
+module Data
   class BypassCache
     def cached(data)
       STDERR.puts "No cache - things will be very SLOW"
@@ -58,4 +59,6 @@ module OTOCS
       @@parsed[digest]
     end
   end
+
+end
 end

@@ -2,7 +2,7 @@ require 'rubygems'
 require 'hpricot'
 require File.dirname(__FILE__) + '/model_methods'
 
-module OTOCS
+module Otoku::Data
   module BlockInit
     def initialize
       yield self if block_given?
@@ -11,15 +11,15 @@ module OTOCS
   
   class Archive
     include BlockInit
-    include OTOCS::ModelMethods::ArchiveMethods
-    include OTOCS::ModelMethods::EntryKey
+    include Otoku::Data::ModelMethods::ArchiveMethods
+    include Otoku::Data::ModelMethods::EntryKey
     attr_accessor :entries, :name, :appstring, :creation, :device, :comment
   end
   
   class Entry
     include BlockInit
-    include OTOCS::ModelMethods::EntryMethods
-    include OTOCS::ModelMethods::EntryKey
+    include Otoku::Data::ModelMethods::EntryMethods
+    include Otoku::Data::ModelMethods::EntryKey
     attr_accessor :classid,
       :parent,
       :id,
@@ -37,7 +37,7 @@ module OTOCS
   
   class Device
     include BlockInit
-    include OTOCS::ModelMethods::DeviceMethods
+    include Otoku::Data::ModelMethods::DeviceMethods
     attr_accessor :type, :name, :starts
   end
   

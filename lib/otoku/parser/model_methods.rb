@@ -1,4 +1,5 @@
-module OTOCS
+module Otoku
+module Data
   module ModelMethods
     module EntryKey
        def [](clip_key)
@@ -104,7 +105,16 @@ module OTOCS
         if clip? && !subclip?
           "%s (%s)" % [name, flame_type, entries.size]
         elsif !subclip?
-          "%s (%s) - %d items" % [name, flame_type, entries.size]
+          nitems = case entries.length
+            when 0
+              "empty"
+            when 1
+              "one item"
+            else
+              "%d items" % entries.size
+          end
+          
+          "%s (%s) - %s" % [name, flame_type, nitems]
         else
           "%s" % [name, parent.name]
         end
@@ -115,4 +125,5 @@ module OTOCS
       end
     end
   end
+end
 end
