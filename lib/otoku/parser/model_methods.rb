@@ -12,15 +12,6 @@ module OTOCS
      end
      
     module ArchiveMethods
-      def self.included(into)
-        into.send :attr_accessor, :path
-        into.send :attr_accessor, :etag
-        into.send :alias_method, :id, :etag
-      end
-      
-      def entries
-        toc.entries
-      end
 
       attr_accessor :path
       attr_accessor :etag
@@ -49,9 +40,6 @@ module OTOCS
     end
     
     module EntryMethods
-      def self.included(into)
-        into.send(:include, EntryKey)
-      end
       
       def backup_set?
         classid == '*'

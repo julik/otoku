@@ -35,9 +35,9 @@ class ArchiveTest < Test::Unit::TestCase
     @node = @archive
     
     assert_string_attribute :name, "Flame_Archive_Deel215"
-    assert_string_attribute :machine, "he-flame-01 - flame 2008.SP4"
     assert_string_attribute :comment
-
+    assert_string_attribute :appstring
+    assert_attribute :device, OTOCS::Device
     assert_attribute :creation, DateTime
     assert_equal 2008, @node.creation.year
     assert_equal 5, @node.creation.month

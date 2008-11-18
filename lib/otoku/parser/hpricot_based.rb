@@ -3,14 +3,23 @@ require 'hpricot'
 require File.dirname(__FILE__) + '/model_methods'
 
 module OTOCS
+  module BlockInit
+    def initialize
+      yield self if block_given?
+    end
+  end
+  
   class Archive
+    include BlockInit
     include OTOCS::ModelMethods::ArchiveMethods
     include OTOCS::ModelMethods::EntryKey
-    attr_accessor :entries, :name, :appstring, :creation, :machine
+    attr_accessor :entries, :name, :appstring, :creation, :device, :comment
   end
   
   class Entry
+    include BlockInit
     include OTOCS::ModelMethods::EntryMethods
+    include OTOCS::ModelMethods::EntryKey
     attr_accessor :classid,
       :parent,
       :id,
@@ -24,30 +33,30 @@ module OTOCS
   end
   
   class Device
+    include BlockInit
     include OTOCS::ModelMethods::DeviceMethods
     attr_accessor :type, :name, :starts
   end
   
   def self.parse(stream)
     hpricot = Hpricot(stream)
-    
     arch_node = hpricot / "/archive"
     
-    arch = Archive.new
-    arch.name = (hpricot / "/archive/name").text
-    arch.creation = DateTime.parse((hpricot / "/archive/creation").text)
-    arch.appstring = DateTime.parse((hpricot / "/archive/appstring").text)
+    Archive.new do | a |
+      a.name = (hpricot / "/archive/name").text
+      a.creation = DateTime.parse((hpricot / "/archive/creation").text)
+      a.appstring = (hpricot / "/archive/appstring").text
+      a.comment = (hpricot / "/archive/comment").text
+      a.entries = (hpricot / "/archive/toc/entry").map do | entry_node |
+        entry_from_node(entry_node, a)
+      end
     
-    arch.entries = (hpricot / "/archive/toc/entry").map do | entry_node |
-      entry_from_node(entry_node, arch)
+      a.device = Device.new do | dev |
+        dev.type = (hpricot / "/archive/device/type").text
+        dev.name = (hpricot / "/archive/device/name").text
+        dev.starts = (hpricot / "/archive/device/starts").text
+      end
     end
-    
-    arch.machine = Device.new
-    arch.machine.type = (hpricot / "/archive/device/type").text
-    arch.machine.name = (hpricot / "/archive/device/name").text
-    arch.machine.starts = (hpricot / "/archive/device/starts").text
-    
-    arch
   end
   
   
