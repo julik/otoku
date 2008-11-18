@@ -2,6 +2,7 @@ require '/Code/happymapper/lib/happymapper'
 require 'digest/md5'
 require 'fileutils'
 require File.dirname(__FILE__) + '/parser_cache'
+require File.dirname(__FILE__) + '/model_methods'
 
 module HappyMapper::ClassMethods
   
@@ -31,15 +32,14 @@ end
 module OTOCS
   
   class Device
+    include OTOCS::ModelMethods::DeviceMethods
     include HappyMapper
     tag 'DEVICE'
     iattribute :type, String
     ielement :type, String
     ielement :name, String
     ielement :starts, String # Timecode 
-    def to_s
-      [type, name, starts].join(' - ')
-    end
+    
   end
 
   module EntryKey
@@ -62,6 +62,8 @@ module OTOCS
   end
   
   class Entry
+    include OTOCS::ModelMethods::EntryMethods
+    
     include HappyMapper
     include EntryKey
     attr_accessor :backtrack
@@ -81,65 +83,7 @@ module OTOCS
     ielement :image1, String # First image proxy
     ielement :image2, String # Last image proxy
     has_many :entries, Entry
-    
-    def backup_set?
-      classid == '*'
-    end
-    
-    def library?
-      classid == 'L'
-    end
-    
-    def reel?
-      classid == 'R'
-    end
-    
-    def clip?
-      classid == 'C' || classid == 'E'
-    end
-    
-    def soft_clip?
-      clip? && entries.any?
-    end
-    
-    def subclip?
-      classid == 'E'
-    end
-    
-    def has_icon?
-      clip? || subclip?
-    end
-    
-    def flame_type
-      case true
-        when backup_set?
-          'Backup Set'
-        when library?
-          'Library'
-        when reel?
-          'Reel'
-        when soft_clip?
-          'Soft clip'
-        when clip?
-          'Clip'
-        when subclip?
-          'Subclip'
-        else
-          'Unknown'
-      end
-    end
-    
-    def to_s
-      unless subclip?
-        "%s (%s) - %d items" % [name, flame_type, entries.size]
-      else
-        "%s" % [name]
-      end
-    end
-    
-    def inspect
-      "#<Entry 0x%d [%s] %s (%d children)>" % [__id__, flame_type, name, entries.length]
-    end
+        
   end
 
   class TOC
@@ -150,6 +94,8 @@ module OTOCS
   
   # The whole archive
   class Archive
+    include OTOCS::ModelMethods::ArchiveMethods
+    
     include HappyMapper
     include EntryKey
     
@@ -162,37 +108,6 @@ module OTOCS
     ihas_one :device, Device
     ihas_one :toc, TOC
     
-    def entries
-      toc.entries
-    end
-    
-    attr_accessor :path
-    attr_accessor :etag
-    alias_method :id, :etag
-    
-    def dir
-      File.dirname(path)
-    end
-    
-    # Given a path of clip IDs will drill down into the entries hierarchy and fetch the entry requested.
-    # Also assigns a backtrack object to the entry fetched so that you can get back to it
-    def fetch_uri(clip_path)
-      bt = Backtrack.new
-      bt.archive = self
-      bt.parents = []
-      
-      next_item = self
-      clip_path.split(/\//).each do | seg |
-        next_item = next_item[seg]
-        bt.parents << next_item unless next_item == self
-      end
-      next_item.backtrack = bt
-      next_item
-    end
-    
-    def to_s
-      "%s (%d sets)" % [name, entries.length, path]
-    end
     
   end
   
