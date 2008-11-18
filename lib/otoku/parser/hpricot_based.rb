@@ -29,7 +29,9 @@ module OTOCS
       :width,
       :depth,
       :image,
-      :entries
+      :entries,
+      :archive,
+      :index_in_parent
   end
   
   class Device
@@ -48,7 +50,7 @@ module OTOCS
       a.appstring = (hpricot / "/archive/appstring").text
       a.comment = (hpricot / "/archive/comment").text
       a.entries = (hpricot / "/archive/toc/entry").map do | entry_node |
-        entry_from_node(entry_node, a)
+        entry_from_node(entry_node, a, a)
       end
     
       a.device = Device.new do | dev |
@@ -60,20 +62,21 @@ module OTOCS
   end
   
   
-  def self.entry_from_node(entry_node, parent)
-    entry = Entry.new
-    entry.classid = entry_node["classid"]
-    entry.id = entry_node["id"]
-    entry.parent = parent
-    entry.name = (entry_node / "/name").text
-    entry.duration = (entry_node / "/duration").text.to_i
-    entry.height = (entry_node / "/height").text.to_i
-    entry.width = (entry_node / "/width").text.to_i
-    entry.depth = (entry_node / "/depth").text
-    entry.image = (entry_node / "/image1").text
-    entry.entries = (entry_node / "/entry").map{|e| entry_from_node(e, entry)}
-    
-    entry
+  def self.entry_from_node(entry_node, parent, archive)
+    Entry.new do | entry |
+      entry.archive = archive
+      entry.classid = entry_node["classid"]
+      entry.id = entry_node["id"]
+      entry.parent = parent
+      entry.name = (entry_node / "/name").text
+      entry.duration = (entry_node / "/duration").text.to_i
+      entry.height = (entry_node / "/height").text.to_i
+      entry.width = (entry_node / "/width").text.to_i
+      entry.depth = (entry_node / "/depth").text
+      entry.image = (entry_node / "/image1").text
+      entry.entries = (entry_node / "/entry").map{|e| entry_from_node(e, entry, archive)}
+      entry.entries.each_with_index { | e, i | e.index_in_parent = i }
+    end
   end
   
 end

@@ -58,7 +58,7 @@ module OTOCS
       end
 
       def soft_clip?
-        clip? && entries.any?
+        clip? && entries.size > 1
       end
 
       def subclip?
@@ -68,7 +68,11 @@ module OTOCS
       def has_icon?
         clip? || subclip?
       end
-
+      
+      def uri
+        subclip? ? [parent.id, index_in_parent].join('/') : id
+      end
+      
       def flame_type
         case true
           when backup_set?
@@ -78,7 +82,7 @@ module OTOCS
           when reel?
             'Reel'
           when soft_clip?
-            'Soft clip'
+            'Edit'
           when clip?
             'Clip'
           when subclip?
@@ -89,10 +93,12 @@ module OTOCS
       end
 
       def to_s
-        unless subclip?
+        if clip? && !subclip?
+          "%s (%s)" % [name, flame_type, entries.size]
+        elsif !subclip?
           "%s (%s) - %d items" % [name, flame_type, entries.size]
         else
-          "%s" % [name]
+          "%s" % [name, parent.name]
         end
       end
 

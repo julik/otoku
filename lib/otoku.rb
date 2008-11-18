@@ -5,8 +5,12 @@ $:.unshift File.dirname(__FILE__)
 require 'otoku/parser/parser'
 
 Camping.goes :Otoku
+Markaby::Builder.set(:indent, 2)
+Markaby::Builder.set(:output_xml_instruction, false)
 
 module Otoku
+  VERSION = "0.0.1"
+  
   module DataWrangler
     def get_archive_list
       OTOCS.cache_driver = OTOCS::MemoCache.new
@@ -30,10 +34,17 @@ module Otoku
       end
     end
     
-    class ShowEntry < R '/entry/(.+)/(.+)'
-      def get(archive_etag, entry_id)
+    class ShowEntry < R '/entry/([a-z\d]+)/([a-z\d_]+)', '/entry/([a-z\d]+)/([a-z\d_]+)/(\d+)'
+      def get(archive_etag, entry_id, subclip_idx = nil)
         @archive = get_archive(archive_etag)
         @item = @archive[entry_id]
+        
+        if subclip_idx && subclip_idx.to_i > @item.entries.length
+          raise "Overflow"
+        elsif subclip_idx 
+          @item = @item.entries[subclip_idx.to_i]
+        end
+        
         if @item.clip?
           render :clip_info
         else
@@ -57,6 +68,19 @@ module Otoku
   end
   
   module Views
+    def layout
+      yield and return if @bare
+      
+      html do
+      head do
+        title Otoku
+      end
+      body do
+        yield
+      end
+      end
+    end
+    
     def list_info
       cls = @item.flame_type rescue 'archive'
       ul(:class => cls) do
@@ -84,7 +108,8 @@ module Otoku
     end
     
     def _item_uri(item)
-      R(ShowEntry, @archive.etag, item.id)
+      args = [@archive.etag, item.uri.split(/\//)].flatten
+      R(ShowEntry, *args)
     end
     
     def _item_row(that)
