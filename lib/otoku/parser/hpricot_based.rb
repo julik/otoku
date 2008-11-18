@@ -24,6 +24,7 @@ module OTOCS
       :parent,
       :id,
       :name,
+      :description,
       :duration,
       :height,
       :width,
@@ -70,6 +71,7 @@ module OTOCS
       entry.parent = parent
       entry.name = (entry_node / "/name").text
       entry.duration = (entry_node / "/duration").text.to_i
+      entry.description = (entry_node / "/description").text
       entry.height = (entry_node / "/height").text.to_i
       entry.width = (entry_node / "/width").text.to_i
       entry.depth = (entry_node / "/depth").text

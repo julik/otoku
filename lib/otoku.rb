@@ -13,7 +13,7 @@ module Otoku
   
   module DataWrangler
     def get_archive_list
-      OTOCS.cache_driver = OTOCS::MemoCache.new
+      OTOCS.cache_driver = OTOCS::FileCache.new('/tmp')
       @archives ||= Dir.glob(File.dirname(__FILE__) + '/../test/samples/*.xml').map do | arch |
         OTOCS.read_archive_file(arch)
       end
@@ -82,7 +82,9 @@ module Otoku
     end
     
     def archive_info
-      h1 @archive 
+      h1 @archive
+      p @archive.device
+      p "Last touched on %s" % @archive.creation
       @archive.entries.each do | bs |
         _item_row(bs, false)
         bs.entries.each do | box |
@@ -92,6 +94,7 @@ module Otoku
     end
     
     def list_info
+      h1 @item
       cls = @item.flame_type rescue 'archive'
       ul(:class => cls) do
         @item.entries.each {|e| _item_row(e) }

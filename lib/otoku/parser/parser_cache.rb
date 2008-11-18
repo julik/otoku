@@ -1,6 +1,7 @@
 module OTOCS
   class BypassCache
     def cached(data)
+      STDERR.puts "No cache - things will be very SLOW"
       yield
     end
   end
@@ -9,7 +10,7 @@ module OTOCS
     attr_accessor :cache
     
     def initialize(dir = nil)
-      self.cache_dir = nil
+      self.cache_dir = dir
     end
     
     # Set the directory used to store the preparsed OTOC structures
@@ -29,8 +30,11 @@ module OTOCS
     end
     
     def cached(content)
-      return yield unless @cache
-
+      unless @cache
+        STDERR.puts "No cache dir set - things will be very SLOW"
+        return yield 
+      end
+      
       digest = Digest::MD5.hexdigest(content)
       path = digest.scan(/(.{2})/).join('/') + '.parsedarchive'
       cache_f = File.join(@cache, path)
@@ -39,7 +43,9 @@ module OTOCS
       rescue Errno::ENOENT
         parsed = yield
         FileUtils.mkdir_p(File.dirname(cache_f))
-        File.open(cache_f, 'w') { | to |  to << Marshal.dump(parsed) }
+        mar = Marshal.dump(parsed)
+        STDERR.puts "Marshaled #{mar.size} bytes"
+        File.open(cache_f, 'w') { | to |  to << mar }
         parsed
       end
     end

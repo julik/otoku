@@ -2,6 +2,14 @@ module OTOCS
   module ModelMethods
     module EntryKey
        def [](clip_key)
+         if clip_key.is_a?(String)
+           child_by_id(clip_key)
+         else
+           entries[clip_key]
+         end
+       end
+       
+       def child_by_id(clip_key)
          entries.each do | e |
            return e if e.id == clip_key
            match = e[clip_key]
@@ -9,7 +17,7 @@ module OTOCS
          end
          nil
        end
-     end
+    end
      
     module ArchiveMethods
 
@@ -35,7 +43,7 @@ module OTOCS
     
     module DeviceMethods
       def to_s
-        [type, name, starts].join(' - ')
+        [type, name, starts].reject{|e| e.nil? || e.empty? }.join(' - ')
       end
     end
     
@@ -76,7 +84,7 @@ module OTOCS
       def flame_type
         case true
           when backup_set?
-            'Backup Set'
+            'BackupSet'
           when library?
             'Library'
           when reel?
@@ -91,7 +99,7 @@ module OTOCS
             'Unknown'
         end
       end
-
+      
       def to_s
         if clip? && !subclip?
           "%s (%s)" % [name, flame_type, entries.size]
