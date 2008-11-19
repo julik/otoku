@@ -73,6 +73,10 @@ module Data
       def subclip?
         classid == 'E'
       end
+      
+      def desktop?
+        classid == 'D'
+      end
 
       def has_icon?
         clip? || subclip?
@@ -84,6 +88,8 @@ module Data
       
       def flame_type
         case true
+          when desktop?
+            'Desktop'
           when backup_set?
             'BackupSet'
           when library?

@@ -165,13 +165,20 @@ module Otoku
       R(ShowEntry, *args)
     end
     
+    def _item_identifier(item)
+      [@archive.etag, item.uri.split(/\//)].flatten
+    end
+    
     def _item_row(that, with_link = true)
       if that.clip?
         # skip for now
         _clip_proxy(that)
       else
         li :class => that.flame_type do
-          a that, :class => 'hd', :href=>_item_uri(that)
+          a  :id => _item_identifier(that), :class => 'hd', :href=>_item_uri(that) do
+            self << that
+            b.disc ' '
+          end
         end
       end
     end
@@ -181,10 +188,10 @@ module Otoku
     end
     
     def _clip_proxy(that)
-      li.clip do
+      li.clip :id => _item_identifier(that) do
         img :src => R(Proxy, that.image1)
         i.sc ' '
-        b that
+        b [that.name, that.soft_clip? ? ' []' : ''].join
       end
     end
   end

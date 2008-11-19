@@ -23,19 +23,26 @@ ul.liblist li {
 }
 
 li.Clip {
-  width: 190px;
-  height: 160px;
+  width: 12em;
+  height: 9.9em;
   border: 3px solid rgb(165,165,165);
   margin: 6px;
   float: left;
   padding: 0;
+  position: relative;
+  background: rgb(65,65,65);
+}
+
+li.Clip.sel {
+  background-color: rgb(231,198,49);
 }
 
 li.Clip img {
- width: 190px;
- height: 130px;
+ width: 12em;
+ height: 8em;
  display: block;
  margin-bottom: 0px;
+
 }
 
 li.Clip i.sc, li.Clip i.sce {
@@ -55,18 +62,15 @@ li.Clip i.sce {
 li.Clip b {
     display: block;
     padding: 4px;
-    line-height: 120%;
-    background: rgb(65,65,65);
-    height: 16px;
+    line-height: 100%;
     font-weight: normal;
-    border: 1px solid rgb(0,0,0);
     overflow: hidden;
+    white-space: nowrap; 
+    bottom: 0;
 }
 
 li.Clip.sel b {
-    background-color: rgb(231,198,49);
     color: black;
-    overflow: hidden;
 }
 
 li.Reel, li.Library, li.desktop, li.BackupSet {
@@ -90,6 +94,18 @@ li.BackupSet a.hd {
    padding-left: 50px;
    line-height: 140%;
    color: white;
+   position: relative;
+}
+
+a.hd b.disc {
+  display: block;
+  position: absolute;
+  left:0;
+  top:0;
+  height: 32px;
+  width: 50px;
+  background: none;
+  
 }
 
 li.Reel a.hd.open,

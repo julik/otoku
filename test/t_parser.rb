@@ -87,7 +87,9 @@ class ArchiveTest < Test::Unit::TestCase
     
     assert_equal @archive, @node.archive
     assert_equal @archive, @node.parent
+
     assert @node.backup_set?
+    assert !@node.desktop?
     assert !@node.library?
     assert !@node.reel?
     assert !@node.clip?
@@ -106,6 +108,7 @@ class ArchiveTest < Test::Unit::TestCase
     
     assert_equal "Vodafone_Reedit", @node.name
     assert @node.library?
+    assert !@node.desktop?
     assert !@node.backup_set?
     assert !@node.clip?
     assert !@node.subclip?
@@ -124,12 +127,27 @@ class ArchiveTest < Test::Unit::TestCase
     assert_equal @archive.entries[0][0], @node.parent
     
     assert @node.reel?
+    assert !@node.desktop?
     assert !@node.library?
     assert !@node.backup_set?
     assert !@node.clip?
     assert !@node.subclip?
     assert_equal "Artwork_24_04_08 (Reel) - empty", @node.to_s
     assert @node.entries.empty?
+  end
+  
+  def test_desk_entry
+    @node = @archive['a8c01bab_48316b7f_000231dd']
+    assert_not_nil @node
+    assert_kind_of Otoku::Data::Entry, @node
+    assert_respond_to @node, :desktop?
+    
+    assert @node.desktop?
+    assert !@node.clip?
+    assert !@node.subclip?
+    assert !@node.reel?
+    assert !@node.library?
+    assert !@node.backup_set?
   end
   
   def test_fetch_key
