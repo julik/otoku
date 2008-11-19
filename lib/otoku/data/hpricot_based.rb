@@ -34,6 +34,7 @@ module Otoku::Data
       :image2,
       :entries,
       :archive,
+      :length,
       :index_in_parent
   end
   
@@ -64,7 +65,6 @@ module Otoku::Data
     end
   end
   
-  
   def self.entry_from_node(entry_node, parent, archive)
     Entry.new do | entry |
       entry.archive = archive
@@ -78,6 +78,7 @@ module Otoku::Data
       entry.height = (entry_node / "/height").text.to_i
       entry.width = (entry_node / "/width").text.to_i
       entry.depth = (entry_node / "/depth").text
+      entry.length = (entry_node / "/duration").text.to_i
       entry.image1 = (entry_node / "/image1").text
       entry.image2 = (entry_node / "/image2").text
       entry.entries = (entry_node / "/entry").map{|e| entry_from_node(e, entry, archive)}
