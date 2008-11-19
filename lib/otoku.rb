@@ -2,6 +2,9 @@ require 'rubygems'
 require 'camping'
 
 $:.unshift File.dirname(__FILE__)
+require 'otoku/data/parser_cache'
+require 'otoku/data/model_methods'
+require 'otoku/data/hpricot_based'
 require 'otoku/data/parser'
 
 Camping.goes :Otoku
@@ -45,7 +48,10 @@ module Otoku
           @item = @item.entries[subclip_idx.to_i]
         end
         
-        if @item.clip?
+        if @input.bare
+          @bare = true
+          render :list_info_bare
+        elsif @item.clip?
           render :clip_info
         else
           render :list_info
@@ -65,19 +71,43 @@ module Otoku
       def get(path)
       end
     end
+    
+    class Asset < R('/ui/([\w-]+).(css|png|jpg|gif|js)')
+      def get(file, ext)
+        File.read(File.dirname(__FILE__) + ('/../ui/%s.%s' % [file,ext]))
+      end
+    end
+    
+    class Proxy < R('/proxy/(.+)')
+      def get(fname)
+        @status = 404
+        return #TODO
+      end
+      
+      def head(fname)
+        @status = 304
+        return
+      end
+        
+    end
   end
   
   module Views
     def layout
-      yield and return if @bare
-      
-      html do
-      head do
-        title Otoku
-      end
-      body do
+      if @bare
         yield
-      end
+      else
+        html do
+        head do
+          title Otoku
+          link :rel=>:stylesheet, :href => R(Asset, "otoku", "css")
+          script :src => "http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"
+          script :src => R(Asset, "libview", "js")
+        end
+        body do
+          yield
+        end
+        end
       end
     end
     
@@ -85,20 +115,30 @@ module Otoku
       h1 @archive
       p @archive.device
       p "Last touched on %s" % @archive.creation
-      @archive.entries.each do | bs |
-        _item_row(bs, false)
-        bs.entries.each do | box |
-          _item_row(box)
+      ul.liblist do
+        @archive.entries.each do | bs |
+          _item_row(bs, false)
+          bs.entries.each do | box |
+            _item_row(box)
+          end
         end
       end
     end
     
     def list_info
       h1 @item
-      cls = @item.flame_type rescue 'archive'
-      ul(:class => cls) do
-        @item.entries.each {|e| _item_row(e) }
+      ul.liblist do
+        list_info_bare
       end
+    end
+    
+    def list_info_bare
+      # Show clips last
+      folders = @item.entries.select{|a| !a.clip? }
+      clips = @item.entries.select{|a| a.clip? }
+
+      folders.entries.each { |e|  _item_row(e) }
+      clips.each {|c| _item_row(c) }
     end
     
     def clip_info
@@ -126,8 +166,26 @@ module Otoku
     end
     
     def _item_row(that, with_link = true)
-      li { with_link ? (a that, :href => _item_uri(that)) : that }
+      if that.clip?
+        # skip for now
+        _clip_proxy(that)
+      else
+        li :class => that.flame_type do
+          a that, :class => 'hd', :href=>_item_uri(that)
+        end
+      end
     end
     
+    def _content_of(that)
+      ul { that.entries.each{|e| _item_row(e) }}
+    end
+    
+    def _clip_proxy(that)
+      li.clip do
+        img :src => R(Proxy, that.image1)
+        i.sc ' '
+        b that
+      end
+    end
   end
 end

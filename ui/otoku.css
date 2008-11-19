@@ -22,7 +22,7 @@ ul.liblist li {
   margin-left: 0px;
 }
 
-li.clip {
+li.Clip {
   width: 190px;
   height: 160px;
   border: 3px solid rgb(165,165,165);
@@ -31,14 +31,14 @@ li.clip {
   padding: 0;
 }
 
-li.clip img {
+li.Clip img {
  width: 190px;
  height: 130px;
  display: block;
  margin-bottom: 0px;
 }
 
-li.clip i.sc, li.clip i.sce {
+li.Clip i.sc, li.Clip i.sce {
     display: block;
     padding: 0;
     margin: 0;
@@ -48,11 +48,11 @@ li.clip i.sc, li.clip i.sce {
     border-bottom: 1px solid rgb(65,65,65);
 }
 
-li.clip i.sce {
+li.Clip i.sce {
     background: rgb(231,198,49);
 }
 
-li.clip b {
+li.Clip b {
     display: block;
     padding: 4px;
     line-height: 120%;
@@ -60,47 +60,56 @@ li.clip b {
     height: 16px;
     font-weight: normal;
     border: 1px solid rgb(0,0,0);
+    overflow: hidden;
 }
 
-li.clip.sel b {
+li.Clip.sel b {
     background-color: rgb(231,198,49);
     color: black;
+    overflow: hidden;
 }
 
-li.reel, li.library, li.desktop, li.backupSet {
+li.Reel, li.Library, li.desktop, li.BackupSet {
     display: block;
     list-style: none;
     padding-left: 12px;
-    background: red;
+    background: rgb(45,45,45);
     overflow: auto;
     margin: 0;
     margin-top: -1px;
 }
 
-li.reel a.hd,
-li.library a.hd,
-li.backupSet a.hd {
+li.Reel a.hd,
+li.Library a.hd,
+li.BackupSet a.hd {
    display: block;
    border: 1px solid black;
    margin-left: -12px;
-   background: url("disclosure-common-closed.png") no-repeat rgb(65,65,65);
-   padding: 2px;
+   background: url("disclosure-common-closed.png") 0 50% no-repeat rgb(65,65,65);
+   padding: 4px;
    padding-left: 50px;
    line-height: 140%;
-   height: 22px;
    color: white;
 }
 
-li.reel.open a.hd,
-li.library.open a.hd,
-li.backupSet.open a.hd {
+li.Reel a.hd.open,
+li.Library a.hd.open,
+li.BackupSet a.hd.open {
   background-image: url('disclosure-common-open.png');
 }
 
-li.reel a.hd {
-  background-image: url('disclosure-reel-closed.png');
+li.Reel a.hd {
+  background-image: url('disclosure-Reel-closed.png');
 }
 
-li.reel.open a.hd {
-  background-image: url('disclosure-reel-open.png');
+li.Reel a.hd.open {
+  background-image: url('disclosure-Reel-open.png');
+}
+
+li.Desktop a.hd {
+  background-image: url("disclosure-desk.png");
+}
+
+li.Desktop a.hd.open {
+  background-image: url("disclosure-desk-open.png");
 }

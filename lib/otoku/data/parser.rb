@@ -1,8 +1,5 @@
 require 'digest/md5'
 require 'fileutils'
-require File.dirname(__FILE__) + '/parser_cache'
-require File.dirname(__FILE__) + '/model_methods'
-require File.dirname(__FILE__) + '/hpricot_based'
 
 module Otoku
   module Data
