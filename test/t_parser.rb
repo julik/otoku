@@ -103,21 +103,6 @@ class ArchiveTest < Test::Unit::TestCase
 
     assert_equal @archive, @node.archive
     assert_equal @archive.entries[0], @node.parent
-    assert @node.library?
-    assert !@node.backup_set?
-    assert !@node.clip?
-    assert !@node.subclip?
-    assert_equal "Vodafone_Reedit (Library) - 13 items", @node.to_s
-  end
-  
-  def test_library_entry
-    @node = @archive.entries[0][0]
-    assert_not_nil @node
-    assert_kind_of Otoku::Data::Entry, @node
-    assert_respond_to @node, :library?
-
-    assert_equal @archive, @node.archive
-    assert_equal @archive.entries[0], @node.parent
     
     assert_equal "Vodafone_Reedit", @node.name
     assert @node.library?
@@ -125,6 +110,7 @@ class ArchiveTest < Test::Unit::TestCase
     assert !@node.clip?
     assert !@node.subclip?
     assert_equal "Vodafone_Reedit (Library) - 13 items", @node.to_s
+    assert_equal 13, @node.entries.length
   end
 
   def test_reel_entry
@@ -143,13 +129,16 @@ class ArchiveTest < Test::Unit::TestCase
     assert !@node.clip?
     assert !@node.subclip?
     assert_equal "Artwork_24_04_08 (Reel) - empty", @node.to_s
+    assert @node.entries.empty?
   end
   
   def test_fetch_key
-    item = @archive['a8c01bab_4831691c_00086eed']
+    key = 'a8c01bab_4831691c_00086eed'
+    item = @archive[key]
     assert_not_nil item
     assert_kind_of Otoku::Data::Entry, item
     assert item.backup_set?
+    assert_equal item.id, 'a8c01bab_4831691c_00086eed'
   end
   
   def test_fetch_with_uri
@@ -174,5 +163,16 @@ class ArchiveTest < Test::Unit::TestCase
     assert_equal uri, item.id
     assert_equal "boomInzet", item.name
     assert item.subclip?
+  end
+  
+  def test_image1_image2_on_entry
+    uri = 'a8c01bab_48108fe3_0004ad1e'
+    @node = @archive[uri]
+    
+    assert_not_nil @node
+    assert_kind_of Otoku::Data::Entry, @node
+    assert_string_attribute :image1, 'Flame_Archive_Deel215_08Jul15_1036/a8c01bab_48108fe3_0004ad1e_1.jpg'
+    assert_string_attribute :image2, 'Flame_Archive_Deel215_08Jul15_1036/a8c01bab_48108fe3_0004ad1e_2.jpg'
+    assert_integer_attribute :length, 40
   end
 end

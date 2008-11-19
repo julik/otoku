@@ -2,10 +2,10 @@ Manifest.txt
 README.txt
 Rakefile
 lib/otoku.rb
-lib/otoku/parser/hpricot_based.rb
-lib/otoku/parser/model_methods.rb
-lib/otoku/parser/parser.rb
-lib/otoku/parser/parser_cache.rb
+lib/otoku/data/hpricot_based.rb
+lib/otoku/data/model_methods.rb
+lib/otoku/data/parser.rb
+lib/otoku/data/parser_cache.rb
 test/helper.rb
 test/samples/.DS_Store
 test/samples/Bavaria_HighRes-Flame2008_08Oct28_1107.atoc

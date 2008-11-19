@@ -2,7 +2,7 @@ require 'rubygems'
 require 'camping'
 
 $:.unshift File.dirname(__FILE__)
-require 'otoku/parser/parser'
+require 'otoku/data/parser'
 
 Camping.goes :Otoku
 Markaby::Builder.set(:indent, 2)

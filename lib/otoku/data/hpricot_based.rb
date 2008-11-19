@@ -26,10 +26,12 @@ module Otoku::Data
       :name,
       :description,
       :duration,
+      :creation,
       :height,
       :width,
       :depth,
-      :image,
+      :image1,
+      :image2,
       :entries,
       :archive,
       :index_in_parent
@@ -72,10 +74,12 @@ module Otoku::Data
       entry.name = (entry_node / "/name").text
       entry.duration = (entry_node / "/duration").text.to_i
       entry.description = (entry_node / "/description").text
+      entry.creation = (entry_node / "/creation").text
       entry.height = (entry_node / "/height").text.to_i
       entry.width = (entry_node / "/width").text.to_i
       entry.depth = (entry_node / "/depth").text
-      entry.image = (entry_node / "/image1").text
+      entry.image1 = (entry_node / "/image1").text
+      entry.image2 = (entry_node / "/image2").text
       entry.entries = (entry_node / "/entry").map{|e| entry_from_node(e, entry, archive)}
       entry.entries.each_with_index { | e, i | e.index_in_parent = i }
     end

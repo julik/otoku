@@ -1,4 +1,5 @@
 $:.reject! { |e| e.include? 'TextMate' }
+
 require 'rubygems'
 require 'hoe'
 require File.dirname(__FILE__) + '/lib/otoku'

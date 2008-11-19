@@ -41,7 +41,7 @@ module Data
       cache_f = File.join(@cache, path)
       begin
         Marshal.load(File.read(cache_f))
-      rescue Errno::ENOENT
+      rescue Errno::ENOENT, ArgumentError # improper parse
         parsed = yield
         FileUtils.mkdir_p(File.dirname(cache_f))
         mar = Marshal.dump(parsed)
