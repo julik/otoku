@@ -112,6 +112,8 @@ module Otoku
     end
     
     def archive_info
+      div.stuffSelected!( :style => 'display: none') { "You have n objects selected" }
+
       h1 @archive
       p @archive.device
       p "Last touched on %s" % @archive.creation
@@ -126,6 +128,8 @@ module Otoku
     end
     
     def list_info
+      div.stuffSelected!( :style => 'display: none') { "You have n objects selected" }
+
       h1 @item
       ul.liblist do
         list_info_bare
@@ -175,7 +179,9 @@ module Otoku
         _clip_proxy(that)
       else
         li :class => that.flame_type do
-          a  :id => _item_identifier(that), :class => 'hd', :href=>_item_uri(that) do
+          cls = 'hd'
+          cls << ' empty' if that.entries.empty?
+          a  :id => _item_identifier(that), :class => cls, :href=>_item_uri(that) do
             self << that
             b.disc ' '
           end
@@ -188,7 +194,7 @@ module Otoku
     end
     
     def _clip_proxy(that)
-      li.clip :id => _item_identifier(that) do
+      li.Clip :id => _item_identifier(that) do
         img :src => R(Proxy, that.image1)
         i.sc ' '
         b [that.name, that.soft_clip? ? ' []' : ''].join

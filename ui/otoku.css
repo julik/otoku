@@ -37,6 +37,7 @@ li.Clip.sel {
   background-color: rgb(231,198,49);
 }
 
+
 li.Clip img {
  width: 12em;
  height: 8em;
@@ -69,8 +70,12 @@ li.Clip b {
     bottom: 0;
 }
 
-li.Clip.sel b {
-    color: black;
+li.Clip.sel,
+a.hd.sel,
+li.sel a.hd,
+li.sel li.Clip {
+  background-color: red !important;
+  color: black;
 }
 
 li.Reel, li.Library, li.desktop, li.BackupSet {
@@ -104,8 +109,7 @@ a.hd b.disc {
   top:0;
   height: 32px;
   width: 50px;
-  background: none;
-  
+  cursor: hand;
 }
 
 li.Reel a.hd.open,
@@ -115,11 +119,11 @@ li.BackupSet a.hd.open {
 }
 
 li.Reel a.hd {
-  background-image: url('disclosure-Reel-closed.png');
+  background-image: url('disclosure-reel-closed.png');
 }
 
 li.Reel a.hd.open {
-  background-image: url('disclosure-Reel-open.png');
+  background-image: url('disclosure-reel-open.png');
 }
 
 li.Desktop a.hd {
@@ -128,4 +132,8 @@ li.Desktop a.hd {
 
 li.Desktop a.hd.open {
   background-image: url("disclosure-desk-open.png");
+}
+
+li a.hd.empty {
+  background-position: top left;
 }
