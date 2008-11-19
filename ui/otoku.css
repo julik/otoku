@@ -1,0 +1,106 @@
+body {
+    background: rgb(45,45,45);
+    color: white;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+div { padding: 0; margin: 0; }
+
+#wrap {
+  margin: 0 2em;
+}
+
+ul.liblist {
+  padding: 0;
+}
+
+ul.liblist ul {
+  padding-left: 25px;
+}
+ul.liblist li {
+  list-style: none;
+  margin-left: 0px;
+}
+
+li.clip {
+  width: 190px;
+  height: 160px;
+  border: 3px solid rgb(165,165,165);
+  margin: 6px;
+  float: left;
+  padding: 0;
+}
+
+li.clip img {
+ width: 190px;
+ height: 130px;
+ display: block;
+ margin-bottom: 0px;
+}
+
+li.clip i.sc, li.clip i.sce {
+    display: block;
+    padding: 0;
+    margin: 0;
+    background: rgb(132,132,132);
+    height: 3px;
+    border-top: 1px solid rgb(65,65,65);
+    border-bottom: 1px solid rgb(65,65,65);
+}
+
+li.clip i.sce {
+    background: rgb(231,198,49);
+}
+
+li.clip b {
+    display: block;
+    padding: 4px;
+    line-height: 120%;
+    background: rgb(65,65,65);
+    height: 16px;
+    font-weight: normal;
+    border: 1px solid rgb(0,0,0);
+}
+
+li.clip.sel b {
+    background-color: rgb(231,198,49);
+    color: black;
+}
+
+li.reel, li.library, li.desktop, li.backupSet {
+    display: block;
+    list-style: none;
+    padding-left: 12px;
+    background: red;
+    overflow: auto;
+    margin: 0;
+    margin-top: -1px;
+}
+
+li.reel a.hd,
+li.library a.hd,
+li.backupSet a.hd {
+   display: block;
+   border: 1px solid black;
+   margin-left: -12px;
+   background: url("disclosure-common-closed.png") no-repeat rgb(65,65,65);
+   padding: 2px;
+   padding-left: 50px;
+   line-height: 140%;
+   height: 22px;
+   color: white;
+}
+
+li.reel.open a.hd,
+li.library.open a.hd,
+li.backupSet.open a.hd {
+  background-image: url('disclosure-common-open.png');
+}
+
+li.reel a.hd {
+  background-image: url('disclosure-reel-closed.png');
+}
+
+li.reel.open a.hd {
+  background-image: url('disclosure-reel-open.png');
+}
