@@ -138,11 +138,11 @@ module Otoku
     
     def list_info_bare
       # Show clips last
-      folders = @item.entries.select{|a| !a.clip? }
-      clips = @item.entries.select{|a| a.clip? }
+      clips, folders = @item.entries.partition{|a| a.clip? }
 
       folders.entries.each { |e|  _item_row(e) }
       clips.each {|c| _item_row(c) }
+      hr :class => 'clr'
     end
     
     def clip_info

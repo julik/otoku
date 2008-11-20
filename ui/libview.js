@@ -1,8 +1,6 @@
 function attachLinkCallbacks() {
-  $$("b.disc").each(function(disclosureButn) {
-    var link = disclosureButn.parentNode;
-    
-    disclosureButn.onclick = function(e) {
+  $$("a.hd").each(function(link) {
+    link.onclick = function(e) {
       // If the list is already loaded
       if (link.parentNode.getElementsByTagName("ul").length > 0) {
         if ($(link).classNames() == 'hd open') {
@@ -24,20 +22,14 @@ function attachLinkCallbacks() {
           }
         });
       }
+      link.focus();
       Event.stop(e);
     }
     
-    link.onclick = function(evt) {
-//      window.ObjectSelections.handleNode(link, evt.shiftKey);
-      Event.stop(evt);
-    }
     
-    link.ondblclick = function(evt) {
-      disclosureButn.onclick(evt);
-      Event.stop(evt);
-    }
+  link.ondblclick = link.onclick;
     
-    $$("li.Clip").each(function(clipNode) {
+  $$("li.Clip").each(function(clipNode) {
       clipNode.onclick = function(evt) {
 //        window.ObjectSelections.handleNode(clipNode, evt.shiftKey);
         Event.stop(evt);

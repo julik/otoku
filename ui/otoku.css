@@ -83,14 +83,20 @@ li.Reel, li.Library, li.desktop, li.BackupSet {
     list-style: none;
     padding-left: 12px;
     background: rgb(45,45,45);
-    overflow: auto;
     margin: 0;
     margin-top: -1px;
 }
 
-li.Reel a.hd,
-li.Library a.hd,
-li.BackupSet a.hd {
+.clr {
+  clear: both;
+  visibility: hidden;
+  margin: 0; padding: 0;
+  border: none;
+  height: 0;
+}
+
+/* Library reel and desk headers */
+a.hd {
    display: block;
    border: 1px solid black;
    margin-left: -12px;
@@ -99,23 +105,27 @@ li.BackupSet a.hd {
    padding-left: 50px;
    line-height: 140%;
    color: white;
-   position: relative;
+   text-decoration: none;
 }
 
-a.hd b.disc {
-  display: block;
-  position: absolute;
-  left:0;
-  top:0;
-  height: 32px;
-  width: 50px;
-  cursor: hand;
+a.hd:link,
+a.hd:hover,
+a.hd:active
+a.hd:visited {
+  outline: none;
 }
 
-li.Reel a.hd.open,
 li.Library a.hd.open,
 li.BackupSet a.hd.open {
   background-image: url('disclosure-common-open.png');
+}
+
+li.Desktop a.hd {
+  background-image: url("disclosure-desk-closed.png");
+}
+
+li.Desktop a.hd.open {
+  background-image: url("disclosure-desk-open.png");
 }
 
 li.Reel a.hd {
@@ -124,14 +134,6 @@ li.Reel a.hd {
 
 li.Reel a.hd.open {
   background-image: url('disclosure-reel-open.png');
-}
-
-li.Desktop a.hd {
-  background-image: url("disclosure-desk.png");
-}
-
-li.Desktop a.hd.open {
-  background-image: url("disclosure-desk-open.png");
 }
 
 li a.hd.empty {
