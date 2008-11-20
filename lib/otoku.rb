@@ -50,12 +50,29 @@ module Otoku
         
         if @input.bare
           @bare = true
+          @inc = !!@input.inc
+          STDERR.puts @input.inspect
+          expanded_items << _item_identifier(@item)
+          expanded_items.uniq!
           render :list_info_bare
         elsif @item.clip?
           render :clip_info
         else
           render :list_info
         end
+      end
+    end
+    
+    class CloseBlock < R '/close/(.+)'
+      def post(id)
+        (@input.inclusive + [id] || [id]).each {|element | expanded_items.delete(element) }
+        return;
+      end
+    end
+    
+    class OpenBlock < R '/open/(.+)'
+      def post(id)
+        expanded_items << id
       end
     end
     
@@ -92,6 +109,23 @@ module Otoku
     end
   end
   
+  module Helpers
+    def expanded_items
+      $expanded_items ||= []
+      $expanded_items
+    end
+
+    def _item_uri(item)
+      args = [@archive.etag, item.uri.split(/\//)].flatten
+      R(::Otoku::Controllers::ShowEntry, *args)
+    end
+    
+    def _item_identifier(item)
+      [@archive.etag, item.uri.split(/\//)].flatten.join('-')
+    end
+    
+  end
+  
   module Views
     def layout
       if @bare
@@ -115,32 +149,19 @@ module Otoku
       h1 @archive
       p @archive.device
       p "Last touched on %s" % @archive.creation
-      ul.liblist do
-        @archive.entries.each do | bs |
-          _item_row(bs, false)
-          bs.entries.each do | box |
-            _item_row(box)
-          end
-        end
-      end
+      
+      _content_of_and_wrapper(@archive, :class => 'liblist')
     end
     
     def list_info
       div.stuffSelected!( :style => 'display: none') { "You have n objects selected" }
 
       h1 @item
-      ul.liblist do
-        list_info_bare
-      end
+      ul.liblist { _content_of(@item) }
     end
     
     def list_info_bare
-      # Show clips last
-      clips, folders = @item.entries.partition{|a| a.clip? }
-
-      folders.entries.each { |e|  _item_row(e) }
-      clips.each {|c| _item_row(c) }
-      hr :class => 'clr'
+      _content_of(@item)
     end
     
     def clip_info
@@ -162,15 +183,6 @@ module Otoku
       end
     end
     
-    def _item_uri(item)
-      args = [@archive.etag, item.uri.split(/\//)].flatten
-      R(ShowEntry, *args)
-    end
-    
-    def _item_identifier(item)
-      [@archive.etag, item.uri.split(/\//)].flatten
-    end
-    
     def _item_row(that, with_link = true)
       if that.clip?
         # skip for now
@@ -179,20 +191,37 @@ module Otoku
         li :class => that.flame_type do
           cls = 'hd'
           cls << ' empty' if that.entries.empty?
+          cls << ' open' if expanded_items.include?(_item_identifier(that)) || @inc
+          
           a  :id => _item_identifier(that), :class => cls, :href=>_item_uri(that) do
             self << that
             b.disc ' '
+          end
+          self << if @inc
+            expanded_items << _item_identifier(that)
+            _content_of_and_wrapper(that)
+          elsif expanded_items.include?(_item_identifier(that))
+            _content_of_and_wrapper(that)
           end
         end
       end
     end
     
     def _content_of(that)
-      ul { that.entries.each{|e| _item_row(e) }}
+      clips, folders = that.entries.partition{|a| a.clip? }
+      folders.entries.each { |e|  _item_row(e) }
+      clips.each {|c| _item_row(c) }
+      hr :class => 'clr' 
+    end
+    
+    def _content_of_and_wrapper(that, extra_list_attrs = {})
+      ul(extra_list_attrs) { _content_of(that) }
     end
     
     def _clip_proxy(that)
-      li.Clip :id => _item_identifier(that) do
+      attrs = {}
+      attrs.merge! :id => _item_identifier(that) unless that.subclip?
+      li.Clip(attrs) do
         img :src => R(Proxy, that.image1)
         i.sc ' '
         b [that.name, that.soft_clip? ? ' []' : ''].join
