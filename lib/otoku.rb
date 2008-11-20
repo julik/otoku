@@ -104,9 +104,7 @@ module Otoku
           script :src => "http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"
           script :src => R(Asset, "libview", "js")
         end
-        body do
-          yield
-        end
+        body { yield }
         end
       end
     end
