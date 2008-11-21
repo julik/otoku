@@ -11,6 +11,15 @@ Camping.goes :Otoku
 Markaby::Builder.set(:indent, 2)
 Markaby::Builder.set(:output_xml_instruction, false)
 
+class Builder::XmlMarkup
+  def _start_tag(sym, attrs, end_too=false)
+    @target << "<#{sym}"
+    _insert_attributes(attrs)
+    @target << " /" if end_too #HIER!!
+    @target << ">"
+  end
+end
+
 module Otoku
   VERSION = "0.0.1"
   
@@ -135,6 +144,10 @@ module Otoku
         head do
           title Otoku
           link :rel=>:stylesheet, :href => R(Asset, "otoku", "css")
+          link :media=>"handheld, screen and (max-device-width: 480px)", 
+            :href=>R(Asset, "otoku-iphone", "css"),:type=>"text/css", :rel=> :stylesheet
+
+          meta :name => :viewport, :content =>"width=320"
           script :src => "http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"
           script :src => R(Asset, "libview", "js")
         end
@@ -192,10 +205,10 @@ module Otoku
           cls = 'hd'
           cls << ' empty' if that.entries.empty?
           cls << ' open' if expanded_items.include?(_item_identifier(that)) || @inc
-          # _item_uri(that)
+          
           a  :id => _item_identifier(that), :class => cls, :href=>_item_uri(that) do
-            self << that
             b.disc ' '
+            self << that
           end
           self << if @inc
             expanded_items << _item_identifier(that)

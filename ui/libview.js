@@ -1,9 +1,28 @@
 // List manager - just a function store
 ListM = {
   handleClick : function(evt) {
-    var link = Event.element(evt);
     Event.stop(evt);
+    // go up the event chain until we find the link
+    var elem = Event.element(evt);
+    var link = (elem.nodeName == 'A' ? elem : elem.parentNode);
+
+    ListM.handleExpandCollapse(link, evt);
+    ListM.handlePostClick(link, evt);
+    return false;
+  },
+  
+  handlePostClick : function(link) {
     
+  },
+  
+  handleDoubleClick : function(evt) {
+    Event.stop(evt);
+    var link = Event.element(evt);
+    ListM.handleExpandCollapse(link, evt);
+    return false;
+  },
+  
+  handleExpandCollapse : function (link, evt) {
     // Treat shift+click as Focus
     if(evt.shiftKey) {
       return true;
@@ -24,20 +43,25 @@ ListM = {
         }
       }
     }
-    return false;
   },
   
   linkPreloaded : function(link) {
     return (link.parentNode.getElementsByTagName("ul").length > 0);
   },
 
-  attachEventTo : function(link) {
-    Event.observe(link, 'click', ListM.handleClick.bindAsEventListener(this));
+  attachEventsTo : function(link) {
+    // Observe single click on the expansion triangle only
+    Event.observe(link, 'click', function(e){ Event.stop(e); });
+    Event.observe(link.getElementsByTagName("b")[0], 'click', this.handleClick.bindAsEventListener(this));
+    
+    // Observe touch and double clock on the whole link
+    Event.observe(link, 'touchend', this.handleClick.bindAsEventListener(this));
+    Event.observe(link, 'dblclick', this.handleDoubleClick.bindAsEventListener(this));
   },
     
   attachEvents : function() {
     $$("a.hd").each(function(link) {
-      ListM.attachEventTo(link);
+      ListM.attachEventsTo(link);
     });
   },
   
@@ -90,7 +114,7 @@ ListM = {
         
         list.innerHTML = transport.responseText;
         $A(list.getElementsByTagName("a")).each(function(sub) {
-          ListM.attachEventTo(sub);
+          ListM.attachEventsTo(sub);
           if(inclusive)  $(sub).addClassName("all");
         });
         ListM.expand(link, inclusive);

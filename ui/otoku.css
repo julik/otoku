@@ -108,6 +108,15 @@ a.hd {
    text-decoration: none;
 }
 
+a.hd b.disc {
+  display: block;
+  background: transparent;
+  width: 35px;
+  height: 25px;
+  float: left;
+  margin-left: -50px;
+}
+
 ul.liblist a,
 ul.liblist a:hover,
 ul.liblist a:active,
