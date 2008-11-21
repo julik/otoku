@@ -13,7 +13,7 @@ function attachLinkCallbacks() {
               Element.hide(sibAndChild.parentNode.getElementsByTagName("ul")[0]);
               return sibAndChild.id;
             });
-            new Ajax.Request('/close/' + link.id, { method:'post', parameters : {inclusive : closes}});
+            new Ajax.Request('/close/' + link.id, { method:'post', parameters : {inc : closes}});
           } else {
             new Ajax.Request('/close/' + link.id, { method:'post'});
           }
@@ -27,7 +27,6 @@ function attachLinkCallbacks() {
         if (e.altKey) {
           params.inc = 1;
         }
-        
         new Ajax.Request(link.href, { method:'get', parameters: params,
           onSuccess: function(transport){
             var li = link.parentNode;

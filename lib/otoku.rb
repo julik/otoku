@@ -65,7 +65,11 @@ module Otoku
     
     class CloseBlock < R '/close/(.+)'
       def post(id)
-        (@input.inclusive + [id] || [id]).each {|element | expanded_items.delete(element) }
+        elems = [id]
+        puts @input.inspect
+        elems += @input.inc if @input.inc
+        elems.each {|element | puts "Klozing #{eleent}";
+        expanded_items.delete(element) }
         return;
       end
     end
