@@ -2,6 +2,7 @@
 ListM = {
   handleClick : function(evt) {
     var link = Event.element(evt);
+    Event.stop(evt);
     
     // Treat shift+click as Focus
     if(evt.shiftKey) {
@@ -24,7 +25,6 @@ ListM = {
         }
       }
     }
-    Event.stop(evt);
     return false;
   },
   
