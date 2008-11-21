@@ -47,17 +47,17 @@ module Otoku
         elsif subclip_idx 
           @item = @item.entries[subclip_idx.to_i]
         end
-        
+
         if @input.bare
           @bare = true
           @inc = !!@input.inc
-          STDERR.puts @input.inspect
+          
           expanded_items << _item_identifier(@item)
-          expanded_items.uniq!
           render :list_info_bare
         elsif @item.clip?
           render :clip_info
         else
+          @headers['Cache-Control'] = 'no-store, no-cache, must-revalidate';
           render :list_info
         end
       end
@@ -65,18 +65,13 @@ module Otoku
     
     class CloseBlock < R '/close/(.+)'
       def post(id)
-        elems = [id]
-        puts @input.inspect
-        elems += @input.inc if @input.inc
-        elems.each {|element | puts "Klozing #{eleent}";
-        expanded_items.delete(element) }
-        return;
+        [id, @input.inc].flatten.compact.each {|e| expanded_items.delete(e) }
       end
     end
     
     class OpenBlock < R '/open/(.+)'
       def post(id)
-        expanded_items << id
+        [id, @input.inc].flatten.compact.each {|e| expanded_items << e }
       end
     end
     
@@ -116,6 +111,7 @@ module Otoku
   module Helpers
     def expanded_items
       $expanded_items ||= []
+      $expanded_items.uniq!
       $expanded_items
     end
 
@@ -196,7 +192,7 @@ module Otoku
           cls = 'hd'
           cls << ' empty' if that.entries.empty?
           cls << ' open' if expanded_items.include?(_item_identifier(that)) || @inc
-          
+          # _item_uri(that)
           a  :id => _item_identifier(that), :class => cls, :href=>_item_uri(that) do
             self << that
             b.disc ' '
@@ -225,10 +221,15 @@ module Otoku
     def _clip_proxy(that)
       attrs = {}
       attrs.merge! :id => _item_identifier(that) unless that.subclip?
-      li.Clip(attrs) do
-        img :src => R(Proxy, that.image1)
-        i.sc ' '
-        b [that.name, that.soft_clip? ? ' []' : ''].join
+      begin
+        li.Clip(attrs) do
+          img :src => R(Proxy, that.image1)
+          i.sc ' '
+          b [that.name, that.soft_clip? ? ' []' : ''].join
+        end
+      rescue Markaby::InvalidXhtmlError # COLOR clip with non-unique ID
+        attrs.delete :id
+        retry
       end
     end
   end

@@ -1,57 +1,99 @@
-function attachLinkCallbacks() {
-  $$("a.hd").each(function(link) {
-    link.onclick = function(e) {
-      // If the list is already loaded
-      if (link.parentNode.getElementsByTagName("ul").length > 0) {
-        if ($(link).classNames() == 'hd open') {
-          $(link).removeClassName("open");
-          Element.hide($(link.parentNode.getElementsByTagName("ul")[0]));
-          if(e.altKey) {
-            // collect all child nodes
-            var closes = $A(link.parentNode.getElementsByTagName("a")).map(function(sibAndChild) {
-              $(sibAndChild).removeClassName("open");
-              Element.hide(sibAndChild.parentNode.getElementsByTagName("ul")[0]);
-              return sibAndChild.id;
-            });
-            new Ajax.Request('/close/' + link.id, { method:'post', parameters : {inc : closes}});
-          } else {
-            new Ajax.Request('/close/' + link.id, { method:'post'});
-          }
-        } else {
-          $(link).addClassName("open");
-          Element.show($(link.parentNode.getElementsByTagName("ul")[0]));
-          new Ajax.Request('/open/' + link.id, { method:'post'});
-        }
+// List manager - just a function store
+ListM = {
+  handleClick : function(evt) {
+    var link = Event.element(evt);
+    
+    // Treat shift+click as Focus
+    if(evt.shiftKey) {
+      return true;
+    } else if(evt.altKey) {
+      ListM.removeAllChildrenOf(link);
+      if (ListM.isExpanded(link)) {
+        ListM.collapse(link)
       } else {
-        var params = { bare : 1}
-        if (e.altKey) {
-          params.inc = 1;
-        }
-        new Ajax.Request(link.href, { method:'get', parameters: params,
-          onSuccess: function(transport){
-            var li = link.parentNode;
-            var list = document.createElement('ul');
-            li.appendChild(list);
-            list.innerHTML = transport.responseText;
-            $(link).addClassName("open");
-            attachLinkCallbacks();
-          }
-        });
+        ListM.loadContentOf(link, {inc : 1});
       }
-      Event.stop(e);
+    } else {
+      if (ListM.isExpanded(link)) {
+        ListM.collapse(link);
+      } else {
+        if (ListM.linkPreloaded(link)) {
+          ListM.expand(link);	 
+        } else {
+          ListM.loadContentOf(link);
+        }
+      }
     }
+    Event.stop(evt);
+    return false;
+  },
+  
+  linkPreloaded : function(link) {
+    return (link.parentNode.getElementsByTagName("ul").length > 0);
+  },
+
+  attachEventTo : function(link) {
+    Event.observe(link, 'click', ListM.handleClick.bindAsEventListener(this));
+  },
     
+  attachEvents : function() {
+    $$("a.hd").each(function(link) {
+      ListM.attachEventTo(link);
+    });
+  },
+  
+  removeAllChildrenOf : function(link) {
+    var subIds = $A(link.parentNode.getElementsByTagName('a')).map( function(el) { 
+      return el.id; 
+    });
     
-//  link.ondblclick = link.onclick;
+    new Ajax.Request('/close/' + link.id, { method:'post', parameters : {inc : subIds}});
     
-  $$("li.Clip").each(function(clipNode) {
-      clipNode.onclick = function(evt) {
-//        window.ObjectSelections.handleNode(clipNode, evt.shiftKey);
-        Event.stop(evt);
+    $A(link.parentNode.getElementsByTagName('ul')).each( function(sibling) {
+    	Element.remove(sibling);
+    });
+  },
+  
+  isExpanded : function(link) {
+    return ($(link).classNames() == 'hd open');
+  },
+  
+  collapse : function(link) {
+    $(link).removeClassName("open");
+    Element.hide($(link.parentNode.getElementsByTagName("ul")[0]));
+    new Ajax.Request('/close/' + link.id, { method:'post'});
+  },
+  
+  loadContentOf : function(link, inclusive) {
+    var params = {bare : 1}
+    if (inclusive) params.inc = 1;
+    
+    new Ajax.Request(link.href, { method:'get', parameters: params,
+      onSuccess: function(transport){
+        var li = link.parentNode;
+        var list = document.createElement('ul');
+        li.appendChild(list);
+        Element.hide(list);
+        
+        list.innerHTML = transport.responseText;
+        $A(list.getElementsByTagName("a")).each(function(sub) {
+          ListM.attachEventTo(sub);
+        });
+        ListM.expand(link);
       }
     });
-  });
-}
+  },
+  
+  expand : function(link) {
+    $(link).addClassName("open");
+    new Ajax.Request('/open/' + link.id, { method:'post'});
+    
+    try {
+      Element.show($(link).parentNode.getElementsByTagName("ul")[0]);
+    } catch(e) {}
+  }  	
+};
+
 window.onload = function() {
-  attachLinkCallbacks();
+  ListM.attachEvents();
 }
