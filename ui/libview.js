@@ -8,11 +8,10 @@ ListM = {
     if(evt.shiftKey) {
       return true;
     } else if(evt.altKey) {
-      ListM.removeAllChildrenOf(link);
       if (ListM.isExpanded(link)) {
-        ListM.collapse(link)
+        ListM.collapse(link, true);
       } else {
-        ListM.loadContentOf(link, {inc : 1});
+        ListM.isPreloaded(link) ? ListM.expand(link, true) : ListM.loadContentOf(link, true);
       }
     } else {
       if (ListM.isExpanded(link)) {
@@ -50,18 +49,32 @@ ListM = {
     new Ajax.Request('/close/' + link.id, { method:'post', parameters : {inc : subIds}});
     
     $A(link.parentNode.getElementsByTagName('ul')).each( function(sibling) {
-    	Element.remove(sibling);
+    	Element.hide(sibling);
     });
   },
   
   isExpanded : function(link) {
-    return ($(link).classNames() == 'hd open');
+    return $(link).classNames().include('open');
   },
   
-  collapse : function(link) {
+  isPreloaded : function(link) {
+    return $(link).classNames().include("all");
+  },
+  
+  collapse : function(link, withChildren) {
     $(link).removeClassName("open");
-    Element.hide($(link.parentNode.getElementsByTagName("ul")[0]));
-    new Ajax.Request('/close/' + link.id, { method:'post'});
+    if (withChildren) {
+      var extras = { inc : ListM.getNestedIdentifiers(link)};
+      $A(link.parentNode.getElementsByTagName("ul")).map(Element.hide);
+      $A(link.parentNode.getElementsByTagName("a")).map(function(e) {
+        $(e).removeClassName('open');
+      });
+
+      new Ajax.Request('/close/' + link.id, { method:'post', parameters : extras});
+    } else {
+      Element.hide($(link.parentNode.getElementsByTagName("ul")[0]));
+      new Ajax.Request('/close/' + link.id, { method:'post'});
+    }
   },
   
   loadContentOf : function(link, inclusive) {
@@ -78,18 +91,40 @@ ListM = {
         list.innerHTML = transport.responseText;
         $A(list.getElementsByTagName("a")).each(function(sub) {
           ListM.attachEventTo(sub);
+          if(inclusive)  $(sub).addClassName("all");
         });
-        ListM.expand(link);
+        ListM.expand(link, inclusive);
       }
     });
   },
   
-  expand : function(link) {
+  getNestedIdentifiers : function(link) {
+    return $A(link.parentNode.getElementsByTagName("a")).map(function(child) {
+      return child.id;
+    });
+  },
+  
+  expand : function(link, withChildren) {
     $(link).addClassName("open");
-    new Ajax.Request('/open/' + link.id, { method:'post'});
+    if (withChildren) {
+      $(link).addClassName("all");
+      var childIds = ListM.getNestedIdentifiers(link);
+      var extra = {inc : childIds };
+      new Ajax.Request('/open/' + link.id, { method:'post', parameters : extra});
+    } else {
+      new Ajax.Request('/open/' + link.id, { method:'post'});
+    }
     
     try {
-      Element.show($(link).parentNode.getElementsByTagName("ul")[0]);
+      if(withChildren) {
+        $A(link.parentNode.getElementsByTagName("ul")).each(Element.show);
+        $A(link.parentNode.getElementsByTagName("a")).each(function(e) {
+          if (!$(e).classNames().include("open") ) $(e).addClassName("open");
+        });
+        
+      } else {
+        Element.show($(link).parentNode.getElementsByTagName("ul")[0]);
+      }
     } catch(e) {}
   }  	
 };

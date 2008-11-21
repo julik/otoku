@@ -108,11 +108,11 @@ a.hd {
    text-decoration: none;
 }
 
-a.hd:link,
-a.hd:hover,
-a.hd:active
-a.hd:visited {
-  outline: none;
+ul.liblist a,
+ul.liblist a:hover,
+ul.liblist a:active,
+ul.liblist a:visited {
+  -moz-outline: none;
 }
 
 li.Library a.hd.open,
