@@ -140,7 +140,7 @@ module Otoku
       if @bare
         yield
       else
-        self << '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">'
+        capture do # http://blog.evanweaver.com/articles/2006/10/17/make-camping-output-a-doctype-properly/
         xhtml_transitional do
           head do
             title Otoku
@@ -156,6 +156,7 @@ module Otoku
           end
           body { yield }
         end
+      end
       end
     end
     

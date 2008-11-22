@@ -8,7 +8,7 @@ body {
 
 ul.liblist ul {
   padding-left: 0;
-  margin-left: 37px;
+  margin-left: 36px;
 }
 
 li.Reel, li.Library, li.desktop, li.BackupSet {
@@ -16,11 +16,14 @@ li.Reel, li.Library, li.desktop, li.BackupSet {
   margin-top: 0;
 }
 
-ul.liblist li a.hd{
-  margin-top: -1px;
+ul.liblist li {
+  margin-bottom: -2px;
+}
+
+ul.liblist ul {
+  margin-top: -2px;
 }
 
 a.hd {
   margin-left: 0;
-  width: 100%;
 }
