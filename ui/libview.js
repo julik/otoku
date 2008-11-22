@@ -1,13 +1,18 @@
 // List manager - just a function store
-ListM = {
+ListM = Class.create({
+  initialize : function(linkSelector) {
+    this.linkSelector = linkSelector;
+    this.attachEvents();
+  },
+  
   handleClick : function(evt) {
     Event.stop(evt);
     // go up the event chain until we find the link
     var elem = Event.element(evt);
     var link = (elem.nodeName == 'A' ? elem : elem.parentNode);
 
-    ListM.handleExpandCollapse(link, evt);
-    ListM.handlePostClick(link, evt);
+    this.handleExpandCollapse(link, evt);
+    this.handlePostClick(link, evt);
     return false;
   },
   
@@ -18,7 +23,7 @@ ListM = {
   handleDoubleClick : function(evt) {
     Event.stop(evt);
     var link = Event.element(evt);
-    ListM.handleExpandCollapse(link, evt);
+    this.handleExpandCollapse(link, evt);
     return false;
   },
   
@@ -27,24 +32,24 @@ ListM = {
     if(evt.shiftKey) {
       return true;
     } else if(evt.altKey) {
-      if (ListM.isExpanded(link)) {
-        ListM.collapse(link, true);
+      if (this.isExpanded(link)) {
+        this.collapse(link, true);
       } else {
-        if(ListM.isPreloadedCompletely(link)) {
-          ListM.expand(link, true)
+        if(this.isPreloadedCompletely(link)) {
+          this.expand(link, true)
         } else {
-          ListM.removeAllChildrenOf(link);
-          ListM.loadContentOf(link, true);
+          this.removeAllChildrenOf(link);
+          this.loadContentOf(link, true);
         }
       }
     } else {
-      if (ListM.isExpanded(link)) {
-        ListM.collapse(link);
+      if (this.isExpanded(link)) {
+        this.collapse(link);
       } else {
-        if (ListM.linkPreloaded(link)) {
-          ListM.expand(link);	 
+        if (this.linkPreloaded(link)) {
+          this.expand(link);	 
         } else {
-          ListM.loadContentOf(link);
+          this.loadContentOf(link);
         }
       }
     }
@@ -59,26 +64,24 @@ ListM = {
   },
 
   attachEventsTo : function(link) {
+    var clk = this.handleClick;
+    var dbl = this.handleDoubleClick;
+    
     // Observe single click on the expansion triangle only
     // The second one should come last because of the way IE bubbles
-    Event.observe(link.getElementsByTagName("b")[0], 'click', this.handleClick.bindAsEventListener(this));
+    Event.observe(link.getElementsByTagName("b")[0], 'click', clk.bindAsEventListener(this));
     Event.observe(link, 'click', function(e){ Event.stop(e); });
     
     // Observe touch and double clock on the whole link
-    Event.observe(link, 'touchend', this.handleClick.bindAsEventListener(this));
-    Event.observe(link, 'dblclick', this.handleDoubleClick.bindAsEventListener(this));
+    Event.observe(link, 'dblclick', dbl.bindAsEventListener(this));
   },
     
   attachEvents : function() {
-    $$("a.hd").each(function(link) {
-      ListM.attachEventsTo(link);
-    });
+    $$(this.linkSelector).each(this.attachEventsTo, this);
   },
   
   removeAllChildrenOf : function(link) {
-    $A(link.parentNode.getElementsByTagName('ul')).each( function(sibling) {
-    	Element.remove(sibling);
-    });
+    $A(link.parentNode.getElementsByTagName('ul')).each(Element.remove);
   },
   
   isExpanded : function(link) {
@@ -92,12 +95,12 @@ ListM = {
   collapse : function(link, withChildren) {
     $(link).removeClassName("open");
     if (withChildren) {
-      var extras = { inc : ListM.getNestedIdentifiers(link)};
+      var extras = { inc : this.getNestedIdentifiers(link)};
       $A(link.parentNode.getElementsByTagName("ul")).map(Element.hide);
       $A(link.parentNode.getElementsByTagName("a")).map(function(e) {
         $(e).removeClassName('open');
       });
-
+      
       new Ajax.Request('/close/' + link.id, { method:'post', parameters : extras});
     } else {
       Element.hide($(link.parentNode.getElementsByTagName("ul")[0]));
@@ -109,6 +112,7 @@ ListM = {
     var params = {bare : 1}
     if (inclusive) params.inc = 1;
     
+    var me = this;
     // Remove all other content
     new Ajax.Request(link.href, { method:'get', parameters: params,
       onSuccess: function(transport){
@@ -119,10 +123,11 @@ ListM = {
         
         list.innerHTML = transport.responseText;
         $A(list.getElementsByTagName("a")).each(function(sub) {
-          ListM.attachEventsTo(sub);
+          this.attachEventsTo(sub);
           if(inclusive)  $(sub).addClassName("all");
-        });
-        ListM.expand(link, inclusive);
+        }, me);
+        
+        me.expand(link, inclusive);
       }
     });
   },
@@ -136,7 +141,7 @@ ListM = {
   expand : function(link, withChildren) {
     if (withChildren) {
       $(link).addClassName("all");
-      var childIds = ListM.getNestedIdentifiers(link);
+      var childIds = this.getNestedIdentifiers(link);
       var extra = {inc : childIds };
       new Ajax.Request('/open/' + link.id, { method:'post', parameters : extra});
     } else {
@@ -153,10 +158,12 @@ ListM = {
         $(link).addClassName("open");
         Element.show($(link).parentNode.getElementsByTagName("ul")[0]);
       }
-    } catch(e) {}
+    } catch(e) {
+      // TODO
+    }
   }  	
-};
+});
 
 window.onload = function() {
-  ListM.attachEvents();
+  var listManager = new ListM("a.hd");
 }
