@@ -30,7 +30,12 @@ ListM = {
       if (ListM.isExpanded(link)) {
         ListM.collapse(link, true);
       } else {
-        ListM.isPreloadedCompletely(link) ? ListM.expand(link, true) : ListM.loadContentOf(link, true);
+        if(ListM.isPreloadedCompletely(link)) {
+          ListM.expand(link, true)
+        } else {
+          ListM.removeAllChildrenOf(link);
+          ListM.loadContentOf(link, true);
+        }
       }
     } else {
       if (ListM.isExpanded(link)) {
@@ -71,14 +76,8 @@ ListM = {
   },
   
   removeAllChildrenOf : function(link) {
-    var subIds = $A(link.parentNode.getElementsByTagName('a')).map( function(el) { 
-      return el.id; 
-    });
-    
-    new Ajax.Request('/close/' + link.id, { method:'post', parameters : {inc : subIds}});
-    
     $A(link.parentNode.getElementsByTagName('ul')).each( function(sibling) {
-    	Element.hide(sibling);
+    	Element.remove(sibling);
     });
   },
   
@@ -110,6 +109,7 @@ ListM = {
     var params = {bare : 1}
     if (inclusive) params.inc = 1;
     
+    // Remove all other content
     new Ajax.Request(link.href, { method:'get', parameters: params,
       onSuccess: function(transport){
         var li = link.parentNode;
