@@ -30,7 +30,7 @@ ListM = {
       if (ListM.isExpanded(link)) {
         ListM.collapse(link, true);
       } else {
-        ListM.isPreloaded(link) ? ListM.expand(link, true) : ListM.loadContentOf(link, true);
+        ListM.isPreloadedCompletely(link) ? ListM.expand(link, true) : ListM.loadContentOf(link, true);
       }
     } else {
       if (ListM.isExpanded(link)) {
@@ -46,13 +46,18 @@ ListM = {
   },
   
   linkPreloaded : function(link) {
-    return (link.parentNode.getElementsByTagName("ul").length > 0);
+    return (this.isPreloadedCompletely(link) || link.parentNode.getElementsByTagName("ul").length > 0);
+  },
+  
+  isPreloadedCompletely : function(link) {
+    return $(link).classNames().include("all");
   },
 
   attachEventsTo : function(link) {
     // Observe single click on the expansion triangle only
-    Event.observe(link, 'click', function(e){ Event.stop(e); });
+    // The second one should come last because of the way IE bubbles
     Event.observe(link.getElementsByTagName("b")[0], 'click', this.handleClick.bindAsEventListener(this));
+    Event.observe(link, 'click', function(e){ Event.stop(e); });
     
     // Observe touch and double clock on the whole link
     Event.observe(link, 'touchend', this.handleClick.bindAsEventListener(this));
@@ -129,7 +134,6 @@ ListM = {
   },
   
   expand : function(link, withChildren) {
-    $(link).addClassName("open");
     if (withChildren) {
       $(link).addClassName("all");
       var childIds = ListM.getNestedIdentifiers(link);
@@ -145,8 +149,8 @@ ListM = {
         $A(link.parentNode.getElementsByTagName("a")).each(function(e) {
           if (!$(e).classNames().include("open") ) $(e).addClassName("open");
         });
-        
       } else {
+        $(link).addClassName("open");
         Element.show($(link).parentNode.getElementsByTagName("ul")[0]);
       }
     } catch(e) {}

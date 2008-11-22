@@ -140,18 +140,21 @@ module Otoku
       if @bare
         yield
       else
-        html do
-        head do
-          title Otoku
-          link :rel=>:stylesheet, :href => R(Asset, "otoku", "css")
-          link :media=>"handheld, screen and (max-device-width: 480px)", 
-            :href=>R(Asset, "otoku-iphone", "css"),:type=>"text/css", :rel=> :stylesheet
-
-          meta :name => :viewport, :content =>"width=320"
-          script :src => "http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"
-          script :src => R(Asset, "libview", "js")
-        end
-        body { yield }
+        self << '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">'
+        xhtml_transitional do
+          head do
+            title Otoku
+            link :rel=>:stylesheet, :href => R(Asset, "otoku", "css")
+            link :media=>"handheld, screen and (max-device-width: 480px)", 
+              :href=>R(Asset, "otoku-iphone", "css"),:type=>"text/css", :rel=> :stylesheet
+            self <<   '<!--[if IE]>
+                    <link href="*" rel="stylesheet" type="text/css" media="screen"/>
+              <![endif]-->'.gsub(/\*/, R(Asset, 'otoku-ie', 'css'))
+            meta :name => :viewport, :content =>"width=320"
+            script :src => "http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"
+            script :src => R(Asset, "libview", "js")
+          end
+          body { yield }
         end
       end
     end

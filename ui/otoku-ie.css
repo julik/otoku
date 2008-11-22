@@ -1,0 +1,26 @@
+#wrap {
+  margin: 0 0 !important;
+}
+
+body {
+  padding: 0;
+}
+
+ul.liblist ul {
+  padding-left: 0;
+  margin-left: 37px;
+}
+
+li.Reel, li.Library, li.desktop, li.BackupSet {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+ul.liblist li a.hd{
+  margin-top: -1px;
+}
+
+a.hd {
+  margin-left: 0;
+  width: 100%;
+}
