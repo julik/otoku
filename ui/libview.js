@@ -1,10 +1,26 @@
-// List manager - just a function store
+/* List manager for a simple tree view. Here is how to organize the elements for it to work
+
+  <ul>
+    <li><a href="url-to-load-list-content">Click me</a></li>
+    <li><a href="url-to-load-second-list-content">Click me too </a></li>
+  </ul>
+
+When the first link is clicked, the following will happen:
+1) The browser will go to the URL in the href of this first link and load the content of the 
+   list below (only LI elements without the wrapper)
+2) An empty UL element will be created under the first LI element (next to the first link)
+   and the fetched elements will be put into that UL element
+3) The UL element will be inserted after the link, and the link class will change to "open"
+4) After the sublist is preloaded, it will no longer touch the server
+
+*/
 ListM = Class.create({
   initialize : function(linkSelector) {
     this.linkSelector = linkSelector;
     this.attachEvents();
   },
   
+  // Handle expand/collapse event
   handleClick : function(evt) {
     Event.stop(evt);
     // go up the event chain until we find the link
@@ -16,17 +32,13 @@ ListM = Class.create({
     return false;
   },
   
-  handlePostClick : function(link) {
+  // What should happen after click
+  handlePostClick : function(link, evt) {
     
   },
   
-  handleDoubleClick : function(evt) {
-    Event.stop(evt);
-    var link = Event.element(evt);
-    this.handleExpandCollapse(link, evt);
-    return false;
-  },
-  
+  // Handle expand-collapse after the element has been determined.
+  // Shift+click will be treated as "go to this link directly"
   handleExpandCollapse : function (link, evt) {
     // Treat shift+click as Focus
     if(evt.shiftKey) {
@@ -65,7 +77,7 @@ ListM = Class.create({
 
   attachEventsTo : function(link) {
     var clk = this.handleClick;
-    var dbl = this.handleDoubleClick;
+    var dbl = this.handleClick;
     
     // Observe single click on the expansion triangle only
     // The second one should come last because of the way IE bubbles
@@ -75,23 +87,30 @@ ListM = Class.create({
     // Observe touch and double clock on the whole link
     Event.observe(link, 'dblclick', dbl.bindAsEventListener(this));
   },
-    
+
+  // Attach events to the elements selected by the constructor selector
+  // TODO - scan the doc starting from the root node
   attachEvents : function() {
     $$(this.linkSelector).each(this.attachEventsTo, this);
   },
   
+  // Remove all child lists of this link
   removeAllChildrenOf : function(link) {
     $A(link.parentNode.getElementsByTagName('ul')).each(Element.remove);
   },
   
+  // Is the link in the expanded state?
   isExpanded : function(link) {
     return $(link).classNames().include('open');
   },
-  
+
+  // Is the child content of the link preloaded?
   isPreloaded : function(link) {
     return $(link).classNames().include("all");
   },
-  
+
+  // Collapse the element but do not remove the nodes.
+  // If the second passed argument is true, also collapse everything underneath
   collapse : function(link, withChildren) {
     $(link).removeClassName("open");
     if (withChildren) {
@@ -107,13 +126,14 @@ ListM = Class.create({
       new Ajax.Request('/close/' + link.id, { method:'post'});
     }
   },
-  
+
+  // Load the content bound to this link. With second argument set to true
+  // will also load and expand all of the child nodes
   loadContentOf : function(link, inclusive) {
     var params = {bare : 1}
     if (inclusive) params.inc = 1;
-    
     var me = this;
-    // Remove all other content
+    
     new Ajax.Request(link.href, { method:'get', parameters: params,
       onSuccess: function(transport){
         var li = link.parentNode;
@@ -132,12 +152,15 @@ ListM = Class.create({
     });
   },
   
+  // Get the IDs of all the child links of this one, so that a list of
+  // elements that are open/closed can be sent to the server
   getNestedIdentifiers : function(link) {
     return $A(link.parentNode.getElementsByTagName("a")).map(function(child) {
       return child.id;
     });
   },
   
+  // Expand the link. Will add the class "open" to the class list of the link itself
   expand : function(link, withChildren) {
     if (withChildren) {
       $(link).addClassName("all");

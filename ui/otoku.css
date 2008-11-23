@@ -78,7 +78,7 @@ li.sel li.Clip {
   color: black;
 }
 
-li.Reel, li.Library, li.desktop, li.BackupSet {
+li.Reel, li.Library, li.Desktop, li.BackupSet {
     display: block;
     list-style: none;
     padding-left: 12px;

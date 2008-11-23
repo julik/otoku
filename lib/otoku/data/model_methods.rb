@@ -31,7 +31,6 @@ module Data
       end
 
       # Given a path of clip IDs will drill down into the entries hierarchy and fetch the entry requested.
-      # Also assigns a backtrack object to the entry fetched so that you can get back to it
       def fetch_uri(clip_path)
         self[clip_path.split(/\//).pop]
       end
