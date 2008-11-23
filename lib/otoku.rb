@@ -162,7 +162,7 @@ module Otoku
     end
     
     def get_archive(etag)
-      Otoku::Data.read_etag(arch)
+      get_archive_list.find{|a| a.etag == etag }
     end
 
     def _item_uri(item)
