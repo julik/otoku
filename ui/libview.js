@@ -22,11 +22,15 @@ ListM = Class.create({
   
   // Handle expand/collapse event
   handleClick : function(evt) {
-    Event.stop(evt);
     // go up the event chain until we find the link
     var elem = Event.element(evt);
     var link = (elem.nodeName == 'A' ? elem : elem.parentNode);
-
+    
+    if(evt.shiftKey &&  evt.type == 'dblclick') {
+        return true;
+    }
+    
+    Event.stop(evt);
     this.handleExpandCollapse(link, evt);
     this.handlePostClick(link, evt);
     return false;
@@ -40,10 +44,8 @@ ListM = Class.create({
   // Handle expand-collapse after the element has been determined.
   // Shift+click will be treated as "go to this link directly"
   handleExpandCollapse : function (link, evt) {
-    // Treat shift+click as Focus
-    if(evt.shiftKey) {
-      return true;
-    } else if(evt.altKey) {
+    // Treat shift+double click as Focus
+    if(evt.altKey) {
       if (this.isExpanded(link)) {
         this.collapse(link, true);
       } else {

@@ -157,7 +157,7 @@ module Otoku
 
     def _item_uri(item)
       args = [@archive.etag, item.path.split(/\//)].flatten
-      R(::Otoku::Controllers::ShowEntry, args.shift, args.join('/'))
+      R(::Otoku::Controllers::ShowEntry, args.shift, '') + args.join('/')
     end
     
     def _item_identifier(item)
@@ -195,6 +195,7 @@ module Otoku
       div.stuffSelected!( :style => 'display: none') { "You have n objects selected" }
       h1 @archive
       p "%s, last opened on %s" % [@archive.device, @archive.creation.strftime("%d/%m/%y")]
+      _viewing_help
       _sorting_options
       _content_of_and_wrapper(@archive, :class => 'liblist')
     end
@@ -220,8 +221,10 @@ module Otoku
     
     def list_info
       div.stuffSelected!( :style => 'display: none') { "You have n objects selected" }
-
-      h1 @item
+      _breadcrumb
+      h1 @item.name
+      _sorting_options
+      _viewing_help
       ul.liblist { _content_of(@item) }
     end
     
@@ -295,6 +298,22 @@ module Otoku
       rescue Markaby::InvalidXhtmlError # COLOR clip with non-unique ID
         attrs.delete :id
         retry
+      end
+    end
+    
+    def _breadcrumb
+      ul.crumb do
+        li { a @archive.name, :href => R(ShowArchive, @archive.etag) }
+        @item.parent_chain.each do | parent |
+          li { a parent.name, :href => _item_uri(parent)}
+        end
+      end
+    end
+    
+    def _viewing_help
+      div.help do
+        p "Double click expands/collapses entries, Alt+double click expands and collapses including chldren.
+        Shift + doubleclick focuses on an entry"
       end
     end
   end
