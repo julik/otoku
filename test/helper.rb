@@ -1,6 +1,6 @@
-require 'test/unit'
 $:.unshift File.dirname(__FILE__) + '/../lib'
 require 'otoku'
+require 'mosquito'
 
 
 module THelpers

@@ -1,23 +1,35 @@
 module Otoku
 module Data
+  PATH_SEPARATOR = '/'
+  
   module ModelMethods
     module EntryKey
-       def [](clip_key)
-         if clip_key.is_a?(String)
-           child_by_id(clip_key)
-         else
-           entries[clip_key]
-         end
-       end
-       
-       def child_by_id(clip_key)
-         entries.each do | e |
-           return e if e.id == clip_key
-           match = e[clip_key]
-           return match if match
-         end
-         nil
-       end
+      def [](idx)
+        entries[idx]
+      end
+      
+      def child_by_id(clip_key)
+        entries.each do | e |
+          return e if e.id == clip_key
+          match = e.child_by_id(clip_key)
+          return match if match
+        end
+        nil
+      end
+      
+      # Get a child element by scanning per index. Groups of integers are considered indices.
+      # get_by_path("0:1:0") # => get the first child of the second child of the first child
+      def get_by_path(index_path)
+        
+        # Prevent string ops
+        index_path = index_path.scan(/\d+/).to_a.map{|e| e.to_i } if index_path.is_a?(String)
+        
+        cur = index_path.shift
+        raise "Overflow" if (cur < 0 || cur >= entries.length)
+         
+        index_path.empty? ? entries[cur] : entries[cur].get_by_path(index_path)
+      end
+
     end
      
     module ArchiveMethods
@@ -32,7 +44,7 @@ module Data
 
       # Given a path of clip IDs will drill down into the entries hierarchy and fetch the entry requested.
       def fetch_uri(clip_path)
-        self[clip_path.split(/\//).pop]
+        self[clip_path.split(/#{Regexp.escape(PATH_SEPARATOR)}/).pop]
       end
 
       def to_s
@@ -81,8 +93,28 @@ module Data
         clip? || subclip?
       end
       
+      def length
+        clip? ? duration : entries.length
+      end
+      
       def uri
         subclip? ? [parent.id, index_in_parent].join('/') : id
+      end
+      
+      
+      def parent_chain
+        return @parent_chain if @parent_chain
+        
+        cur, chain = self, []
+        while cur.respond_to?(:parent) do
+          chain.unshift(cur)
+          cur = cur.parent
+        end
+        @parent_chain = chain
+      end
+      
+      def path
+        File.join(parent_chain.map{|e| (e.etag rescue e.index_in_parent).to_s })
       end
       
       def flame_type

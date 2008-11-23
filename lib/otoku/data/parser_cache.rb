@@ -64,6 +64,7 @@ module Data
   
   begin
     require 'zlib'
+    # Gzip is very efficient with Ruby marshals. We can achieve compression up to 20 times
     class GzipCache < FileCache
       def write_content(cache_f, bytes)
         File.open(cache_f +'.gz', 'w') do | f |
@@ -80,7 +81,7 @@ module Data
       end
     end
     
-    FileCache = GzipCache # :-)
+    silence_warnings { FileCache = GzipCache } # :-)
   rescue LoadError
   end
   

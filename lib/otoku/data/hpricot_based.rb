@@ -56,6 +56,7 @@ module Otoku::Data
       a.entries = (hpricot / "/archive/toc/entry").map do | entry_node |
         entry_from_node(entry_node, a, a)
       end
+      a.entries.each_with_index { | e, i | e.index_in_parent = i }
     
       a.device = Device.new do | dev |
         dev.type = (hpricot / "/archive/device/type").text

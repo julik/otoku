@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'camping'
-require 'camping/db'
+require 'camping/db' 
 require 'fileutils'
 
 $:.unshift File.dirname(__FILE__)
@@ -19,6 +19,7 @@ Markaby::Builder.set(:output_xml_instruction, false)
 module Otoku
   VERSION = "0.0.1"
   CACHE_DIR = '/tmp/otoku-cache'
+  DATA_DIR = File.dirname(__FILE__) + '/../test/samples'
   
   module Models
     class CreateBasics < V(1.0)
@@ -38,27 +39,38 @@ module Otoku
   include JulikState
   
   module Controllers
+    # Show the list of archives in the system
     class Index < R '/'
       def get
         @archives = get_archive_list
         render :welcome
       end
     end
-    
-    class ShowEntry < R '/entry/([a-z\d]+)/([a-z\d_]+)', '/entry/([a-z\d]+)/([a-z\d_]+)/(\d+)'
-      def get(archive_etag, entry_id, subclip_idx = nil)
+
+    # Show the list of items in an archive
+    class ShowArchive < R '/archive/(.+)'
+      def get(archive_etag)
         @archive = get_archive(archive_etag)
-        @item = @archive[entry_id]
+        @title = @archive.name
+        @item = @archive
+        @sort = Sorting::Decorator.new
+        @sort.field = @state.sort_field if @state.sort_field
+        @sort.flip =  @state.sort_flip if @state.sort_flip
+        render :archive_info
+      end
+      
+    end
+    
+    # Show an archive entry, be it a clip a reel or anything else
+    class ShowEntry < R '/entry/([a-z\d]+)/([\d\/]+)'
+      def get(archive_etag, entry_path)
+        @archive = get_archive(archive_etag)
+        @item = @archive.get_by_path(entry_path)
+        
         @sort = Otoku::Sorting::Decorator.new
         @sort.field = :name
         @sort.flip = true
          
-        if subclip_idx && subclip_idx.to_i > @item.entries.length
-          raise "Overflow"
-        elsif subclip_idx 
-          @item = @item.entries[subclip_idx.to_i]
-        end
-
         if @input.bare
           @bare = true
           @inc = !!@input.inc
@@ -74,35 +86,26 @@ module Otoku
       end
     end
     
+    # Register a block as closed
     class CloseBlock < R '/close/(.+)'
       def post(id)
         [id, @input.inc].flatten.compact.each {|e| expanded_items.delete(e) }
       end
     end
-    
+
+    # Register a block as open
     class OpenBlock < R '/open/(.+)'
       def post(id)
         [id, @input.inc].flatten.compact.each {|e| expanded_items << e }
       end
     end
-    
+
+    # Change sorting options and redirect back
     class ChangeSort < R '/change-sorting'
       def post
         @state.sort_field = @input.sort_field
         @state.sort_flip = @input.sort_flip == '1'
         redirect @env['HTTP_REFERER']
-      end
-    end
-    
-    class ShowArchive < R '/archive/(.+)'
-      def get(archive_etag)
-        @archive = get_archive(archive_etag)
-        @title = @archive.name
-        @item = @archive
-        @sort = Sorting::Decorator.new
-        @sort.field = @state.sort_field if @state.sort_field
-        @sort.flip =  @state.sort_flip if @state.sort_flip
-        render :archive_info
       end
     end
     
@@ -118,17 +121,15 @@ module Otoku
       end
     end
     
-    class Proxy < R('/proxy/(.+)')
-      def get(fname)
+    # Fetch the image for a clip proxy
+    class Proxy < R('/proxy/(.+)/(.+)')
+      def get(archive_etag, fname)
         @status = 404
-        return #TODO
       end
       
       def head(fname)
         @status = 304
-        return
       end
-        
     end
   end
   
@@ -145,7 +146,7 @@ module Otoku
     
     def get_archive_list
       Otoku::Data.cache_driver = Otoku::Data::FileCache.new(CACHE_DIR)
-      @archives ||= Dir.glob(File.dirname(__FILE__) + '/../test/samples/*.xml').map do | arch |
+      @archives ||= Dir.glob(DATA_DIR + '/*.xml').map do | arch |
         Otoku::Data.read_archive_file(arch)
       end
     end
@@ -155,12 +156,13 @@ module Otoku
     end
 
     def _item_uri(item)
-      args = [@archive.etag, item.uri.split(/\//)].flatten
-      R(::Otoku::Controllers::ShowEntry, *args)
+      args = [@archive.etag, item.path.split(/\//)].flatten
+      STDERR.puts args.inspect
+      R(::Otoku::Controllers::ShowEntry, args.shift, args.join('/'))
     end
     
     def _item_identifier(item)
-      [@archive.etag, item.uri.split(/\//)].flatten.join('-')
+      [@archive.etag, item.path.split(/\//)].flatten.join('-')
     end
     
   end
@@ -192,10 +194,13 @@ module Otoku
     
     def archive_info
       div.stuffSelected!( :style => 'display: none') { "You have n objects selected" }
-
       h1 @archive
       p "%s, last opened on %s" % [@archive.device, @archive.creation.strftime("%d/%m/%y")]
-      
+      _sorting_options
+      _content_of_and_wrapper(@archive, :class => 'liblist')
+    end
+    
+    def _sorting_options
       form.sortForm :action => R(ChangeSort), :method=>:post do
         self << "Display entries sorted by "
         select :name => :sort_field do
@@ -212,8 +217,6 @@ module Otoku
         end
         input :type => :submit, :value => 'Sort!'
       end
-      
-      _content_of_and_wrapper(@archive, :class => 'liblist')
     end
     
     def list_info
@@ -286,7 +289,7 @@ module Otoku
       attrs.merge! :id => _item_identifier(that) unless that.subclip?
       begin
         li.Clip(attrs) do
-          img :src => R(Proxy, that.image1)
+          img :src => R(Proxy, that.archive.etag, that.image1)
           i.sc ' '
           b [that.name, that.soft_clip? ? ' []' : ''].join
         end

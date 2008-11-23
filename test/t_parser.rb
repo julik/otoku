@@ -20,7 +20,7 @@ class ParserCacheTest < Test::Unit::TestCase
         assert_nothing_raised { Otoku::Data.read_archive_file(xml) }
       end
       
-      assert Dir.glob(tdir + '/**/*.parsedarchive').any?, "Cache files should have been created"
+      assert Dir.glob(tdir + '/**/*.parsedarchive.gz').any?, "Cache files should have been created"
     end
   end
 end
@@ -137,7 +137,7 @@ class ArchiveTest < Test::Unit::TestCase
   end
   
   def test_desk_entry
-    @node = @archive['a8c01bab_48316b7f_000231dd']
+    @node = @archive.child_by_id('a8c01bab_48316b7f_000231dd')
     assert_not_nil @node
     assert_kind_of Otoku::Data::Entry, @node
     assert_respond_to @node, :desktop?
@@ -152,7 +152,7 @@ class ArchiveTest < Test::Unit::TestCase
   
   def test_fetch_key
     key = 'a8c01bab_4831691c_00086eed'
-    item = @archive[key]
+    item = @archive.child_by_id(key)
     assert_not_nil item
     assert_kind_of Otoku::Data::Entry, item
     assert item.backup_set?
@@ -175,12 +175,31 @@ class ArchiveTest < Test::Unit::TestCase
   
   def test_fetch_with_id
     uri = "a8c012ab_487c60d9_0004469e"
-    item = @archive[uri]
+    item = @archive.child_by_id(uri)
     assert_not_nil item
     assert_kind_of Otoku::Data::Entry, item
     assert_equal uri, item.id
     assert_equal "boomInzet", item.name
     assert item.subclip?
+  end
+  
+  def test_get_entry_path
+    uri = "a8c012ab_487c60d9_0004469e"
+    item = @archive.child_by_id(uri)
+    assert_not_nil item
+    assert_kind_of Otoku::Data::Entry, item
+    
+    assert_equal "0/0/1/0/0", item.path
+  end
+  
+  def test_get_entry_by_path
+    path = "0/0/1/0/0"
+    item = @archive.get_by_path(path)
+    assert_not_nil item
+
+    assert_kind_of Otoku::Data::Entry, item
+    assert_equal "boomInzet", item.name
+    assert_equal path, item.path
   end
   
   def test_image1_image2_on_entry
