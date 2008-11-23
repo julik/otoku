@@ -157,7 +157,6 @@ module Otoku
 
     def _item_uri(item)
       args = [@archive.etag, item.path.split(/\//)].flatten
-      STDERR.puts args.inspect
       R(::Otoku::Controllers::ShowEntry, args.shift, args.join('/'))
     end
     
