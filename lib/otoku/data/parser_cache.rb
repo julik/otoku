@@ -1,5 +1,6 @@
 module Otoku
 module Data
+  DIGEST = Digest::MD5
   class BypassCache
     def cached(data)
       STDERR.puts "No cache - things will be very SLOW"
@@ -36,7 +37,7 @@ module Data
         return yield 
       end
       
-      digest = Digest::MD5.hexdigest(content)
+      digest = DIGEST.hexdigest(content)
       path = digest.scan(/(.{8})/).join('/') + '.parsedarchive'
       cache_f = File.join(@cache, path)
       begin

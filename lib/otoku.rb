@@ -27,11 +27,21 @@ module Otoku
         create_table :otoku_archives do | t |
           t.string :name, :null => false
           t.string :type, :max => 80
+          t.string :path
           t.string :device
           t.datetime :creation
-          t.integer :clip_count, :default => 0
           t.integer :backup_set_count, :default => 0
         end
+      end
+    end
+    
+    class Archive < Base
+      validates_presence_of :name
+      validates_uniqueness_of :name
+      validates_presence_of :path
+      validates_uniqueness_of :path
+      def self.create_from_data(archive)
+        create(:name => archive.name, :path => archive.path, :etag => archive.etag)
       end
     end
   end
@@ -68,8 +78,8 @@ module Otoku
         @item = @archive.get_by_path(entry_path)
         
         @sort = Otoku::Sorting::Decorator.new
-        @sort.field = :name
-        @sort.flip = true
+        @sort.field = @state.sort_field if @state.sort_field
+        @sort.flip =  @state.sort_flip if @state.sort_flip
          
         if @input.bare
           @bare = true
@@ -152,7 +162,7 @@ module Otoku
     end
     
     def get_archive(etag)
-      get_archive_list.find{|e| e.etag == etag}
+      Otoku::Data.read_etag(arch)
     end
 
     def _item_uri(item)
@@ -303,9 +313,10 @@ module Otoku
     
     def _breadcrumb
       ul.crumb do
-        li { a @archive.name, :href => R(ShowArchive, @archive.etag) }
+        li { a Otoku, :href => R(Index) }
+        li { a @archive.name, :class => :archive, :href => R(ShowArchive, @archive.etag) }
         @item.parent_chain.each do | parent |
-          li { a parent.name, :href => _item_uri(parent)}
+          li { a parent.name, :href => _item_uri(parent), :class => parent.flame_type }
         end
       end
     end
@@ -321,9 +332,6 @@ module Otoku
   def self.create
     STDERR.puts "** Making cache directory in #{CACHE_DIR}"
     FileUtils.mkdir_p CACHE_DIR
-    self::Models.create_schema
-    JulikState.create_schema
+    [self::Models, JulikState].each{|e| e.create_schema }
   end
-  
-  
 end

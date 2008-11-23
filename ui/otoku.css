@@ -148,3 +148,27 @@ li.Reel a.hd.open {
 li a.hd.empty {
   background-position: top left;
 }
+
+/* End liblist */
+
+ul.crumb {
+  padding: 0;
+  overflow: auto;
+  background: rgb(65,65,65);
+}
+ul.crumb li {
+  display: block;
+  float: left;
+  font-size: .8em;
+  padding: 2;
+  padding-right: 10px;
+}
+
+ul.crumb li:before {
+  content: "/";
+}
+ul.crumb li a:link,
+ul.crumb li a:visited,
+ul.crumb li a:active {
+  color: white;
+}
