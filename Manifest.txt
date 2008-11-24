@@ -4,7 +4,7 @@ Rakefile
 lib/otoku.rb
 lib/otoku/data/hpricot_based.rb
 lib/otoku/data/model_methods.rb
-lib/otoku/data/parser.rb
+lib/otoku/data/manager.rb
 lib/otoku/data/parser_cache.rb
 test/helper.rb
 test/samples/.DS_Store

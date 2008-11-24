@@ -7,7 +7,7 @@ module Otoku
       "length" => :length,
     }
     
-    # A simple sorting decorator
+    # a simple sorting decorator
     class Decorator
       DEFAULT_FIELD = :creation
       attr_accessor :field

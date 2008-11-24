@@ -51,6 +51,9 @@ module Data
         "%s (%d sets)" % [name, entries.length, path]
       end
       
+      def etag
+        @etag || Digest::MD5.hexdigest(name)
+      end
     end
     
     module DeviceMethods

@@ -42,9 +42,6 @@ module Data
       cache_f = File.join(@cache, path)
       begin
         Marshal.load(read_content_of(cache_f))
-     #rescue ArgumentError, TypeError # Improper parse
-     #  File.unlink(cache_f)
-     #  retry
       rescue Errno::ENOENT # improper parse
         parsed = yield
         FileUtils.mkdir_p(File.dirname(cache_f))

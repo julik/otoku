@@ -1,29 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
 require 'fileutils'
 
-class ParserCacheTest < Test::Unit::TestCase
-  include THelpers
-  
-  def test_read_archive_file
-    Dir.glob(File.dirname(__FILE__) + '/samples/*.xml').each do | xml |
-      assert_nothing_raised { Otoku::Data.read_archive_file(xml) }
-    end
-  end
-  
-  def test_should_reuse_object_cache
-    with_cache_dir do | tdir |
-      assert_nothing_raised("Should allow setting the directory") { Otoku::Data.cache_driver.cache_dir = tdir }
-      assert File.exist?(tdir), "Should have created the temp dir for object cache"
-      assert File.directory?(tdir), "Should have created the directory"
-      
-      Dir.glob(File.dirname(__FILE__) + '/samples/*.xml').each do | xml |
-        assert_nothing_raised { Otoku::Data.read_archive_file(xml) }
-      end
-      
-      assert Dir.glob(tdir + '/**/*.parsedarchive.gz').any?, "Cache files should have been created"
-    end
-  end
-end
 
 class ArchiveTest < Test::Unit::TestCase
   include THelpers
@@ -69,7 +46,7 @@ class ArchiveTest < Test::Unit::TestCase
   
   def test_archive_device_joins_attribs
     ef = File.dirname(__FILE__) + '/samples/Bavaria_HighRes-Flame2008_08Oct28_1107.xml'
-    @archive = Otoku::Data.read_archive_file(ef)
+    @archive = Otoku::Data.parse(File.open(ef, 'r'))
     assert_equal "File - /usr/data/Flame_Backup_Disk/BavariaHighRes", @archive.device.to_s
   end
   

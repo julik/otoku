@@ -5,15 +5,8 @@ require 'mosquito'
 
 module THelpers
   def with_cache_dir(dir = File.dirname(__FILE__) + '/temp')
-    old_td = Otoku::Data.cache_driver
-    Otoku::Data.cache_driver = Otoku::Data::FileCache.new
-    Otoku::Data.cache_driver.cache_dir = dir
-    begin
-      yield(dir)
-    ensure
-      Otoku::Data.cache_driver = old_td
-      FileUtils.rm_rf dir
-    end
+    cache_d = Otoku::Data::FileCache.new(dir)
+    yield(cache_d)
   end
   
   def assert_string_attribute(attr, value = nil, message = nil)
@@ -44,12 +37,9 @@ module TAccel
   
   def setup
     super
-    Otoku::Data.cache_driver = Otoku::Data::MemoCache.new
-    @archive = Otoku::Data.read_archive_file(self.class.const_get(:ARCH))
-  end
-  
-  def teardown
-    Otoku::Data.cache_driver = nil
-    super
+    @archive = with_cache_dir(TEST_CACHE_DIR) do | driver |
+      f = self.class.const_get(:ARCH)
+      driver.cached(f) { Otoku::Data.parse(File.open(f, 'r')) }
+    end
   end
 end

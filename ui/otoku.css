@@ -37,6 +37,14 @@ li.Clip.sel {
   background-color: rgb(231,198,49);
 }
 
+li.Clip i.le {
+  position: absolute;
+  left: 2px;
+  top: 110px;
+  font-style: normal;
+  text-shadow: 1px 1px black;
+}
+
 
 li.Clip img {
  width: 12em;

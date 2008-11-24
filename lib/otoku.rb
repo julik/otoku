@@ -2,15 +2,18 @@ require 'rubygems'
 require 'camping'
 require 'camping/db' 
 require 'fileutils'
+require 'digest/md5'
 
 $:.unshift File.dirname(__FILE__)
 require 'otoku/data/parser_cache'
 require 'otoku/data/model_methods'
 require 'otoku/data/hpricot_based'
-require 'otoku/data/parser'
+require 'otoku/data/manager'
+require 'otoku/data/manager'
 require 'otoku/builder_hack'
 require 'otoku/sorting'
 require 'otoku/julik_state'
+require 'otoku/timecode/timecode'
 
 Camping.goes :Otoku
 Markaby::Builder.set(:indent, 2)
@@ -18,33 +21,21 @@ Markaby::Builder.set(:output_xml_instruction, false)
 
 module Otoku
   VERSION = "0.0.1"
-  CACHE_DIR = '/tmp/otoku-cache'
   DATA_DIR = File.dirname(__FILE__) + '/../test/samples'
   
-  module Models
-    class CreateBasics < V(1.0)
-      def self.up
-        create_table :otoku_archives do | t |
-          t.string :name, :null => false
-          t.string :type, :max => 80
-          t.string :path
-          t.string :device
-          t.datetime :creation
-          t.integer :backup_set_count, :default => 0
-        end
-      end
+  class LazyStr
+    def initialize(&block)
+      @proc = block.to_proc
     end
     
-    class Archive < Base
-      validates_presence_of :name
-      validates_uniqueness_of :name
-      validates_presence_of :path
-      validates_uniqueness_of :path
-      def self.create_from_data(archive)
-        create(:name => archive.name, :path => archive.path, :etag => archive.etag)
-      end
+    def to_s
+      @proc.call
     end
+    alias_method :to_str, :to_s
+    
   end
+  
+  CACHE_DIR = LazyStr.new { File.join(DATA_DIR, '/.otoku') }
   
   include JulikState
   
@@ -119,11 +110,6 @@ module Otoku
       end
     end
     
-    class ClipImage < R('/cimage/(.+)')
-      def get(path)
-      end
-    end
-    
     class Asset < R('/ui/([\w-]+).(css|png|jpg|gif|js)')
       def get(file, ext)
         @headers['Content-Type'] = 'text/' + ext;
@@ -131,13 +117,22 @@ module Otoku
       end
     end
     
-    # Fetch the image for a clip proxy
-    class Proxy < R('/proxy/(.+)/(.+)')
-      def get(archive_etag, fname)
-        @status = 404
+    # Fetch the image for a clip proxy. Cache indefinitely
+    class Proxy < R('/proxy/(.+)')
+      # TODO - ensure that the second request never happens
+      def get(fname)
+        @headers.merge! 'Last-Modified' => 2.days.ago.to_s(:http),
+          'Expires' => 365.days.from_now.to_s(:http),
+          'Cache-Control' => "public; max-age=#{365.days}",
+          'Content-Type' => 'image/jpeg'
+        File.read(File.join(DATA_DIR, fname))
       end
       
       def head(fname)
+        @headers.merge! 'Last-Modified' => 2.days.ago.to_s(:http),
+          'Expires' => 365.days.from_now.to_s(:http),
+          'Cache-Control' => "public; max-age=#{365.days}",
+          'Content-Type' => 'image/jpeg'
         @status = 304
       end
     end
@@ -155,14 +150,13 @@ module Otoku
     end
     
     def get_archive_list
-      Otoku::Data.cache_driver = Otoku::Data::FileCache.new(CACHE_DIR)
-      @archives ||= Dir.glob(DATA_DIR + '/*.xml').map do | arch |
-        Otoku::Data.read_archive_file(arch)
-      end
+      @manager ||= Otoku::Data::Manager.new(DATA_DIR)
+      @manager.map { | h | h }
     end
     
     def get_archive(etag)
-      get_archive_list.find{|a| a.etag == etag }
+      the_a = get_archive_list.find{|a| a.etag == etag }
+      the_a.read_struct
     end
 
     def _item_uri(item)
@@ -301,8 +295,9 @@ module Otoku
       attrs.merge! :id => _item_identifier(that) unless that.subclip?
       begin
         li.Clip(attrs) do
-          img :src => R(Proxy, that.archive.etag, that.image1)
+          img :src => R(Proxy, that.image1)
           i.sc ' '
+          i.le(Timecode.new(that.length))
           b [that.name, that.soft_clip? ? ' []' : ''].join
         end
       rescue Markaby::InvalidXhtmlError # COLOR clip with non-unique ID
@@ -330,8 +325,9 @@ module Otoku
   end
   
   def self.create
-    STDERR.puts "** Making cache directory in #{CACHE_DIR}"
     FileUtils.mkdir_p CACHE_DIR
+    STDERR.puts "** Making cache directory in #{CACHE_DIR}"
+    
     [self::Models, JulikState].each{|e| e.create_schema }
   end
 end

@@ -1,0 +1,6 @@
+K 13
+svn:externals
+V 58
+calc http://julik.textdriven.com/svn/tools/ruby_libs/calc
+
+END
