@@ -22,18 +22,15 @@ ListM = Class.create({
   
   // Handle expand/collapse event
   handleClick : function(evt) {
+    if(evt.shiftKey && evt.type == 'dblclick') return true;
+
     // go up the event chain until we find the link
     var elem = Event.element(evt);
     var link = (elem.nodeName == 'A' ? elem : elem.parentNode);
     
-    if(evt.shiftKey &&  evt.type == 'dblclick') {
-        return true;
-    }
-    
     Event.stop(evt);
     this.handleExpandCollapse(link, evt);
     this.handlePostClick(link, evt);
-    return false;
   },
   
   // What should happen after click

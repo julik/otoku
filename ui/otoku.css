@@ -105,6 +105,7 @@ li.Reel, li.Library, li.Desktop, li.BackupSet {
 
 /* Library reel and desk headers */
 a.hd {
+   cursor: pointer;
    display: block;
    border: 1px solid black;
    margin-left: -12px;
@@ -114,6 +115,10 @@ a.hd {
    line-height: 140%;
    color: white;
    text-decoration: none;
+}
+
+a {
+  cursor: pointer;
 }
 
 a.hd b.disc {
