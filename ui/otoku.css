@@ -124,8 +124,9 @@ a {
 a.hd b.disc {
   display: block;
   background: transparent;
-  width: 35px;
-  height: 25px;
+  width: 42px;
+  height: 31px;
+  margin-top: -5px;
   float: left;
   margin-left: -50px;
 }

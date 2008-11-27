@@ -28,7 +28,7 @@ ListM = Class.create({
     var elem = Event.element(evt);
     var link = (elem.nodeName == 'A' ? elem : elem.parentNode);
     
-    Event.stop(evt);
+    //Event.stop(evt);
     this.handleExpandCollapse(link, evt);
     this.handlePostClick(link, evt);
   },
@@ -39,9 +39,8 @@ ListM = Class.create({
   },
   
   // Handle expand-collapse after the element has been determined.
-  // Shift+click will be treated as "go to this link directly"
   handleExpandCollapse : function (link, evt) {
-    // Treat shift+double click as Focus
+    // Treat alt+double click as inclusive expand/collapse
     if(evt.altKey) {
       if (this.isExpanded(link)) {
         this.collapse(link, true);
@@ -112,6 +111,7 @@ ListM = Class.create({
   // If the second passed argument is true, also collapse everything underneath
   collapse : function(link, withChildren) {
     $(link).removeClassName("open");
+    
     if (withChildren) {
       var extras = { inc : this.getNestedIdentifiers(link)};
       $A(link.parentNode.getElementsByTagName("ul")).map(Element.hide);
