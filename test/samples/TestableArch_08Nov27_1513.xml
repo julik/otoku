@@ -1,0 +1,513 @@
+<?xml version="1.0"?>
+<ARCHIVE>
+  <NAME>TestableArch</NAME>
+  <CREATION>2008/11/27 15:10:56</CREATION>
+  <APPSTRING>he-flame-01 - flame 2009.1.SP1</APPSTRING>
+  <COMMENT>This is a comment</COMMENT>
+  <FREESPACE>253.12 MB</FREESPACE>
+  <DEVICE TYPE="F">
+    <TYPE TITLE="Device type">File</TYPE>
+    <NAME TITLE="Header file name">/tmp/testingArchive</NAME>
+    <SEGMENT TITLE="Segment file name">/tmp/testingArchive.seg</SEGMENT>
+  </DEVICE>
+  <TOC>
+    <ENTRY CLASSID="*" ID="a8c012ab_492eaa7c_000d9297">
+      <NAME>Backup Set -  2008/11/27 15:11:08</NAME>
+      <CREATION>2008/11/27 15:11:08</CREATION>
+      <DESCRIPTION>Compact Backup Set</DESCRIPTION>
+      <ENTRY CLASSID="L" ID="a8c012ab_492eaa7c_000d929a">
+        <NAME>Tonda_Let_It_Shine</NAME>
+        <CREATION>2008/11/27 12:20:34</CREATION>
+        <DESCRIPTION>Clip Library</DESCRIPTION>
+        <ENTRY CLASSID="R" ID="a8c012ab_492eaa7c_000d929c">
+          <NAME>E_temp</NAME>
+          <CREATION>2008/11/27 09:46:23</CREATION>
+          <DESCRIPTION>Reel - 12 Clips</DESCRIPTION>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8ebd_0001f930">
+            <NAME>T_Starburst</NAME>
+            <CREATION>2008/11/26 19:00:29</CREATION>
+            <DURATION>980 frames (00:00:19#30)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION>&lt;multiple&gt;</LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8ebd_0001f930_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8ebd_0001f930_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Spark</NAME>
+              <CREATION>2008/11/26 18:13:11</CREATION>
+              <DESCRIPTION>Clip - 322 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Spark</NAME>
+              <CREATION>2008/11/26 18:26:04</CREATION>
+              <DESCRIPTION>Clip - 268 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:28:07</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:28:07</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:59:15</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:58:39</CREATION>
+              <DESCRIPTION>Clip - 330 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:59:56</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 19:00:27</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7c8a_00010a3a">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 17:41:33</CREATION>
+            <DURATION>322 frames (00:00:06#22)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7c8a_00010a3a_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7c8a_00010a3a_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 17:42:50</CREATION>
+              <DESCRIPTION>Clip - 322 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7b67_000c9e4b">
+            <NAME>cars</NAME>
+            <CREATION>2008/11/26 17:37:59</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7b67_000c9e4b_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7b67_000c9e4b_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>cars</NAME>
+              <CREATION>2008/11/26 17:37:59</CREATION>
+              <DESCRIPTION>Clip - 1 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7b67_000c9e71">
+            <NAME>cars</NAME>
+            <CREATION>2008/11/26 17:37:59</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7b67_000c9e71_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7b67_000c9e71_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>cars</NAME>
+              <CREATION>2008/11/26 17:37:59</CREATION>
+              <DESCRIPTION>Clip - 1 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7d4e_000553cb">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 17:44:02</CREATION>
+            <DURATION>306 frames (00:00:06#06)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7d4e_000553cb_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7d4e_000553cb_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 17:46:06</CREATION>
+              <DESCRIPTION>Clip - 306 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8250_0003729a">
+            <NAME>Filter-</NAME>
+            <CREATION>2008/11/26 18:06:47</CREATION>
+            <DURATION>306 frames (00:00:06#06)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8250_0003729a_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8250_0003729a_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Filter-</NAME>
+              <CREATION>2008/11/26 18:07:28</CREATION>
+              <DESCRIPTION>Clip - 306 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7b66_00006af3">
+            <NAME>cars</NAME>
+            <CREATION>2008/11/26 17:37:58</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7b66_00006af3_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7b66_00006af3_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>cars</NAME>
+              <CREATION>2008/11/26 17:37:58</CREATION>
+              <DESCRIPTION>Clip - 1 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7db2_000b077e">
+            <NAME>Logic Ops-cars</NAME>
+            <CREATION>2008/11/26 17:47:07</CREATION>
+            <DURATION>322 frames (00:00:06#22)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7db2_000b077e_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7db2_000b077e_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Logic Ops-cars</NAME>
+              <CREATION>2008/11/26 17:47:46</CREATION>
+              <DESCRIPTION>Clip - 322 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8647_000480fd">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 18:24:22</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8647_000480fd_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8647_000480fd_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:24:23</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8644_0007f31b">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 18:24:20</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8644_0007f31b_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8644_0007f31b_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:24:20</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8625_00034900">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 18:23:49</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8625_00034900_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8625_00034900_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:10:32</CREATION>
+              <DESCRIPTION>Clip - 306 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8308_00098c72">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 18:09:46</CREATION>
+            <DURATION>306 frames (00:00:06#06)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8308_00098c72_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8308_00098c72_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:10:32</CREATION>
+              <DESCRIPTION>Clip - 306 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+        </ENTRY>
+        <ENTRY CLASSID="R" ID="a8c012ab_492eaa7c_000d92b7">
+          <NAME>E_temp_2</NAME>
+          <CREATION>2008/11/27 15:09:31</CREATION>
+          <DESCRIPTION>Reel - 12 Clips</DESCRIPTION>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8ebd_0001f930">
+            <NAME>T_Starburst</NAME>
+            <CREATION>2008/11/27 14:00:41</CREATION>
+            <DURATION>980 frames (00:00:19#30)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION>&lt;multiple&gt;</LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8ebd_0001f930_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8ebd_0001f930_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Spark</NAME>
+              <CREATION>2008/11/26 18:13:11</CREATION>
+              <DESCRIPTION>Clip - 322 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Spark</NAME>
+              <CREATION>2008/11/26 18:26:04</CREATION>
+              <DESCRIPTION>Clip - 268 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:28:07</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:28:07</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:59:15</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:58:39</CREATION>
+              <DESCRIPTION>Clip - 330 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:59:56</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 19:00:27</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7c8a_00010a3a">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 17:41:33</CREATION>
+            <DURATION>322 frames (00:00:06#22)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7c8a_00010a3a_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7c8a_00010a3a_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 17:42:50</CREATION>
+              <DESCRIPTION>Clip - 322 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7b67_000c9e4b">
+            <NAME>cars</NAME>
+            <CREATION>2008/11/27 13:21:27</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7b67_000c9e4b_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7b67_000c9e4b_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>cars</NAME>
+              <CREATION>2008/11/26 17:37:59</CREATION>
+              <DESCRIPTION>Clip - 1 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7b67_000c9e71">
+            <NAME>cars</NAME>
+            <CREATION>2008/11/26 17:37:59</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7b67_000c9e71_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7b67_000c9e71_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>cars</NAME>
+              <CREATION>2008/11/26 17:37:59</CREATION>
+              <DESCRIPTION>Clip - 1 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7d4e_000553cb">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 17:44:02</CREATION>
+            <DURATION>306 frames (00:00:06#06)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7d4e_000553cb_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7d4e_000553cb_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 17:46:06</CREATION>
+              <DESCRIPTION>Clip - 306 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8250_0003729a">
+            <NAME>Filter-</NAME>
+            <CREATION>2008/11/26 18:06:47</CREATION>
+            <DURATION>306 frames (00:00:06#06)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8250_0003729a_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8250_0003729a_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Filter-</NAME>
+              <CREATION>2008/11/26 18:07:28</CREATION>
+              <DESCRIPTION>Clip - 306 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7b66_00006af3">
+            <NAME>cars</NAME>
+            <CREATION>2008/11/27 14:00:25</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7b66_00006af3_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7b66_00006af3_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>cars</NAME>
+              <CREATION>2008/11/26 17:37:58</CREATION>
+              <DESCRIPTION>Clip - 1 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d7db2_000b077e">
+            <NAME>Logic Ops-cars</NAME>
+            <CREATION>2008/11/27 13:21:47</CREATION>
+            <DURATION>322 frames (00:00:06#22)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d7db2_000b077e_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d7db2_000b077e_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>Logic Ops-cars</NAME>
+              <CREATION>2008/11/26 17:47:46</CREATION>
+              <DESCRIPTION>Clip - 322 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8647_000480fd">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/27 13:21:53</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8647_000480fd_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8647_000480fd_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:24:23</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8644_0007f31b">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 18:24:20</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8644_0007f31b_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8644_0007f31b_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:24:20</CREATION>
+              <DESCRIPTION>Clip - 0 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8625_00034900">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 18:23:49</CREATION>
+            <DURATION>1 frames (00:00:00#01)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8625_00034900_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8625_00034900_1.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:10:32</CREATION>
+              <DESCRIPTION>Clip - 306 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+          <ENTRY CLASSID="C" ID="a8c01bab_492d8308_00098c72">
+            <NAME>&lt;untitled&gt;</NAME>
+            <CREATION>2008/11/26 18:09:46</CREATION>
+            <DURATION>306 frames (00:00:06#06)</DURATION>
+            <AUDIO> </AUDIO>
+            <LOCATION></LOCATION>
+            <WIDTH>1280</WIDTH>
+            <HEIGHT>720</HEIGHT>
+            <DEPTH>10-bit</DEPTH>
+            <IMAGE1>TestableArch_08Nov27_1513/a8c01bab_492d8308_00098c72_1.jpg</IMAGE1>
+            <IMAGE2>TestableArch_08Nov27_1513/a8c01bab_492d8308_00098c72_2.jpg</IMAGE2>
+            <ENTRY CLASSID="E" ID="00000000_00000000_00000000">
+              <NAME>&lt;untitled&gt;</NAME>
+              <CREATION>2008/11/26 18:10:32</CREATION>
+              <DESCRIPTION>Clip - 306 </DESCRIPTION>
+            </ENTRY>
+          </ENTRY>
+        </ENTRY>
+      </ENTRY>
+    </ENTRY>
+  </TOC>
+</ARCHIVE>

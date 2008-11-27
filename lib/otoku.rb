@@ -5,6 +5,7 @@ require 'fileutils'
 require 'digest/md5'
 
 $:.unshift File.dirname(__FILE__)
+
 require 'otoku/data/parser_cache'
 require 'otoku/data/model_methods'
 require 'otoku/data/hpricot_based'
@@ -15,7 +16,14 @@ require 'otoku/sorting'
 require 'otoku/julik_state'
 require 'otoku/timecode/timecode'
 
+$: << File.dirname(__FILE__) + '/otoku/betternestedset/lib'
+module ActionView; class Base; end; end
+require 'otoku/betternestedset/init'
+
 Camping.goes :Otoku
+
+require 'otoku/models'
+
 Markaby::Builder.set(:indent, 2)
 Markaby::Builder.set(:output_xml_instruction, false)
 
@@ -150,13 +158,19 @@ module Otoku
     end
     
     def get_archive_list
-      @manager ||= Otoku::Data::Manager.new(DATA_DIR)
-      @manager.map { | h | h }
+      Dir.glob(DATA_DIR + '/*.xml').map do | f |
+        fc = File.read(f)
+        digest =  Digest::MD5.hexdigest(fc)
+        archive = Otoku::Models::Archive.find(:first, :conditions => {:etag => digest}) || Otoku::HpricotParser.new.parse(fc)
+        archive.update_attributes(:etag => digest)
+        archive.save!
+      end
+      
+      Otoku::Models::Archive.find(:all)
     end
     
     def get_archive(etag)
-      the_a = get_archive_list.find{|a| a.etag == etag }
-      the_a.read_struct
+      Otoku::Models::Archive.find(:first, :conditions => {:etag => etag})
     end
 
     def _item_uri(item)
@@ -198,7 +212,7 @@ module Otoku
     def archive_info
       div.stuffSelected!( :style => 'display: none') { "You have n objects selected" }
       h1 @archive
-      p "%s, last opened on %s" % [@archive.device, @archive.creation.strftime("%d/%m/%y")]
+#      p "%s, last opened on %s" % [@archive.device, @archive.creation.strftime("%d/%m/%y")]
       _viewing_help
       _sorting_options
       _content_of_and_wrapper(@archive, :class => 'liblist')

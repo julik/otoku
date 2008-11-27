@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/tools/!svn/ver/833/micro-apps/professor/trunk/lib/professor/betternestedset/test
+END
+RUNNING_UNIT_TESTS
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tools/!svn/ver/833/micro-apps/professor/trunk/lib/professor/betternestedset/test/RUNNING_UNIT_TESTS
+END
+schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/tools/!svn/ver/833/micro-apps/professor/trunk/lib/professor/betternestedset/test/schema.rb
+END
+abstract_unit.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/tools/!svn/ver/833/micro-apps/professor/trunk/lib/professor/betternestedset/test/abstract_unit.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/tools/!svn/ver/833/micro-apps/professor/trunk/lib/professor/betternestedset/test/database.yml
+END
+postgresql.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/tools/!svn/ver/833/micro-apps/professor/trunk/lib/professor/betternestedset/test/postgresql.rb
+END
+sqlite3.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/tools/!svn/ver/833/micro-apps/professor/trunk/lib/professor/betternestedset/test/sqlite3.rb
+END
+mysql.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/tools/!svn/ver/833/micro-apps/professor/trunk/lib/professor/betternestedset/test/mysql.rb
+END
+acts_as_nested_set_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/tools/!svn/ver/833/micro-apps/professor/trunk/lib/professor/betternestedset/test/acts_as_nested_set_test.rb
+END

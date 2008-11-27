@@ -3,11 +3,13 @@ module Data
   PATH_SEPARATOR = '/'
   
   module ModelMethods
-    module EntryKey
+    module Ordinals
       def [](idx)
-        entries[idx]
+        idx.is_a?(Integer) ? entries[idx] : super(idx)
       end
-      
+    end
+    
+    module EntryKey
       def child_by_id(clip_key)
         entries.each do | e |
           return e if e.id == clip_key
@@ -33,11 +35,6 @@ module Data
     end
      
     module ArchiveMethods
-
-      attr_accessor :path
-      attr_accessor :etag
-      alias_method :id, :etag
-
       def dir
         File.dirname(path)
       end
@@ -49,10 +46,6 @@ module Data
 
       def to_s
         "%s (%d sets)" % [name, entries.length, path]
-      end
-      
-      def etag
-        @etag || Digest::MD5.hexdigest(name)
       end
     end
     

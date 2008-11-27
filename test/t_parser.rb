@@ -4,35 +4,40 @@ require 'fileutils'
 
 class ArchiveTest < Test::Unit::TestCase
   include THelpers
-  include TAccel
   
-  ARCH = File.dirname(__FILE__) + '/samples/Flame_Archive_Deel215_08Jul15_1036.xml'
+  ARCH = File.dirname(__FILE__) + '/samples/TestableArch_08Nov27_1513.xml'
+  
+  def setup
+    [Otoku::Models::Archive, Otoku::Models::Entry].map(&:delete_all)
+    @archive = Otoku::HpricotParser.new.parse(File.open(ARCH, 'r'))
+    @archive.update_attributes :etag => Digest::MD5.hexdigest(File.read(ARCH))
+  end
   
   def test_archive_attributes
+    
     @node = @archive
     
-    assert_string_attribute :name, "Flame_Archive_Deel215"
-    assert_string_attribute :comment, ""
-    assert_string_attribute :appstring, "he-flame-01 - flame 2008.SP4"
-    assert_attribute :device, Otoku::Data::Device
+    assert_string_attribute :name, "TestableArch"
+    assert_string_attribute :comment, "This is a comment"
+    assert_string_attribute :appstring, "he-flame-01 - flame 2009.1.SP1"
     assert_attribute :creation, DateTime
     assert_equal 2008, @node.creation.year
-    assert_equal 5, @node.creation.month
+    assert_equal 11, @node.creation.month
+
+#    assert_attribute :device, Otoku::Data::Device
   end
   
   def test_archive_to_s
-    assert_equal "Flame_Archive_Deel215 (6 sets)", @archive.to_s
+    assert_equal "TestableArch (one set)", @archive.to_s
   end
   
   def test_archive_etag
     assert_equal Digest::MD5.hexdigest(File.read(ARCH)), @archive.etag
   end
   
-  def test_archive_id_is_etag
-    assert_equal @archive.etag, @archive.id
-  end
-  
   def test_archive_device
+    flunk "Not implemented"
+    
     assert_respond_to @archive, :device
     assert_kind_of Otoku::Data::Device, @archive.device
     
@@ -44,64 +49,61 @@ class ArchiveTest < Test::Unit::TestCase
     assert_equal "VTR - Betacam PAL - 00:01:00:00", @node.to_s
   end
   
-  def test_archive_device_joins_attribs
-    ef = File.dirname(__FILE__) + '/samples/Bavaria_HighRes-Flame2008_08Oct28_1107.xml'
-    @archive = Otoku::Data.parse(File.open(ef, 'r'))
-    assert_equal "File - /usr/data/Flame_Backup_Disk/BavariaHighRes", @archive.device.to_s
-  end
-  
   def test_archive_toc
-    @node = @archive
-    assert @node.respond_to?(:entries)
-    assert_kind_of Enumerable, @node.entries
+    assert @archive.respond_to?(:entries)
+    assert_kind_of Enumerable, @archive.entries
+    assert_equal 1, @archive.entries.length
   end
   
   def test_backup_set_entry
     @node = @archive.entries[0]
-    assert_not_nil @node
-    assert_kind_of Otoku::Data::Entry, @node
-    assert_respond_to @node, :backup_set?
     
-    assert_equal @archive, @node.archive
-    assert_equal @archive, @node.parent
+    assert_not_nil @node
+    assert_kind_of Otoku::Models::Entry, @node
 
+#    assert_integer_attribute :archive_id, @node
+#    assert_equal @archive, @node.archive
+
+    assert_respond_to @node, :backup_set?
     assert @node.backup_set?
     assert !@node.desktop?
     assert !@node.library?
     assert !@node.reel?
     assert !@node.clip?
     assert !@node.subclip?
-    assert_equal "Backup Set -  2008/05/19 13:48:44 (BackupSet) - one item", @node.to_s
+    assert_equal "Backup Set -  2008/11/27 15:11:08 (BackupSet) - one item", @node.to_s
   end
   
   def test_library_entry
     @node = @archive.entries[0][0]
+    
     assert_not_nil @node
-    assert_kind_of Otoku::Data::Entry, @node
+    assert_kind_of Otoku::Models::Entry, @node
     assert_respond_to @node, :library?
 
-    assert_equal @archive, @node.archive
-    assert_equal @archive.entries[0], @node.parent
+#    assert_equal @archive, @node.archive
+#    assert_equal @archive.entries[0], @node.parent
     
-    assert_equal "Vodafone_Reedit", @node.name
+    assert_equal "Tonda_Let_It_Shine", @node.name
     assert @node.library?
     assert !@node.desktop?
     assert !@node.backup_set?
     assert !@node.clip?
     assert !@node.subclip?
-    assert_equal "Vodafone_Reedit (Library) - 13 items", @node.to_s
-    assert_equal 13, @node.entries.length
+    assert_equal "Tonda_Let_It_Shine (Library) - 2 items", @node.to_s
+    assert_equal 2, @node.entries.length
   end
 
   def test_reel_entry
     @node = @archive.entries[0][0][0]
     assert_not_nil @node
-    assert_kind_of Otoku::Data::Entry, @node
+    assert_kind_of Otoku::Models::Entry, @node
     assert_respond_to @node, :reel?
     
-    assert_equal "Artwork_24_04_08", @node.name
-    assert_equal @archive, @node.archive
-    assert_equal @archive.entries[0][0], @node.parent
+    assert_equal "E_temp", @node.name
+
+#    assert_equal @archive, @node.archive
+#    assert_equal @archive.entries[0][0], @node.parent
     
     assert @node.reel?
     assert !@node.desktop?
@@ -109,11 +111,13 @@ class ArchiveTest < Test::Unit::TestCase
     assert !@node.backup_set?
     assert !@node.clip?
     assert !@node.subclip?
-    assert_equal "Artwork_24_04_08 (Reel) - empty", @node.to_s
-    assert @node.entries.empty?
+    assert_equal "E_temp (Reel) - 12 items", @node.to_s
+    assert_equal 12, @node.entries.size
   end
   
   def test_desk_entry
+    flunk "Not present in the test arch"
+    
     @node = @archive.child_by_id('a8c01bab_48316b7f_000231dd')
     assert_not_nil @node
     assert_kind_of Otoku::Data::Entry, @node
@@ -127,56 +131,23 @@ class ArchiveTest < Test::Unit::TestCase
     assert !@node.backup_set?
   end
   
-  def test_fetch_key
-    key = 'a8c01bab_4831691c_00086eed'
-    item = @archive.child_by_id(key)
-    assert_not_nil item
-    assert_kind_of Otoku::Data::Entry, item
-    assert item.backup_set?
-    assert_equal item.id, 'a8c01bab_4831691c_00086eed'
-  end
-  
-  def test_fetch_with_uri
-    uri = "a8c01bab_4831691c_00086eed/a8c01bab_4831691c_00086ef4/a8c01bab_4831691c_00086eff/a8c01bab_48108fe3_0004ad1e/a8c012ab_487c60d9_0004469e"
-    total_uri = @archive.etag + '/' + uri
-    item = @archive.fetch_uri(uri)
-    assert_not_nil item
-    assert_kind_of Otoku::Data::Entry, item
-    assert item.subclip?
-    assert_equal "boomInzet", item.name
-    assert_equal "a8c012ab_487c60d9_0004469e", item.id
-    
-    assert_not_nil item.parent
-    assert_equal 'a8c01bab_48108fe3_0004ad1e', item.parent.id
-  end
-  
-  def test_fetch_with_id
-    uri = "a8c012ab_487c60d9_0004469e"
-    item = @archive.child_by_id(uri)
-    assert_not_nil item
-    assert_kind_of Otoku::Data::Entry, item
-    assert_equal uri, item.id
-    assert_equal "boomInzet", item.name
-    assert item.subclip?
-  end
-  
   def test_get_entry_path
-    uri = "a8c012ab_487c60d9_0004469e"
-    item = @archive.child_by_id(uri)
+    item = @archive[0][0][1]
     assert_not_nil item
-    assert_kind_of Otoku::Data::Entry, item
+    assert_kind_of Otoku::Models::Entry, item
     
-    assert_equal "0/0/1/0/0", item.path
+    assert_equal "0/0/1", item.path
+    assert_equal "E_temp_2", item.name
   end
   
   def test_get_entry_by_path
-    path = "0/0/1/0/0"
+    path = "0/0/1"
     item = @archive.get_by_path(path)
     assert_not_nil item
 
-    assert_kind_of Otoku::Data::Entry, item
-    assert_equal "boomInzet", item.name
-    assert_equal path, item.path
+    assert_kind_of Otoku::Models::Entry, item
+    assert_equal "0/0/1", item.path
+    assert_equal "E_temp_2", item.name
   end
   
   def test_image1_image2_on_entry
