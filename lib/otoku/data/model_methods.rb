@@ -22,7 +22,7 @@ module Data
       # Get a child element by scanning per index. Groups of integers are considered indices.
       # get_by_path("0:1:0") # => get the first child of the second child of the first child
       def get_by_path(index_path)
-        
+
         # Prevent string ops
         index_path = index_path.scan(/\d+/).to_a.map{|e| e.to_i } if index_path.is_a?(String)
         

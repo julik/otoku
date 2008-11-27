@@ -36,10 +36,7 @@ class ArchiveTest < Test::Unit::TestCase
   end
   
   def test_archive_device
-    flunk "Not implemented"
-    
     assert_respond_to @archive, :device
-    assert_kind_of Otoku::Data::Device, @archive.device
     
     @node = @archive.device
     assert_string_attribute :type, 'VTR'
@@ -59,10 +56,8 @@ class ArchiveTest < Test::Unit::TestCase
     @node = @archive.entries[0]
     
     assert_not_nil @node
-    assert_kind_of Otoku::Models::Entry, @node
-
-#    assert_integer_attribute :archive_id, @node
-#    assert_equal @archive, @node.archive
+    
+    assert_equal @archive, @node.archive
 
     assert_respond_to @node, :backup_set?
     assert @node.backup_set?
@@ -71,18 +66,17 @@ class ArchiveTest < Test::Unit::TestCase
     assert !@node.reel?
     assert !@node.clip?
     assert !@node.subclip?
-    assert_equal "Backup Set -  2008/11/27 15:11:08 (BackupSet) - one item", @node.to_s
+    assert_equal "Backup Set -  2008/11/27 15:11:08 (BackupSet) - empty", @node.to_s
   end
   
   def test_library_entry
     @node = @archive.entries[0][0]
     
     assert_not_nil @node
-    assert_kind_of Otoku::Models::Entry, @node
     assert_respond_to @node, :library?
 
-#    assert_equal @archive, @node.archive
-#    assert_equal @archive.entries[0], @node.parent
+    assert_equal @archive, @node.archive
+    assert_equal @archive.entries[0], @node.parent
     
     assert_equal "Tonda_Let_It_Shine", @node.name
     assert @node.library?
@@ -97,13 +91,12 @@ class ArchiveTest < Test::Unit::TestCase
   def test_reel_entry
     @node = @archive.entries[0][0][0]
     assert_not_nil @node
-    assert_kind_of Otoku::Models::Entry, @node
     assert_respond_to @node, :reel?
     
     assert_equal "E_temp", @node.name
 
-#    assert_equal @archive, @node.archive
-#    assert_equal @archive.entries[0][0], @node.parent
+    assert_equal @archive, @node.archive
+    assert_equal @archive.entries[0][0], @node.parent
     
     assert @node.reel?
     assert !@node.desktop?
@@ -120,7 +113,6 @@ class ArchiveTest < Test::Unit::TestCase
     
     @node = @archive.child_by_id('a8c01bab_48316b7f_000231dd')
     assert_not_nil @node
-    assert_kind_of Otoku::Data::Entry, @node
     assert_respond_to @node, :desktop?
     
     assert @node.desktop?
@@ -134,7 +126,6 @@ class ArchiveTest < Test::Unit::TestCase
   def test_get_entry_path
     item = @archive[0][0][1]
     assert_not_nil item
-    assert_kind_of Otoku::Models::Entry, item
     
     assert_equal "0/0/1", item.path
     assert_equal "E_temp_2", item.name
@@ -145,7 +136,6 @@ class ArchiveTest < Test::Unit::TestCase
     item = @archive.get_by_path(path)
     assert_not_nil item
 
-    assert_kind_of Otoku::Models::Entry, item
     assert_equal "0/0/1", item.path
     assert_equal "E_temp_2", item.name
   end
@@ -155,7 +145,6 @@ class ArchiveTest < Test::Unit::TestCase
     @node = @archive[uri]
     
     assert_not_nil @node
-    assert_kind_of Otoku::Data::Entry, @node
     assert_string_attribute :image1, 'Flame_Archive_Deel215_08Jul15_1036/a8c01bab_48108fe3_0004ad1e_1.jpg'
     assert_string_attribute :image2, 'Flame_Archive_Deel215_08Jul15_1036/a8c01bab_48108fe3_0004ad1e_2.jpg'
     assert_integer_attribute :length, 40

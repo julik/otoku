@@ -26,6 +26,12 @@ module JulikState
     raise "Cannot save session" unless res
   end
   
+  def soft_session_save!
+    if @state != @js_rec.blob
+      force_session_save!
+    end
+  end
+  
   def reset_session!
     @cookies.jsid = _sid
     @js_rec.destroy unless @js_rec.new_record?
@@ -41,6 +47,6 @@ module JulikState
   def service(*a)
     initialize_session!
     @msg = @state.delete(:msg)
-    returning(super(*a)) { force_session_save! }
+    returning(super(*a)) { soft_session_save! }
   end
 end

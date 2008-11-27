@@ -74,12 +74,13 @@ module Otoku
     class ShowEntry < R '/entry/([a-z\d]+)/([\d\/]+)'
       def get(archive_etag, entry_path)
         @archive = get_archive(archive_etag)
-        @item = @archive.get_by_path(entry_path)
         
+        @item = @archive.get_by_path(entry_path)
+        raise "No item" unless @item
         @sort = Otoku::Sorting::Decorator.new
         @sort.field = @state.sort_field if @state.sort_field
         @sort.flip =  @state.sort_flip if @state.sort_flip
-         
+        
         if @input.bare
           @bare = true
           @inc = !!@input.inc
@@ -161,13 +162,19 @@ module Otoku
       Dir.glob(DATA_DIR + '/*.xml').map do | f |
         fc = File.read(f)
         digest =  Digest::MD5.hexdigest(fc)
-        archive = Otoku::Models::Archive.find(:first, :conditions => {:etag => digest}) || Otoku::HpricotParser.new.parse(fc)
+        archive = Otoku::Models::Archive.find(:first, :conditions => {:etag => digest}) || parse_archive(fc)
         
         archive.update_attributes(:etag => digest)
         archive.save!
       end
       
       Otoku::Models::Archive.find(:all)
+    end
+    
+    def parse_archive(blob)
+      ActiveRecord::Base.transaction do
+        Otoku::HpricotParser.new.parse(blob)
+      end
     end
     
     def get_archive(etag)
@@ -280,8 +287,7 @@ module Otoku
           cls << ' empty' if that.entries.empty?
           cls << ' open' if expanded_items.include?(_item_identifier(that)) || @inc
           
-#          a  :id => _item_identifier(that), :class => cls, :href=>_item_uri(that) do
-          a :class => cls, :href=>_item_uri(that) do
+          a  :id => _item_identifier(that), :class => cls, :href=>_item_uri(that) do
             b.disc ' '
             self << that
           end

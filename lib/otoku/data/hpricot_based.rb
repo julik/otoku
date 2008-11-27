@@ -11,12 +11,16 @@ class Otoku::HpricotParser
     end
   end
   
-  def new_archive(name = nil)
-    returning(Otoku::Models::Archive.new) { | arch | yield(arch); arch.save! }  
+  def new_archive(name)
+    returning(Otoku::Models::Archive.create(:name => name)) do | arch | 
+      yield(arch); arch.save!
+    end
   end
   
-  def new_entry
-    returning(Otoku::Models::Entry.new) { | entry | yield(entry); entry.save! }
+  def new_entry_for_archive(archive)
+    returning(Otoku::Models::Entry.create(:archive_id => archive.id)) do | entry | 
+      yield(entry)
+    end
   end
   
   def parse(stream)
@@ -48,16 +52,11 @@ class Otoku::HpricotParser
   end
   
   def entry_from_node(entry_node, parent, archive)
-    new_entry do | entry |
+    new_entry_for_archive(archive) do | entry |
       assign_simple_attributes(entry, entry_node)
+      
       entry.save!
-
-      if parent
-        parent.add_child(entry) if parent
-        entry.archive_id = parent.archive_id
-      elsif archive
-        entry.archive_id = archive.id
-      end
+      entry.move_to_child_of(parent) if parent
       
       entries = (entry_node / "/entry").map{|e| entry_from_node(e, entry, archive) }
       order_enum(entries)
@@ -65,7 +64,9 @@ class Otoku::HpricotParser
   end
   
   def order_enum(entries)
-    entries.each_with_index {|e, i| e.update_attributes :index_in_parent => i }
+    entries.each_with_index do |e, i| 
+      e.update_attributes :index_in_parent => i
+    end
   end
   
   def assign_simple_attributes(entry, entry_node)
