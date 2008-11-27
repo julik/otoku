@@ -45,6 +45,7 @@ module Otoku::Models
   class Archive < Base
     include Otoku::Data::ModelMethods::ArchiveMethods
     include Otoku::Data::ModelMethods::EntryKey
+    serialize :device
     
     has_many :entries, :class_name => 'Otoku::Models::Entry'
     
@@ -53,11 +54,15 @@ module Otoku::Models
     end
     
     def entries
-      Entry.find(:all, :conditions => {:parent_id => nil})
+      Entry.find(:all, :conditions => 'parent_id IS NULL')
     end
     
     def  [](key)
       key.is_a?(Integer) ? entries[key] : super(key)
+    end
+    
+    def path
+      etag
     end
   end
   

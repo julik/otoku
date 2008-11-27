@@ -162,6 +162,7 @@ module Otoku
         fc = File.read(f)
         digest =  Digest::MD5.hexdigest(fc)
         archive = Otoku::Models::Archive.find(:first, :conditions => {:etag => digest}) || Otoku::HpricotParser.new.parse(fc)
+        
         archive.update_attributes(:etag => digest)
         archive.save!
       end
@@ -212,7 +213,7 @@ module Otoku
     def archive_info
       div.stuffSelected!( :style => 'display: none') { "You have n objects selected" }
       h1 @archive
-#      p "%s, last opened on %s" % [@archive.device, @archive.creation.strftime("%d/%m/%y")]
+      p "%s, last opened on %s" % [@archive.device, @archive.creation.strftime("%d/%m/%y")]
       _viewing_help
       _sorting_options
       _content_of_and_wrapper(@archive, :class => 'liblist')
@@ -279,7 +280,8 @@ module Otoku
           cls << ' empty' if that.entries.empty?
           cls << ' open' if expanded_items.include?(_item_identifier(that)) || @inc
           
-          a  :id => _item_identifier(that), :class => cls, :href=>_item_uri(that) do
+#          a  :id => _item_identifier(that), :class => cls, :href=>_item_uri(that) do
+          a :class => cls, :href=>_item_uri(that) do
             b.disc ' '
             self << that
           end
