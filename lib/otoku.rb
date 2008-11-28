@@ -3,13 +3,14 @@ require 'camping'
 require 'camping/db' 
 require 'fileutils'
 require 'digest/md5'
+require 'ferret'
 
 $:.unshift File.dirname(__FILE__)
 require 'otoku/data/parser_cache'
 require 'otoku/data/model_methods'
 require 'otoku/data/hpricot_based'
 require 'otoku/data/manager'
-require 'otoku/data/manager'
+require 'otoku/data/search'
 require 'otoku/builder_hack'
 require 'otoku/sorting'
 require 'otoku/julik_state'
@@ -54,9 +55,7 @@ module Otoku
         @archive = get_archive(archive_etag)
         @title = @archive.name
         @item = @archive
-        @sort = Sorting::Decorator.new
-        @sort.field = @state.sort_field if @state.sort_field
-        @sort.flip =  @state.sort_flip if @state.sort_flip
+        initialize_sorting
         render :archive_info
       end
       
@@ -68,10 +67,7 @@ module Otoku
         @archive = get_archive(archive_etag)
         @item = @archive.get_by_path(entry_path)
         
-        @sort = Otoku::Sorting::Decorator.new
-        @sort.field = @state.sort_field if @state.sort_field
-        @sort.flip =  @state.sort_flip if @state.sort_flip
-         
+        initialize_sorting
         if @input.bare
           @bare = true
           @inc = !!@input.inc
@@ -107,6 +103,15 @@ module Otoku
         @state.sort_field = @input.sort_field
         @state.sort_flip = @input.sort_flip == '1'
         redirect @env['HTTP_REFERER']
+      end
+    end
+    
+    # Search for an item
+    
+    class Search < R '/search/(.+)'
+      def get(query)
+        @results = searcher.query(query).uniq
+        render :search_results
       end
     end
     
@@ -149,9 +154,20 @@ module Otoku
       @state.expanded_items
     end
     
+    def initialize_sorting
+      @sort = Sorting::Decorator.new
+      @sort.field = @state.sort_field if @state.sort_field
+      @sort.flip =  @state.sort_flip if @state.sort_flip
+    end
+    
     def get_archive_list
       @manager ||= Otoku::Data::Manager.new(DATA_DIR)
       @manager.map { | h | h }
+    end
+    
+    def searcher
+      @manager ||= Otoku::Data::Manager.new(DATA_DIR)
+      @manager.get_searcher
     end
     
     def get_archive(etag)
@@ -160,12 +176,14 @@ module Otoku
     end
 
     def _item_uri(item)
-      args = [@archive.etag, item.path.split(/\//)].flatten
+      et = (item.etag rescue @archive.etag)
+      args = [et, item.path.split(/\//)].flatten
       R(::Otoku::Controllers::ShowEntry, args.shift, '') + args.join('/')
     end
     
     def _item_identifier(item)
-      [@archive.etag, item.path.split(/\//)].flatten.join('-')
+      et = (item.etag rescue @archive.etag)
+      [et, item.path.split(/\//)].flatten.join('-')
     end
     
   end
@@ -316,6 +334,18 @@ module Otoku
       end
     end
     
+    def search_results
+      h1 "Here's what we traced"
+      ul.liblist do
+        @results.each do | res |
+          begin
+            _item_row(res)
+          rescue Markaby::InvalidXhtmlError
+          end
+        end
+      end
+    end
+    
     def _viewing_help
       div.help do
         p "Double click expands/collapses entries, Alt+double click expands and collapses including chldren.
@@ -325,6 +355,7 @@ module Otoku
   end
   
   def self.create
+    #FileUtils.rm_rf CACHE_DIR
     FileUtils.mkdir_p CACHE_DIR
     STDERR.puts "** Making cache directory in #{CACHE_DIR}"
     

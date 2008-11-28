@@ -20,6 +20,10 @@ module Otoku
           data = File.read(xml_path)
           arch = Otoku::Data.parse(data)
           arch.etag = etag
+
+          search = Otoku::Data::Search.new(@manager)
+          arch.entries.each { | e | add_entry_to_index(search, e) }
+          search.flush
           arch
         end
       end
@@ -31,7 +35,12 @@ module Otoku
       def xml_path
         File.join(@manager.archives_dir, filename)
       end
-
+      
+      private
+        def add_entry_to_index(idx, e)
+          idx.add_entry(e)
+          e.entries.each{|e| add_entry_to_index(idx, e) }
+        end
     end
     
     class Manager
@@ -69,6 +78,14 @@ module Otoku
       
       def each
         scan_for_archive_handles.each { | handle | yield(handle) }
+      end
+      
+      def get_searcher
+        Otoku::Data::Search.new(self)
+      end
+      
+      def read_archive(etag)
+        scan_for_archive_handles.find{|h| h.etag == etag}.read_struct
       end
     end
   end
