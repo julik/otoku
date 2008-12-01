@@ -68,13 +68,16 @@ class ArchiveHandleTest < Test::Unit::TestCase
     assert_equal "/other/dir/archive1_08Jul15_1209.xml", @handle.xml_path
   end
   
-  def test_later_entries_sort_first
+  def test_later_entries_sort_last
     paths = %w(
       /some/dir/archive1_07Jul15_1209.xml
       /some/dir/archive1_08Jul15_1209.xml
-      /some/dir/archive2_07Jul15_1209.xml
+      /some/dir/archive1_07Jul14_1209.xml
     )
     mgr = flexmock :archives_dir => '/other/dir'
-    flunk
+    entries = paths.map{|p| Otoku::Data::ArchiveHandle.new(p, mgr)}
+    assert_nothing_raised { entries.sort! }
+    assert_equal "archive1_08Jul15_1209.xml", entries[-1].filename
+    
   end
 end
