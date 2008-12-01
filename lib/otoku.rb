@@ -9,6 +9,7 @@ $:.unshift File.dirname(__FILE__)
 require 'otoku/data/parser_cache'
 require 'otoku/data/model_methods'
 require 'otoku/data/hpricot_based'
+require 'otoku/data/date_parser'
 require 'otoku/data/manager'
 require 'otoku/data/search'
 require 'otoku/builder_hack'
@@ -23,22 +24,17 @@ Markaby::Builder.set(:output_xml_instruction, false)
 module Otoku
   VERSION = "0.0.1"
   DATA_DIR = File.dirname(__FILE__) + '/../test/samples'
-  
-  class LazyStr
-    def initialize(&block)
-      @proc = block.to_proc
+  cache = lambda { File.join(DATA_DIR, '/.otoku') }
+  class << cache; alias_method :to_str, :call; end
+  CACHE_DIR = cache 
+  module Janitor
+    def service(*a)
+      returning(super(*a)) { GC.start }
     end
-    
-    def to_s
-      @proc.call
-    end
-    alias_method :to_str, :to_s
-    
   end
   
-  CACHE_DIR = LazyStr.new { File.join(DATA_DIR, '/.otoku') }
-  
   include JulikState
+  include Janitor
   
   module Controllers
     # Show the list of archives in the system
@@ -100,8 +96,7 @@ module Otoku
     # Change sorting options and redirect back
     class ChangeSort < R '/change-sorting'
       def post
-        @state.sort_field = @input.sort_field
-        @state.sort_flip = @input.sort_flip == '1'
+        @state.sort_field, @state.sort_flip = @input.sort_field, (@input.sort_flip == '1')
         redirect @env['HTTP_REFERER']
       end
     end
@@ -111,6 +106,7 @@ module Otoku
     class Search < R '/search/(.+)'
       def get(query)
         @results = searcher.query(query).uniq
+        initialize_sorting
         render :search_results
       end
     end
@@ -167,7 +163,7 @@ module Otoku
     
     def searcher
       @manager ||= Otoku::Data::Manager.new(DATA_DIR)
-      @manager.get_searcher
+      Otoku::Data::Searcher.new(@manager)
     end
     
     def get_archive(etag)

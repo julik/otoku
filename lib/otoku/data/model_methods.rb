@@ -5,7 +5,7 @@ module Data
   module ModelMethods
     module EntryKey
       def [](idx)
-        entries[idx]
+        entries[idx.to_i]
       end
       
       def child_by_id(clip_key)

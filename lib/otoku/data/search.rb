@@ -48,20 +48,33 @@ class Otoku::Data::Search
   end
   
   # Convert etag/path combos to handles to real search results
+  # # Scan the Ferret index for entries resembling our one
+  # Get it's identifier and archive etag, sort identifiers
+  # For each archive etag
+  # Split the found identifiers on path boundaries. they are sorted so will walk OK
+  # Add the first level
+  # ..and second (remember keys are sorted)
+  # and down and down
+  # close the archive
+  # GC
   def identifiers_to_search_results(found_identifiers)
     handles = []
+    
+    # Sort the list so that we walk the archives sequentially
     found_identifiers.sort.each do | identifier |
       etag, *path_segments = identifier.split("/")
 
       # load the archive currently being used, identifiers are sorted so we will not run out
       load_archive_under(etag)
+      ints = path_segments.map{|e| e.to_i}
+      item = @archive.get_by_path(ints)
       
-      ints = path_segments.map{|e| e.to_i }
-      @archive.get_by_path(ints).parent_chain.each do | path_element |
-     	  handles << Result.new(path_element, @archive.etag)
-      end
+      handle = Result.new(item, @archive.etag)
+     	handle.entries = item.entries
+     	
+     	handles << handle
     end
-    handles
+    handles = handles.partition{|e| !e.clip? }.flatten
   end
   
   def add_entry(entry)
@@ -116,7 +129,6 @@ class Otoku::Data::Search
     doc[:flame_type] = entry.flame_type
     doc[:creation] = entry.creation
     doc[:archived] = entry.archive.creation
-    STDERR.puts doc.inspect
     doc
   end
   
@@ -132,4 +144,5 @@ class Otoku::Data::Search
     @manager.data_dir + '/_idx'
   end
   
+
 end

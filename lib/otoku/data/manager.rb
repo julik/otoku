@@ -1,14 +1,27 @@
 require 'digest/md5'
 require 'fileutils'
-
 module Otoku
   module Data
     class ArchiveHandle
       include Comparable
+      
       attr_accessor :filename, :name, :creation, :manager
 
-      def initialize; yield(self) if block_given?; end
-      def <=>(other); name <=> other.name; end
+      def initialize(path, manager)
+        @manager = manager
+        @filename = File.basename(path)
+        
+        split = File.basename(path).split(/_/)
+        @name = split[0..-3].join('_')
+        @creation = DateParser.parse(File.basename(path))
+        
+        yield(self) if block_given?
+      end
+
+      def <=>(other)
+        [name, creation] <=> [other.name, other.creation]
+      end
+
       def to_s; name; end
       
       def etag
@@ -20,10 +33,12 @@ module Otoku
           data = File.read(xml_path)
           arch = Otoku::Data.parse(data)
           arch.etag = etag
-
-          search = Otoku::Data::Search.new(@manager)
-          arch.entries.each { | e | add_entry_to_index(search, e) }
-          search.flush
+          
+          s = Otoku::Data::Search.new(@manager)
+          arch.entries.each { | e | add_entry_to_index(s, e) }
+          s.flush
+          STDERR.puts "Indexing of #{filename} complete"
+          
           arch
         end
       end
@@ -44,48 +59,39 @@ module Otoku
     end
     
     class Manager
-      attr_reader :archives_dir, :cache
+      DATA_DIR_NAME = '.otoku'
+
+      attr_reader :archives_dir, :cache, :handles
+      delegate :empty?, :any?, :each, :length, :to => :handles
       include Enumerable
+      
       def initialize(with_archives_dir)
-        @archives_dir = File.expand_path(with_archives_dir)
+        @archives_dir = with_archives_dir
         FileUtils.mkdir_p(data_dir)
         @cache = Otoku::Data::FileCache.new(data_dir)
+        scan_for_archive_handles!
       end
       
       def data_dir
-        File.join(@archives_dir, '.otoku')
+        File.join(@archives_dir, DATA_DIR_NAME)
       end
       
       def cache(key)
-        @cache.cached(key) do
-          yield
+        @cache.cached(key) { yield }
+      end
+      
+      
+      def scan_for_archive_handles!
+        files = Dir.glob(@archives_dir + '/*.xml').sort
+        @handles = files.map do | path |
+          ArchiveHandle.new(path, self)
+        end.group_by{|a| a.name }.map do | _, same_name_handles |
+          same_name_handles.sort.pop
         end
       end
       
-      def scan_for_archive_handles
-        files = Dir.glob(@archives_dir + '/*.xml').sort
-        
-        handles = files.map do | path |
-          ArchiveHandle.new do | handle |
-            handle.manager = self
-            handle.filename = File.basename(path)
-            name = File.basename(path).split(/_/)
-            2.times { name.pop }
-            handle.name = name.join('_')
-          end
-        end.uniq
-      end
-      
-      def each
-        scan_for_archive_handles.each { | handle | yield(handle) }
-      end
-      
-      def get_searcher
-        Otoku::Data::Search.new(self)
-      end
-      
       def read_archive(etag)
-        scan_for_archive_handles.find{|h| h.etag == etag}.read_struct
+        @handles.find{|h| h.etag == etag}.read_struct
       end
     end
   end
